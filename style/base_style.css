@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&family=Quicksand&display=swap');
+:root {
+  --site-color-fondo-1: #F5F7FA;
+  --site-color-fondo-2: #F5F7FA;
+  --site-color-verde: #4CAF4F;
+  --site-color-lila: #CFAFD8;
+  --site-color-blanco-texto: #FFFFFF;
+  --site-color-negro-texto: #000000;
+  
+  --site-font-title: 'Fredoka', sans-serif;
+  --site-font-body: 'Quicksand', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container-base {
+  display: grid;
+  min-height: 100dvh;
+  grid-template-rows: 
+    auto 1fr auto;;
+}
+
