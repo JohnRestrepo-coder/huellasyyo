@@ -1,4 +1,73 @@
 /* ======== ¿Quiénes somos? ======== */
+.quienes-somos {
+    text-align: center;
+    background-color: var(--site-color-fondo-2);
+    font-family: var(--site-font-body);
+    padding: 40px;
+}
+
+.quienes-somos h2 {
+    font-family: var(--site-font-title);
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: var(--site-color-verde);
+}
+
+.menu {
+    text-align: left;
+}
+
+.opciones-lateral {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: 250px;
+    height: auto;
+    padding-top: 20px;
+    transform: translateY(-50%);
+    font-family: var(--site-color-negro-texto);
+  }
+
+  .menu-sobrenosotros ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu-sobrenosotros li {
+    margin-bottom: 20px;
+  }
+  
+  .menu-sobrenosotros a {
+    text-decoration: none;
+    color: var(--site-color-negro-texto);
+    font-size: 1.2em;
+    padding: 10px;
+    display: block;
+    transition: background-color 0.3s;
+  }
+  
+  .menu-sobrenosotros a:hover {
+    background-color: var(--site-color-lila);
+  }
+
+  .contenedor {
+    display: flex;
+    align-items: left;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-left: 200px;
+    margin-right: 60px;
+  }
+  .contenedor img {
+    height: 280px; 
+    margin-right: 15px;
+  }
+
+  .justificado {
+    text-align: justify;
+    line-height: 1.6;
+  }
+
 
 /* ======== Misión y vision ======== */
 
