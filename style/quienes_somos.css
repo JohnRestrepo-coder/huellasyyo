@@ -1,6 +1,95 @@
+/* ======== Menú Barra Lateral ======== */
+
+.menu {
+    text-align: left;
+    
+}
+
+.opciones-lateral {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: 250px;
+    height: auto;
+    padding-top: 20px;
+    transform: translateY(-50%);
+    font-family: var(--site-color-negro-texto);
+  }
+
+  .menu-sobrenosotros ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu-sobrenosotros li {
+    margin-bottom: 20px;
+  }
+  
+  .menu-sobrenosotros a {
+    text-decoration: none;
+    color: var(--site-color-negro-texto);
+    font-size: 1.2em;
+    padding: 10px;
+    display: block;
+    transition: background-color 0.3s;
+  }
+  
+  .menu-sobrenosotros a:hover {
+    background-color: var(--site-color-lila);
+  }
+
+
 /* ======== ¿Quiénes somos? ======== */
 
 /* ======== Misión y vision ======== */
+
+.misionyvision{
+    background-color: var(--site-color-fondo-1);
+}
+.containerletter h1{
+    font-size: 50px;
+    color:var(--site-color-negro-texto);
+}
+
+.containerletter h3{
+    font-size: 25px;
+    color: var(  --site-color-blanco-texto);
+    background-color: var(--site-color-verde);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    display: inline-block;
+    
+}
+
+.col-4 {
+    display: grid;
+    place-items: center;
+}
+
+hr {
+    color: transparent;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+}
+
+
+.containerletter{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+
+.vertical{
+    margin-left: 5%;
+    margin-right: 5%;
+}
 
 /* ======== Valores ======== */
 
