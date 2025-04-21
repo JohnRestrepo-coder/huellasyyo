@@ -1,3 +1,6 @@
+section {
+  scroll-margin-top: 100px; /* o la altura de tu nav */
+}
 /* ======== Menú Barra Lateral ======== */
 
 .menu {
@@ -7,7 +10,7 @@
 
 .opciones-lateral {
     position: fixed;
-    top: 50%;
+    top: 35%;
     left: 0;
     width: 250px;
     height: auto;
@@ -37,7 +40,12 @@
   .menu-sobrenosotros a:hover {
     background-color: var(--site-color-lila);
   }
-
+  
+  @media (max-width: 699px) {
+    .opciones-lateral{
+      display: none;
+    }
+  }
 
 /* ======== ¿Quiénes somos? ======== */
 .quienes-somos {
@@ -53,43 +61,6 @@
     margin-bottom: 30px;
     color: var(--site-color-verde);
 }
-
-.menu {
-    text-align: left;
-}
-
-.opciones-lateral {
-    position: fixed;
-    top: 50%;
-    left: 0;
-    width: 250px;
-    height: auto;
-    padding-top: 20px;
-    transform: translateY(-50%);
-    font-family: var(--site-color-negro-texto);
-  }
-
-  .menu-sobrenosotros ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .menu-sobrenosotros li {
-    margin-bottom: 20px;
-  }
-  
-  .menu-sobrenosotros a {
-    text-decoration: none;
-    color: var(--site-color-negro-texto);
-    font-size: 1.2em;
-    padding: 10px;
-    display: block;
-    transition: background-color 0.3s;
-  }
-  
-  .menu-sobrenosotros a:hover {
-    background-color: var(--site-color-lila);
-  }
 
   .contenedor {
     display: flex;
@@ -162,6 +133,120 @@ hr {
 
 /* ======== Valores ======== */
 
+.valores-container {
+  margin-top: 85px;
+  width: 75%;
+  margin-left: 25%;
+}
+
+.valores-container h2 {
+  font-family: var(--site-font-title);
+  color: var(--site-color-verde);
+  text-align: center;
+}
+
+.valor-item {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.valor-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  background: #ddd;
+}
+
+.valor-item p {
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.texto-lila {
+  color: var(--site-color-lila);
+}
+
+.texto-verde {
+  color: var(--site-color-verde);
+}
+
+.breadcrumb {
+  font-weight: bold;
+  font-family: var(--site-font-title);
+  margin: 1rem;
+}
+
+/* ======================= RESPONSIVE ======================= */
+
+@media (min-width: 1280px) {
+  .contenedor {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+  }
+
+  .valores-section {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+  }
+
+  .valores-container h2 {
+    grid-column: 1 / -1;
+  }
+  .breadcrumb {
+    display: none;
+  }
+}
+
+@media (max-width: 1279px) and (min-width: 700px) {
+  .contenedor {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .valores-section {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+  }
+
+  .valores-container h2 {
+    grid-column: 1 / -1;
+  }
+
+  .breadcrumb {
+    display: none;
+  }
+}
+
+@media (max-width: 699px) {
+  .contenedor {
+    flex-direction: column;
+  }
+
+  .valores-container {
+    margin-top: 15px ;
+    margin-left: 12%;
+  }
+
+  .valores-container h2 {
+    margin-top: 1rem ;
+  }
+
+  .valores-section {
+    padding: 0 1rem;
+  }
+
+  .breadcrumb {
+    display: block;
+  }
+}
 /* ======== Equipo ======== */
 .equipo {
     text-align: center;
@@ -219,37 +304,4 @@ hr {
   .miembro p {
     font-size: 0.9em;
     color: #666;
-  }
-  
-  .barra-lateral {
-    position: fixed;
-    top: 50%;
-    left: 0;
-    width: 250px;
-    height: auto;
-    padding-top: 20px;
-    transform: translateY(-50%);
-    font-family: var(--site-color-negro-texto);
-  }
-  
-  .menu-lateral ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .menu-lateral li {
-    margin-bottom: 20px;
-  }
-  
-  .menu-lateral a {
-    text-decoration: none;
-    color: var(--site-color-negro-texto);
-    font-size: 1.2em;
-    padding: 10px;
-    display: block;
-    transition: background-color 0.3s;
-  }
-  
-  .menu-lateral a:hover {
-    background-color: var(--site-color-lila);
   }

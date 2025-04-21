@@ -40,3 +40,7 @@ body {
 p {
   font-style: italic;
 }
+
+main {
+  padding-top: 65px;
+}
