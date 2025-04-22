@@ -81,6 +81,42 @@ section {
     line-height: 1.6;
   }
 
+/* ======================= Quienes somos responsive ======================= */
+@media (max-width: 1279px) and (min-width: 700px) {
+  .contenedor {
+    flex-direction: row;
+    margin-left: 100px;
+    margin-right: 40px;
+  }
+
+  .contenedor .img {
+    height: 220px;
+  }
+
+}
+
+@media (max-width: 699px) {
+  .contenedor {
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .contenedor img {
+    height: 200px;
+    margin-bottom: 20px;
+  }
+
+  .justificado {
+    text-align: left;  
+  }
+
+  .quienes-somos h2 {
+    font-size: 1.6em;
+  }
+
+}
+
 
 /* ======== Misión y vision ======== */
 
