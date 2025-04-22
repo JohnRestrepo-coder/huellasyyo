@@ -52,8 +52,9 @@ section {
     text-align: center;
     background-color: var(--site-color-fondo-2);
     font-family: var(--site-font-body);
-    padding: 40px;
+    padding: 20px;
 }
+
 
 .quienes-somos h2 {
     font-family: var(--site-font-title);
@@ -129,6 +130,20 @@ hr {
 .vertical{
     margin-left: 5%;
     margin-right: 5%;
+}
+
+/* ======== Responsive ======== */
+
+@media (max-width: 699px) {
+  .containerletter {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .col-4 , .col-8 {
+    width: 100% !important;
+
+  }
 }
 
 /* ======== Valores ======== */
