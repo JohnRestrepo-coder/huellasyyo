@@ -12,26 +12,22 @@ section {
     position: fixed;
     top: 35%;
     left: 0;
-    width: 250px;
+    width: 18%;
     height: auto;
     padding-top: 20px;
     transform: translateY(-50%);
     font-family: var(--site-color-negro-texto);
+    font-size: 1.2rem;
   }
 
   .menu-sobrenosotros ul {
     list-style: none;
     padding: 0;
   }
-  
-  .menu-sobrenosotros li {
-    margin-bottom: 20px;
-  }
-  
+
   .menu-sobrenosotros a {
     text-decoration: none;
     color: var(--site-color-negro-texto);
-    font-size: 1.2em;
     padding: 10px;
     display: block;
     transition: background-color 0.3s;
@@ -39,6 +35,14 @@ section {
   
   .menu-sobrenosotros a:hover {
     background-color: var(--site-color-lila);
+  }
+
+  @media (max-width: 1279px) and (min-width: 700px) {
+    .opciones-lateral {
+      width: 20%;
+      font-size: 0.8rem;
+    }  
+  
   }
   
   @media (max-width: 699px) {
@@ -53,6 +57,7 @@ section {
     background-color: var(--site-color-fondo-2);
     font-family: var(--site-font-body);
     padding: 20px;
+    margin-left: 18%;
 }
 
 
@@ -68,11 +73,10 @@ section {
     align-items: left;
     margin-top: 40px;
     margin-bottom: 10px;
-    margin-left: 200px;
-    margin-right: 60px;
+    margin-right: 10px;
   }
   .contenedor img {
-    height: 280px; 
+    height: 15rem; 
     margin-right: 15px;
   }
 
@@ -85,12 +89,10 @@ section {
 @media (max-width: 1279px) and (min-width: 700px) {
   .contenedor {
     flex-direction: row;
-    margin-left: 100px;
-    margin-right: 40px;
   }
 
-  .contenedor .img {
-    height: 220px;
+  .contenedor img {
+    height: 10rem;
   }
 
 }
@@ -103,12 +105,15 @@ section {
   }
 
   .contenedor img {
-    height: 200px;
     margin-bottom: 20px;
   }
 
   .justificado {
     text-align: left;  
+  }
+
+  .quienes-somos {
+    margin-left: 10px;
   }
 
   .quienes-somos h2 {
@@ -122,6 +127,7 @@ section {
 
 .misionyvision{
     background-color: var(--site-color-fondo-1);
+    padding-left: 10%;
 }
 .containerletter h1{
     font-size: 50px;
@@ -171,6 +177,9 @@ hr {
 /* ======== Responsive ======== */
 
 @media (max-width: 699px) {
+  .misionyvision {
+    padding-left: 10px;
+  }
   .containerletter {
     flex-direction: column;
     text-align: center;
@@ -187,7 +196,7 @@ hr {
 .valores-container {
   margin-top: 85px;
   width: 75%;
-  margin-left: 25%;
+  margin-left: 18%;
 }
 
 .valores-container h2 {
@@ -301,9 +310,9 @@ hr {
 /* ======== Equipo ======== */
 .equipo {
   text-align: center;
-  padding: 40px;
   background-color: var(--site-color-fondo-1);
   font-family: var(--site-font-body);
+  padding-left: 18%;
 }
 
 .menu {
@@ -321,8 +330,7 @@ hr {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px; 
-  margin-bottom: 30px;
+  gap: 10px;
 }
 
 .miembro {
@@ -362,7 +370,7 @@ hr {
   .fila-superior {
     display: flex;
     flex-wrap: nowrap;
-    gap: 5rem; 
+    gap: 10px; 
     width: 100%;
     padding-left: 100px;
     
@@ -397,6 +405,10 @@ hr {
     width: 100%;
     justify-items: center; 
   }
+
+  .miembro {
+    width: 200px;
+  }
 }
 
 @media (max-width: 699px) {
@@ -409,12 +421,11 @@ hr {
   }
 
   .miembro {
-    width: 80%; 
-    max-width: 250px; 
+    width: 200px; 
   }
 
   .equipo {
-    padding: 20px;
+    padding-left: 10px;
   }
 
   .equipo h2 {

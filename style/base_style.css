@@ -37,12 +37,9 @@ body {
   font-weight: 500;
 }
 
-p {
-  font-style: italic;
-}
-
 main {
-  padding-top: 65px;
+  padding-top: 107px;
+  max-width: 100vw;
 }
 
 .footer-personalizado {
