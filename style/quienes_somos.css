@@ -1,7 +1,6 @@
 section {
-  scroll-margin-top: 100px; /* o la altura de tu nav */
+  scroll-margin-top: 100px; 
 }
-/* ======== Menú Barra Lateral ======== */
 
 .menu {
     text-align: left;
@@ -51,7 +50,6 @@ section {
     }
   }
 
-/* ======== ¿Quiénes somos? ======== */
 .quienes-somos {
     text-align: center;
     background-color: var(--site-color-fondo-2);
@@ -85,7 +83,6 @@ section {
     line-height: 1.6;
   }
 
-/* ======================= Quienes somos responsive ======================= */
 @media (max-width: 1279px) and (min-width: 700px) {
   .contenedor {
     flex-direction: row;
@@ -125,7 +122,6 @@ section {
 
   
 
-/* ======== Misión y vision ======== */
 
 .misionyvision{
     background-color: var(--site-color-fondo-1);
@@ -176,7 +172,6 @@ hr {
     margin-right: 5%;
 }
 
-/* ======== Responsive ======== */
 
 @media (max-width: 699px) {
   .misionyvision {
@@ -193,7 +188,6 @@ hr {
   }
 }
 
-/* ======== Valores ======== */
 
 .valores-container {
   margin-top: 85px;
@@ -240,7 +234,6 @@ hr {
   margin: 1rem;
 }
 
-/* ======================= RESPONSIVE ======================= */
 
 @media (min-width: 1280px) {
   .contenedor {
@@ -309,7 +302,6 @@ hr {
     display: block;
   }
 }
-/* ======== Equipo ======== */
 .equipo {
     text-align: center;
     padding: 40px;
@@ -367,3 +359,72 @@ hr {
     font-size: 0.9em;
     color: #666;
   }
+
+/* ======================= RESPONSIVE ======================= */
+
+@media (min-width: 1280px) {
+  .fila-superior {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px; 
+    width: 100%;
+    padding-left: 100px;
+    
+  }
+
+  .fila-inferior {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5rem; 
+    width: 100%;
+    padding-left: 100px;
+  }
+
+  .equipo h2 {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 1279px) and (min-width: 700px) {
+  .fila-superior {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0; 
+    width: 100%;
+    justify-items: center; 
+  }
+
+  .fila-inferior {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0; 
+    width: 100%;
+    justify-items: center; 
+  }
+
+  .miembro {
+    width: 200px;
+  }
+}
+
+@media (max-width: 699px) {
+  .fila-superior, .fila-inferior {
+    display: flex;
+    flex-direction: column;
+    gap: 0; 
+    justify-content: center;  
+    align-items: center;  
+  }
+
+  .miembro {
+    width: 200px; 
+  }
+
+  .equipo {
+    padding-left: 10px;
+  }
+
+  .equipo h2 {
+    font-size: 1.5em;
+  }
+}
