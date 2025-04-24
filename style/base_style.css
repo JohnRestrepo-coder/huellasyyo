@@ -45,3 +45,13 @@ main {
 .footer-personalizado {
   background-color: #CFAFD8;
 }
+
+.bg-verde-root {
+  background-color: var(--site-color-verde);
+
+}
+
+.nav-link-tamaño {
+  min-width: 130px; /* Puedes ajustar este valor según el diseño */
+  text-align: center;
+}
