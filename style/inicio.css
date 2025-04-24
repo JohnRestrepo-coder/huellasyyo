@@ -2,8 +2,143 @@
 
 
 /* ======== Nuestras mascotas ======== */
+.mascotas {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--site-color-fondo-1);
+  }
+  
+  .mascotas h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--site-color-verde);
+  }
+  
+  .galeria {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 1rem;
+    margin-bottom: 2rem;
+    max-width: 1000px;
+    margin-inline: auto;
+    padding: 0 1rem;
+  }
+  
+  .mascota-card {
+    width: 100%;
+    height: 300px;
+    perspective: 1000px;
+    background-color: #c4c4c4;
+    border-radius: 8px;
+    overflow: hidden; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
 
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1.2s ease-in-out;
+    transform-style: preserve-3d;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
 
+  .mascota-card:hover .card-inner {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .mascota-card.is-flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.card-front {
+  background-color: #c4c4c4;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-back {
+  background-color: #fff;
+  color: #333;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+
+  
+  .mascota-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .mascota-card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.8); 
+    filter: brightness(1.2);
+  }
+  
+  .ver-mas {
+    background-color: #ccc;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 999px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .ver-mas:hover {
+    background-color: #bbb;
+  }
+  
+  @media (max-width: 1024px) {
+    .galeria {
+      grid-template-columns: repeat(3, 1fr); 
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .galeria {
+      grid-template-columns: repeat(2, 1fr); 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .mascotas h2 {
+      font-size: 1.5rem;
+    }
+  
+    .galeria {
+      grid-template-columns: 1fr; 
+    }
+  
+    .ver-mas {
+      width: 100%;
+      max-width: 200px;
+    }
+  }
 /* ======== como adoptar ======== */
 
 
@@ -18,5 +153,74 @@
 
 
 /* ======== Aliados ======== */
+.aliados {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: var(--site-color-fondo-2);
+}
+
+.aliados h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: var(--site-color-verde);
+}
+
+.aliados-logos {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.logo-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d9d9d9;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 
+@media (max-width: 768px) {
+  .logo-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logo-circle img {
+    width: 60%;
+    height: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  .aliados-logos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-circle {
+    width: 90px;
+    height: 90px;
+  }
+
+  .logo-circle img {
+    width: 60%;
+    height: 60%;
+  }
+}
