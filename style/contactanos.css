@@ -1,0 +1,99 @@
+.contactanos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* altura total de la pantalla */
+  padding: 1rem;
+}
+
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60vw;            /* 60% del ancho de la pantalla */
+  height: 80vh;           /* 40% del alto de la pantalla */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 0rem;
+}
+
+/* Columna izquierda */
+.contact-image {
+  background-color: var(--site-color-verde);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* Imagen responsive */
+.contact-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Columna derecha */
+.contact-form {
+  background-color: var(--site-color-lila);
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-form h3 {
+  margin-bottom: 1rem;
+}
+
+.form label {
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 0.4rem;
+  margin-bottom: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.form button {
+  background-color: var(--site-color-verde);
+  color: var(--site-color-blanco-texto);
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Responsive para celulares */
+@media (max-width: 768px) {
+  .contact-grid {
+    flex-direction: column;
+    width: 90vw;
+    height: auto;
+  }
+
+  .contactanos {
+    padding: 2rem 1rem;
+    height: auto;
+  }
+}
+
+
+.contactanos {
+  display: flex;
+  justify-content: center;     /* Centra horizontalmente */
+  align-items: flex-start;     /* Alinea arriba en lugar del centro */
+  min-height: 100vh;           /* Ocupa toda la pantalla de alto */
+  padding-top: 2rem;           /* Espacio desde arriba */
+  padding-bottom: 2rem;           /* Espacio desde arriba */
+
+  background-color: var(--site-color-fondo-1); /* Opcional, solo para contraste */
+}
