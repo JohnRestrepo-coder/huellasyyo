@@ -1,9 +1,17 @@
 .contactanos {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* esto hace que quede de todo el ancho de pantalla */
-  padding: 1rem;
+  justify-content: center;     
+  align-items: flex-start;     
+  min-height: auto; /* Quitar 100vh */
+  padding: 2rem 0;
+       
+  background-color: var(--site-color-fondo-1); 
+  margin-top: 0; /* quitar margen superior */
+  margin-bottom: 0; /* quitar margen inferior */
+}
+
+main {
+  margin-top: -15px; /* ajusta según el tamaño exacto de tu navbar */
 }
 
 /* el tamaño del contenedor es 60% y 40% mirar como queda en celulares*/
@@ -11,11 +19,12 @@
   display: flex;
   flex-wrap: wrap;
   width: 60vw;            
-  height: 80vh;           
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   margin-top: 0rem;
+  margin-bottom: 1rem;
+
 }
 
 /* Columna izquierda */
@@ -88,16 +97,6 @@
 }
 
 
-.contactanos {
-  display: flex;
-  justify-content: center;     
-  align-items: flex-start;     
-  min-height: 100vh;           
-  padding-top: 2rem;          
-  padding-bottom: 2rem;         
-
-  background-color: var(--site-color-fondo-1); 
-}
 
 
 #mascota-aleatoria {
@@ -122,3 +121,61 @@
   color: white;
   font-size: 1.5rem;
 }
+
+.input-row {
+  display: flex;
+  flex-wrap: wrap; /* Allows the inputs to wrap if needed on smaller screens */
+  gap: 1rem; /* Adds spacing between the inputs */
+}
+
+.input-group {
+  display: flex;
+  flex-direction: row; /* Aligns the name and phone fields side by side */
+  gap: 1rem; /* Adds spacing between the name and phone fields */
+  width: 100%; /* Ensures the group takes full width */
+}
+
+.input-group label {
+  display: block; /* Ensures labels are above their respective inputs */
+}
+
+.input-group input {
+  flex: 1; /* Makes the inputs take equal space within the row */
+  min-width: 0; /* Prevents inputs from overflowing */
+}
+
+/* Adjust the other fields (Correo and Mensaje) to remain full-width */
+.form label[for="correo"],
+.form label[for="mensaje"] {
+  margin-top: 0.5rem;
+}
+
+.form input[type="email"],
+.form textarea {
+  width: 100%; /* Keep these fields full-width */
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+  .input-group {
+    flex-direction: column; /* Stack the fields vertically on smaller screens */
+    gap: 0.5rem;
+  }
+
+  .input-group input {
+    width: 100%; /* Full width for inputs on smaller screens */
+  }
+}
+
+
+.align-items-center {
+  width: 40%;
+  margin: 0 auto;
+
+}
+
+#enviar {
+  width: 100%;
+  }
+
+

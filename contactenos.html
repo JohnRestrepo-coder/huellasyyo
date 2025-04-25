@@ -100,7 +100,7 @@
         </div>
         -->
 
-        <section class="contactanos">
+        <section class="contactanos pt-3 pb-3 pt-md-5 pb-md-5 mt-0 mb-0">
           <div class="contact-grid">
             <!-- Sección izquierda: imagen -->
             <div class="contact-image">
@@ -118,56 +118,62 @@
 
             <!-- Sección derecha, el formulario -->
             <div class="contact-form">
-              <h3 class="subtitulo-form">Contáctanos</h3>
+              <h3 class="subtitulo-form text-center">Contáctanos</h3>
               <form
                 action="https://formspree.io/f/xblojqjz"
                 method="POST"
                 class="form"
               >
-                <label for="nombre">Nombre</label>
-                <input
-                  type="text"
-                  id="nombre"
-                  name="nombre"
-                  placeholder="Tu nombre"
-                  required
-                />
+                <div class="input-row">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      id="nombre"
+                      name="nombre"
+                      placeholder="Tu nombre"
+                      required
+                    />
 
-                <!-- chicos aqui se evalua como se evalua si es un telefono o no, por type y por requiered pattern-->
-                <label for="telefono">Teléfono</label>
-                <input
-                  type="tel"
-                  id="telefono"
-                  name="telefono"
-                  placeholder="Tu teléfono"
-                  required
-                  pattern="[0-9]{7,15}"
-                />
+                    <!-- chicos aqui se evalua como se evalua si es un telefono o no, por type y por requiered pattern-->
+                    <input
+                      type="tel"
+                      id="telefono"
+                      name="telefono"
+                      placeholder="Tu teléfono"
+                      required
+                      pattern="[0-9]{7,15}"
+                    />
+                  </div>
+                  <input
+                    type="email"
+                    id="correo"
+                    name="correo"
+                    placeholder="Tu correo"
+                    required
+                  />
 
-                <label for="correo">Correo</label>
-                <input
-                  type="email"
-                  id="correo"
-                  name="correo"
-                  placeholder="Tu correo"
-                  required
-                />
+                  <textarea
+                    id="mensaje"
+                    name="mensaje"
+                    rows="4"
+                    placeholder="Tu mensaje..."
+                    required
+                  ></textarea>
 
-                <label for="mensaje">Mensaje</label>
-                <textarea
-                  id="mensaje"
-                  name="mensaje"
-                  rows="4"
-                  placeholder="Tu mensaje..."
-                  required
-                ></textarea>
-
-                <button type="submit" id="enviar">Enviar</button>
-
-                <p
-                  id="mensaje-saludo"
-                  style="margin-top: 10px; font-weight: bold"
-                ></p>
+                  <div class="align-items-center">
+                    <button type="submit" id="enviar" class="text-center">
+                      Enviar
+                    </button>
+                  </div>
+                  <p
+                    id="mensaje-saludo"
+                    style="margin-top: 10px; font-weight: bold"
+                  ></p>
+                </div>
+                <p class="text-center text-black fst-italic">
+                  <br />El amor no se compra se adopta ¡Gracias por dar el
+                  primer paso!
+                </p>
               </form>
             </div>
           </div>
@@ -177,7 +183,8 @@
       <footer class="bg-dark text-white">
         <div class="container-fluid custom-container px-3 px-md-4 px-lg-5">
           <div class="row">
-            <div class="col-12 col-md-4 mb-3 d-flex align-items-center gap-2">
+            <div class="col-12 col-md-4 mb-0 d-flex align-items-center gap-2">
+              <!-- Reduje el margen inferior de esta columna -->
               <img
                 alt="Logo"
                 class="img-fluid"
@@ -190,7 +197,8 @@
                 <p class="mb-0">Tu Tinder de mascotas</p>
               </div>
             </div>
-            <div class="col-12 col-md-4 mb-3">
+            <div class="col-12 col-md-4 mb-0">
+              <!-- Reduje el margen inferior de esta columna -->
               <h5>Enlaces</h5>
               <ul class="list-unstyled">
                 <li>
@@ -204,11 +212,11 @@
                 <li><a class="text-white" href="#">Preguntas frecuentes</a></li>
               </ul>
             </div>
-            <div class="col-12 col-md-4 mb-3">
+            <div class="col-12 col-md-4 mb-0">
               <h6>Contáctanos</h6>
               <p>Email: huellasyyo@gmail.com</p>
             </div>
-            <div class="col-12 text-center py-3">
+            <div class="col-12 text-center py-0">
               © 2025 Huellas y Yo. Todos los derechos reservados.
             </div>
           </div>

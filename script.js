@@ -51,3 +51,29 @@
     });
   });
   
+
+  document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+  
+    const telefono = document.getElementById("telefono").value;
+    const correo = document.getElementById("correo").value;
+    const mensajeSaludo = document.getElementById("mensaje-saludo");
+  
+    const patronCorreo = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  
+    const patronTelefono = /^[0-9]{7,15}$/;
+  
+    if (correo && patronCorreo.test(correo)) {
+      mensajeSaludo.textContent = "Correo electrónico válido.";
+    }
+    else if (telefono && patronTelefono.test(telefono)) {
+      mensajeSaludo.textContent = "Número de teléfono válido.";
+    } else {
+      mensajeSaludo.textContent = "Por favor, ingresa un correo electrónico o un teléfono válido.";
+    }
+  
+    if (patronCorreo.test(correo) || patronTelefono.test(telefono)) {
+      this.submit();
+    }
+  });
+  
