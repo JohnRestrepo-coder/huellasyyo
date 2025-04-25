@@ -51,21 +51,40 @@
             >
               <ul class="navbar-nav d-flex flex-row gap-2 p-2">
                 <li class="nav-item">
-                  <a class="nav-link nav-link-tamaño rounded-pill bg-verde-root text-white" href="#">Inicio</a>
+                  <a
+                    class="nav-link nav-link-tamaño rounded-pill bg-verde-root text-white"
+                    href="#"
+                    >Inicio</a
+                  >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link nav-link-tamaño rounded-pill bg-verde-root text-white" href="#">Haz match</a>
+                  <a
+                    class="nav-link nav-link-tamaño rounded-pill bg-verde-root text-white"
+                    href="#"
+                    >Haz match</a
+                  >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link nav-link-tamaño rounded-pill bg-verde-root text-white" href="#">Nosotros</a>
+                  <a
+                    class="nav-link nav-link-tamaño rounded-pill bg-verde-root text-white"
+                    href="#"
+                    >Nosotros</a
+                  >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link nav-link-tamaño rounded-pill bg-verde-root text-white" href="#">Contáctanos</a>
+                  <a
+                    class="nav-link nav-link-tamaño rounded-pill bg-verde-root text-white"
+                    href="#"
+                    >Contáctanos</a
+                  >
                 </li>
               </ul>
             </div>
             <div class="d-flex">
-              <button class="btn btn-success bg-verde-root text-white fw-bold" type="button">
+              <button
+                class="btn btn-success bg-verde-root text-white fw-bold"
+                type="button"
+              >
                 Iniciar sesión
               </button>
             </div>
@@ -73,52 +92,86 @@
         </nav>
       </header>
       <main>
-     
-        <!--
+        <!-- Titulo, mirar si lo dejamos o lo quitamos mas tarde
         <div class="text-center my-4">
           <h2 class="fw-bold text-success bg-light py-3 px-4 rounded shadow d-inline-block">
             Contáctanos
           </h2>
         </div>
         -->
-        
 
         <section class="contactanos">
-          
-        
           <div class="contact-grid">
-            
             <!-- Sección izquierda: imagen -->
             <div class="contact-image">
-              <img src="style/imagen/quienes-somos.png" alt="Mascota">
+              <img
+                id="mascota-aleatoria"
+                src="style/imagen/quienes-somos.png"
+                alt="Mascota"
+              />
+              <div class="mensaje-adopcion">
+                <p>
+                  🐶💖 Adopta, no compres. ¡Danos una segunda oportunidad! 🐾
+                </p>
+              </div>
             </div>
-        
-            <!-- Sección derecha: formulario -->
+
+            <!-- Sección derecha, el formulario -->
             <div class="contact-form">
               <h3 class="subtitulo-form">Contáctanos</h3>
-              <form 
-                action="https://formspree.io/f/tu-form-id" 
-                method="POST" 
+              <form
+                action="https://formspree.io/f/xblojqjz"
+                method="POST"
                 class="form"
               >
                 <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
-        
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  placeholder="Tu nombre"
+                  required
+                />
+
+                <!-- chicos aqui se evalua como se evalua si es un telefono o no, por type y por requiered pattern-->
                 <label for="telefono">Teléfono</label>
-                <input type="text" id="telefono" name="telefono" placeholder="Tu teléfono" required>
-        
+                <input
+                  type="tel"
+                  id="telefono"
+                  name="telefono"
+                  placeholder="Tu teléfono"
+                  required
+                  pattern="[0-9]{7,15}"
+                />
+
                 <label for="correo">Correo</label>
-                <input type="email" id="correo" name="correo" placeholder="Tu correo" required>
-        
+                <input
+                  type="email"
+                  id="correo"
+                  name="correo"
+                  placeholder="Tu correo"
+                  required
+                />
+
                 <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje" name="mensaje" rows="4" placeholder="Tu mensaje..." required></textarea>
-        
+                <textarea
+                  id="mensaje"
+                  name="mensaje"
+                  rows="4"
+                  placeholder="Tu mensaje..."
+                  required
+                ></textarea>
+
                 <button type="submit" id="enviar">Enviar</button>
+
+                <p
+                  id="mensaje-saludo"
+                  style="margin-top: 10px; font-weight: bold"
+                ></p>
               </form>
             </div>
           </div>
         </section>
-        
       </main>
 
       <footer class="bg-dark text-white">
@@ -140,8 +193,14 @@
             <div class="col-12 col-md-4 mb-3">
               <h5>Enlaces</h5>
               <ul class="list-unstyled">
-                <li><a class="text-white" href="#">Política de tratamiento de datos</a></li>
-                <li><a class="text-white" href="#">Términos y condiciones</a></li>
+                <li>
+                  <a class="text-white" href="#"
+                    >Política de tratamiento de datos</a
+                  >
+                </li>
+                <li>
+                  <a class="text-white" href="#">Términos y condiciones</a>
+                </li>
                 <li><a class="text-white" href="#">Preguntas frecuentes</a></li>
               </ul>
             </div>
@@ -166,5 +225,6 @@
       crossorigin="anonymous"
       src="https://kit.fontawesome.com/e6eef9bc73.js"
     ></script>
+    <script src="script.js"></script>
   </body>
 </html>

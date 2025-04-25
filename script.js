@@ -1,42 +1,53 @@
-function emailJs(){
-    const formulario = document.querySelector(".form");
-    const mensaje = document.getElementById("mensaje-saludo");
-   
-    formulario.addEventListener("submit", async (evento) => {
-      evento.preventDefault();
-   
-      const nombre = evento.target.nombre.value.trim();
-      const correo = evento.target.correo.value;
-      const mensajeTexto = evento.target.mensaje.value;
-   
-      const datos = {
-        nombre,
-        email: correo,
-        mensaje: mensajeTexto,
-      };
-   
-      const serviceID = "service_3vlem8t";
-      const templateID = "template_5vaq0xk";
-   
-      try {
-        await emailjs.send(serviceID, templateID, datos);
-        alert("Gracias por contactarnos");
-   
-       
-        if (nombre) {
-          mensaje.textContent = `¡Hola ${nombre}! ⚡ Gracias por enviar tus datos, nos contactaremos pronto contigo.`;
-        } else {
-          mensaje.textContent = `¡Gracias por tu mensaje! Te responderé pronto.`;
-        }
-   
-       
-        formulario.reset();
-      } catch (error) {
-        console.log("Error al enviar mensaje:", error);
-      }
-    });
+  //codigo para hacer que la imagen se muestre de forma random.  Revisarlo con los compañeros si les gusta la funcion
+
+  const mascotas  = [
+    "style/imagen/perro1.png",
+    "style/imagen/gato2.png",
+    "style/imagen/gato1.png",
+    "style/imagen/perro2.png",
+    "style/imagen/perro3.png",
+    "style/imagen/perroygato.png"
+  ];
+
+
+  const imgMascota = document.getElementById('mascota-aleatoria');
+
+  function mostrarMascotaAleatoria() {
+    const indice = Math.floor(Math.random() * mascotas.length);
+    imgMascota.src = mascotas[indice];
   }
-   
-  emailJs();
-   
-   
+
+  window.addEventListener('DOMContentLoaded', mostrarMascotaAleatoria);
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('formulario-contacto');
+    const mensajeSaludo = document.getElementById('mensaje-saludo');
+  
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); 
+      const datos = new FormData(form);
+  
+      fetch(form.action, {
+        method: 'POST',
+        body: datos,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          mensajeSaludo.textContent = '¡Gracias por contactarnos! Te responderemos pronto 🐾';
+          mensajeSaludo.style.color = 'green';
+          form.reset();
+        } else {
+          mensajeSaludo.textContent = 'Ups, algo salió mal. Inténtalo nuevamente.';
+          mensajeSaludo.style.color = 'red';
+        }
+      })
+      .catch(() => {
+        mensajeSaludo.textContent = 'No se pudo enviar el mensaje. Intenta más tarde.';
+        mensajeSaludo.style.color = 'red';
+      });
+    });
+  });
+  

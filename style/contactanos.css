@@ -2,15 +2,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* altura total de la pantalla */
+  height: 100vh; /* esto hace que quede de todo el ancho de pantalla */
   padding: 1rem;
 }
 
+/* el tamaño del contenedor es 60% y 40% mirar como queda en celulares*/
 .contact-grid {
   display: flex;
   flex-wrap: wrap;
-  width: 60vw;            /* 60% del ancho de la pantalla */
-  height: 80vh;           /* 40% del alto de la pantalla */
+  width: 60vw;            
+  height: 80vh;           
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -72,7 +73,7 @@
   cursor: pointer;
 }
 
-/* Responsive para celulares */
+/* aca cambia de tamaño para celulares, revisar si queda mal */
 @media (max-width: 768px) {
   .contact-grid {
     flex-direction: column;
@@ -89,11 +90,35 @@
 
 .contactanos {
   display: flex;
-  justify-content: center;     /* Centra horizontalmente */
-  align-items: flex-start;     /* Alinea arriba en lugar del centro */
-  min-height: 100vh;           /* Ocupa toda la pantalla de alto */
-  padding-top: 2rem;           /* Espacio desde arriba */
-  padding-bottom: 2rem;           /* Espacio desde arriba */
+  justify-content: center;     
+  align-items: flex-start;     
+  min-height: 100vh;           
+  padding-top: 2rem;          
+  padding-bottom: 2rem;         
 
-  background-color: var(--site-color-fondo-1); /* Opcional, solo para contraste */
+  background-color: var(--site-color-fondo-1); 
+}
+
+
+#mascota-aleatoria {
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+.contact-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+.mensaje-adopcion {
+  font-style: bold;
+  color: white;
+  font-size: 1.5rem;
 }
