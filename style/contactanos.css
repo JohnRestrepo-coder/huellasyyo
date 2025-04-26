@@ -1,0 +1,181 @@
+.contactanos {
+  display: flex;
+  justify-content: center;     
+  align-items: flex-start;     
+  min-height: auto; /* Quitar 100vh */
+  padding: 2rem 0;
+       
+  background-color: var(--site-color-fondo-1); 
+  margin-top: 0; /* quitar margen superior */
+  margin-bottom: 0; /* quitar margen inferior */
+}
+
+main {
+  margin-top: -15px; /* ajusta según el tamaño exacto de tu navbar */
+}
+
+/* el tamaño del contenedor es 60% y 40% mirar como queda en celulares*/
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60vw;            
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+
+}
+
+/* Columna izquierda */
+.contact-image {
+  background-color: var(--site-color-verde);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* Imagen responsive */
+.contact-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Columna derecha */
+.contact-form {
+  background-color: var(--site-color-lila);
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-form h3 {
+  margin-bottom: 1rem;
+}
+
+.form label {
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 0.4rem;
+  margin-bottom: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.form button {
+  background-color: var(--site-color-verde);
+  color: var(--site-color-blanco-texto);
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* aca cambia de tamaño para celulares, revisar si queda mal */
+@media (max-width: 768px) {
+  .contact-grid {
+    flex-direction: column;
+    width: 90vw;
+    height: auto;
+  }
+
+  .contactanos {
+    padding: 2rem 1rem;
+    height: auto;
+  }
+}
+
+
+
+
+#mascota-aleatoria {
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+.contact-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+.mensaje-adopcion {
+  font-style: bold;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.input-row {
+  display: flex;
+  flex-wrap: wrap; /* Allows the inputs to wrap if needed on smaller screens */
+  gap: 1rem; /* Adds spacing between the inputs */
+}
+
+.input-group {
+  display: flex;
+  flex-direction: row; /* Aligns the name and phone fields side by side */
+  gap: 1rem; /* Adds spacing between the name and phone fields */
+  width: 100%; /* Ensures the group takes full width */
+}
+
+.input-group label {
+  display: block; /* Ensures labels are above their respective inputs */
+}
+
+.input-group input {
+  flex: 1; /* Makes the inputs take equal space within the row */
+  min-width: 0; /* Prevents inputs from overflowing */
+}
+
+/* Adjust the other fields (Correo and Mensaje) to remain full-width */
+.form label[for="correo"],
+.form label[for="mensaje"] {
+  margin-top: 0.5rem;
+}
+
+.form input[type="email"],
+.form textarea {
+  width: 100%; /* Keep these fields full-width */
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+  .input-group {
+    flex-direction: column; /* Stack the fields vertically on smaller screens */
+    gap: 0.5rem;
+  }
+
+  .input-group input {
+    width: 100%; /* Full width for inputs on smaller screens */
+  }
+}
+
+
+.align-items-center {
+  width: 40%;
+  margin: 0 auto;
+
+}
+
+#enviar {
+  width: 100%;
+  }
+
+
