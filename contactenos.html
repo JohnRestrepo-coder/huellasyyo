@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      rel="stylesheet"
+    />
+    <link href="./style/base_style.css" rel="stylesheet" />
+    <link href="./style/quienes_somos.css" rel="stylesheet" />
+    <link href="./style/header_style.css" rel="stylesheet" />
+    <link href="./style/nav_style.css" rel="stylesheet" />
+    <link href="./style/contactanos.css" rel="stylesheet" />
+    <title>¿Quiénes Somos?</title>
+  </head>
+  <body>
+    <div class="container-base">
+      <header>
+        <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
+          <div class="container">
+            <a
+              class="navbar-brand d-flex align-items-center gap-2 fw-bold text-white fs-2"
+              href="#"
+            >
+              <img
+                alt="Icono de Huellas y yo"
+                class="d-inline-block align-text-top img-fluid"
+                height="60"
+                src="/images/icono_simple.png"
+                width="60"
+              />
+              Huellas y yo
+            </a>
+            <button
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              class="navbar-toggler"
+              data-bs-target="#navbarSupportedContent"
+              data-bs-toggle="collapse"
+              type="button"
+            >
+              <span class="navbar-toggler-icon"> </span>
+            </button>
+            <div
+              class="collapse navbar-collapse justify-content-center"
+              id="navbarSupportedContent"
+            >
+              <ul class="navbar-nav d-flex flex-row gap-2 p-2">
+                <li class="nav-item">
+                  <a
+                    class="nav-link nav-link-tamaño rounded-pill bg-verde-root text-white"
+                    href="#"
+                    >Inicio</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link nav-link-tamaño rounded-pill bg-verde-root text-white"
+                    href="#"
+                    >Haz match</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link nav-link-tamaño rounded-pill bg-verde-root text-white"
+                    href="#"
+                    >Nosotros</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link nav-link-tamaño rounded-pill bg-verde-root text-white"
+                    href="#"
+                    >Contáctanos</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="d-flex">
+              <button
+                class="btn btn-success bg-verde-root text-white fw-bold"
+                type="button"
+              >
+                Iniciar sesión
+              </button>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <!-- Titulo, mirar si lo dejamos o lo quitamos mas tarde
+        <div class="text-center my-4">
+          <h2 class="fw-bold text-success bg-light py-3 px-4 rounded shadow d-inline-block">
+            Contáctanos
+          </h2>
+        </div>
+        -->
+
+        <section class="contactanos pt-3 pb-3 pt-md-5 pb-md-5 mt-0 mb-0">
+          <div class="contact-grid">
+            <!-- Sección izquierda: imagen -->
+            <div class="contact-image">
+              <img
+                id="mascota-aleatoria"
+                src="style/imagen/quienes-somos.png"
+                alt="Mascota"
+              />
+              <div class="mensaje-adopcion">
+                <p>
+                  🐶💖 Adopta, no compres. ¡Danos una segunda oportunidad! 🐾
+                </p>
+              </div>
+            </div>
+
+            <!-- Sección derecha, el formulario -->
+            <div class="contact-form">
+              <h3 class="subtitulo-form text-center">Contáctanos</h3>
+              <form
+                action="https://formspree.io/f/xblojqjz"
+                method="POST"
+                class="form"
+              >
+                <div class="input-row">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      id="nombre"
+                      name="nombre"
+                      placeholder="Tu nombre"
+                      required
+                    />
+
+                    <!-- chicos aqui se evalua como se evalua si es un telefono o no, por type y por requiered pattern-->
+                    <input
+                      type="tel"
+                      id="telefono"
+                      name="telefono"
+                      placeholder="Tu teléfono"
+                      required
+                      pattern="[0-9]{7,15}"
+                    />
+                  </div>
+                  <input
+                    type="email"
+                    id="correo"
+                    name="correo"
+                    placeholder="Tu correo"
+                    required
+                  />
+
+                  <textarea
+                    id="mensaje"
+                    name="mensaje"
+                    rows="4"
+                    placeholder="Tu mensaje..."
+                    required
+                  ></textarea>
+
+                  <div class="align-items-center">
+                    <button type="submit" id="enviar" class="text-center">
+                      Enviar
+                    </button>
+                  </div>
+                  <p
+                    id="mensaje-saludo"
+                    style="margin-top: 10px; font-weight: bold"
+                  ></p>
+                </div>
+                <p class="text-center text-black fst-italic">
+                  <br />El amor no se compra se adopta ¡Gracias por dar el
+                  primer paso!
+                </p>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="bg-dark text-white">
+        <div class="container-fluid custom-container px-3 px-md-4 px-lg-5">
+          <div class="row">
+            <div class="col-12 col-md-4 mb-0 d-flex align-items-center gap-2">
+              <!-- Reduje el margen inferior de esta columna -->
+              <img
+                alt="Logo"
+                class="img-fluid"
+                height="60"
+                src="/images/icono_simple.png"
+                width="60"
+              />
+              <div>
+                <h5 class="mb-0">Huellas y yo</h5>
+                <p class="mb-0">Tu Tinder de mascotas</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 mb-0">
+              <!-- Reduje el margen inferior de esta columna -->
+              <h5>Enlaces</h5>
+              <ul class="list-unstyled">
+                <li>
+                  <a class="text-white" href="#"
+                    >Política de tratamiento de datos</a
+                  >
+                </li>
+                <li>
+                  <a class="text-white" href="#">Términos y condiciones</a>
+                </li>
+                <li><a class="text-white" href="#">Preguntas frecuentes</a></li>
+              </ul>
+            </div>
+            <div class="col-12 col-md-4 mb-0">
+              <h6>Contáctanos</h6>
+              <p>Email: huellasyyo@gmail.com</p>
+            </div>
+            <div class="col-12 text-center py-0">
+              © 2025 Huellas y Yo. Todos los derechos reservados.
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script
+      crossorigin="anonymous"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script
+      crossorigin="anonymous"
+      src="https://kit.fontawesome.com/e6eef9bc73.js"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
