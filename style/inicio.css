@@ -5,7 +5,97 @@
 
 
 /* ======== como adoptar ======== */
+#como-adoptar {
+    display: flex;
+    padding: 20px;
+    /* place-items: center; */
+}
 
+
+.pasos h3{
+    font-size: 30px;
+    color: var(  --site-color-blanco-texto);
+    background-color: var(--site-color-verde);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    display: inline-block;
+    
+}
+
+.pasos p{
+
+    text-align: justify;
+    padding: 30px;
+}
+
+#adopt{
+    place-items: center;
+    width: 50%;
+    padding: 30px;
+}
+
+.pasos {
+    display: flex;
+    justify-content: left;
+    text-align: center;
+    align-items: center;
+
+}
+
+#tuto{
+    border: 10px;
+    background-color:  rgb(139, 139, 139);
+    width: 50%;
+    padding: 30px;
+}
+
+#tuto video{
+    margin-right: auto;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+#bhaz-match{
+    font-size: 30px;
+    width: 220px;
+    height: 50px;
+    background-color: var(--site-color-verde);
+    color: var(--site-color-blanco-texto);
+    border: 2px solid;
+    border-color: var(--site-color-verde);
+    border-radius: 20px;
+    
+    
+}
+
+#bhaz-match:hover{
+    
+    background-color: var(--site-color-blanco-texto);
+    color: var(--site-color-verde);
+    border: 2px solid;
+    border-color: var(--site-color-verde);
+
+}
+
+@media (max-width: 1279px) {
+
+    #como-adoptar {
+        display: inline-block;
+    }
+
+    #adopt{
+        width: 100%;
+    }
+    
+    #tuto{
+        width: 100%;
+    }
+
+}
 
 
 /* ======== logo mascota ======== */
