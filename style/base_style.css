@@ -23,35 +23,8 @@ body {
     auto 1fr auto;;
 }
 
-.custom-navbar {
-  background-color: #CFAFD8;
-}
-
-
-.custom-navbar .navbar-nav {
-  font-weight: 700;
-} 
-
-.custom-container {
-  background-color: #CFAFD8;
-  font-weight: 500;
-}
-
 main {
   padding-top: 107px;
   max-width: 100vw;
 }
 
-.footer-personalizado {
-  background-color: #CFAFD8;
-}
-
-.bg-verde-root {
-  background-color: var(--site-color-verde);
-
-}
-
-.nav-link-tamaño {
-  min-width: 130px; /* Puedes ajustar este valor según el diseño */
-  text-align: center;
-}
