@@ -14,6 +14,7 @@
     color: var(--site-color-verde);
   }
   
+  
   .galeria {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
@@ -113,6 +114,7 @@
     background-color: #bbb;
   }
   
+  
   @media (max-width: 1024px) {
     .galeria {
       grid-template-columns: repeat(3, 1fr); 
@@ -139,6 +141,49 @@
       max-width: 200px;
     }
   }
+
+  .glow-text {
+    text-align: center;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #CFAFD8;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-shadow: 0 0 5px #CFAFD8, 0 0 10px #CFAFD8, 0 0 20px #CFAFD8;
+    margin-bottom: 20px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    display: inline-block;
+  }
+  
+  @keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      opacity: 1;
+    }
+    20%, 22%, 24%, 55% {
+      opacity: 0.7;
+    }
+  }
+  
+  .conoceme-text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: var(--site-color-fondo-2);
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none; 
+  }
+  
+  .mascota-card:hover .conoceme-text {
+    opacity: 1;
+  }
+  
 /* ======== como adoptar ======== */
 
 
