@@ -1,0 +1,29 @@
+.custom-navbar {
+  background-color: #CFAFD8;
+}
+
+.custom-navbar .navbar-nav {
+  font-weight: 700;
+} 
+
+.bg-verde-root {
+  background-color: var(--site-color-verde);
+
+}
+
+.nav-link-tamaño {
+  min-width: 130px; /* Puedes ajustar este valor según el diseño */
+  text-align: center;
+}
+
+.form button {
+  background-color: var(--site-color-verde);
+  color: var(--site-color-blanco-texto);
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+

@@ -5,7 +5,100 @@
 
 
 /* ======== como adoptar ======== */
+#como-adoptar {
+    display: flex;
+    padding: 20px;
+    /* place-items: center; */
+}
 
+
+.pasos h3{
+    font-size: 30px;
+    color: var(  --site-color-blanco-texto);
+    background-color: var(--site-color-verde);
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    display: inline-block;
+    flex-shrink: 0; /* Evita que el círculo se encoja */
+    
+}
+
+.pasos p{
+
+    text-align: justify;
+    padding: 30px;
+   
+}
+
+#adopt{
+    place-items: center;
+    width: 50%;
+    padding: 30px;
+}
+
+.pasos {
+    display: flex;
+    align-items: center; /* Alinea verticalmente el h3 y el p */
+
+}
+
+#tuto{
+    width: 50%;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#video{
+    width: auto;
+    height: 500px;
+}
+
+#bhaz-match{
+    font-size: 30px;
+    width: 220px;
+    height: 50px;
+    background-color: var(--site-color-verde);
+    color: var(--site-color-blanco-texto);
+    border: 2px solid;
+    border-color: var(--site-color-verde);
+    border-radius: 20px;
+    
+    
+}
+
+#bhaz-match:hover{
+    
+    background-color: var(--site-color-blanco-texto);
+    color: var(--site-color-verde);
+    border: 2px solid;
+    border-color: var(--site-color-verde);
+
+}
+
+@media (max-width: 1279px) {
+
+    #como-adoptar {
+        display: inline-block;
+    }
+
+    #adopt{
+        width: 100%;
+    }
+    
+    #tuto{
+        width: 100%;
+    }
+
+    #video{
+        width: 100%;
+    }
+
+}
 
 
 /* ======== logo mascota ======== */
@@ -14,9 +107,143 @@
 
 /* ======== adopciones extitosas ======== */
 
+/* Contenedor general del carrusel */
+.adopciones-exitosas {
+  padding-top: 0px;
+  padding: 2rem;
+  background-color: var(--site-color-fondo-1); 
+  text-align: center;
+  font-family: var(--site-font-body);
+}
+
+/* Título de la sección */
+.titulo-adopex {
+  font-family: var(--site-font-title);  
+  margin-bottom: 30px;
+  color: var(--site-color-verde);
+}
+
+/* Slider con todos los slides */
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Cada slide */
+.slide {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr; 
+  justify-items: center;
+  align-items: stretch; 
+  flex: 0 0 100%;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+/* Cada tarjeta */
+.card {
+  background-color: #d1d5db; 
+  border-radius: 3rem;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;  
+  align-items: center;
+  width: 90%;
+  height: 100%;
+  max-width: 700px;
+  min-width: 250px;
+  max-height: 400px;
+  min-height: 260px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+  gap: 1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
 
+/* Para la tercera tarjeta, que ocupe toda la segunda fila y esté centrada */
+.slide .card:nth-child(3) {
+  grid-column: 1 / 3; /* Para que la tarjeta ocupe dos columnas */
+  justify-self: center;
+}
+
+
+/* Hover en la tarjeta */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Imagen dentro de la tarjeta */
+.imagen-carta {
+  width: 150px;
+  height: 150px;
+  border-radius: 30%;
+  object-fit: cover;  
+}
+
+/* Texto del testimonio */
+.card p {
+  font-family: var(--site-font-body);
+  flex: 1;
+  margin: 0; 
+}
+
+.texto-carta {
+  font-family: var(--site-font-body);
+  width: 100%; 
+  margin: 0;
+  text-align: justify;
+}
+
+/* Responsividad de adopciones exitosas */
+
+@media (max-width: 1023px) and (min-width: 700px) { 
+  .adopciones-exitosas {
+    padding: 3rem;
+  }
+
+  .slide {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    max-width: 600px;
+  }
+  
+}
+
+
+@media (max-width: 699px) {
+  .adopciones-exitosas {
+    padding: 1.5rem 1rem;
+  }
+
+  .slider {
+    flex-direction: column;
+  }
+
+  .slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .slide .card:nth-child(3) {
+    grid-column: auto;
+  }
+
+  .card {
+    flex: 0 0 100%;
+    max-width: 90%;
+  }
+
+  .imagen-carta {
+    width: 120px;
+    height: 120px;
+  }
+  
+}
 
 /* ======== Aliados ======== */
-
-
