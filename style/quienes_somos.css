@@ -120,6 +120,8 @@ section {
 }
 
 
+  
+
 
 .misionyvision{
     background-color: var(--site-color-fondo-1);
@@ -301,61 +303,64 @@ hr {
   }
 }
 .equipo {
-  text-align: center;
-  background-color: var(--site-color-fondo-1);
-  font-family: var(--site-font-body);
-  padding-left: 18%;
-}
+    text-align: center;
+    padding: 40px;
+    background-color: var(--site-color-fondo-1);
+    font-family: var(--site-font-body);
+  }
 
-.menu {
-  text-align: left;
-}
+  .menu {
+    text-align: left;
+    
+  }
+  
+  .equipo h2 {
+    font-family: var(--site-font-title);
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: var(--site-color-negro-texto);
+  }
+  
+  .fila {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .miembro {
+    width: 200px;
+    text-align: center;
+  }
+  
+  .miembro img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #ccc;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .miembro img:hover {
+    transform: scale(1.05);
+  }
+  
+  .miembro h3 {
+    margin: 0;
+    font-size: 1.1em;
+    font-family: var(--site-font-title);
+    color: var(--site-color-negro-texto);
+  }
+  
+  .miembro p {
+    font-size: 0.9em;
+    color: #666;
+  }
 
-.equipo h2 {
-  font-family: var(--site-font-title);
-  font-size: 2em;
-  margin-bottom: 30px;
-  color: var(--site-color-verde);
-}
-
-.fila {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.miembro {
-  width: 200px;
-  text-align: center;
-}
-
-.miembro img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid #ccc;
-  margin-bottom: 10px;
-  transition: transform 0.3s ease;
-}
-
-.miembro img:hover {
-  transform: scale(1.05);
-}
-
-.miembro h3 {
-  margin: 0;
-  font-size: 1.1em;
-  font-family: var(--site-font-title);
-  color: var(--site-color-negro-texto);
-}
-
-.miembro p {
-  font-size: 0.9em;
-  color: #666;
-}
-
+/* ======================= RESPONSIVE ======================= */
 
 @media (min-width: 1280px) {
   .fila-superior {
