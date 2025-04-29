@@ -1,6 +1,123 @@
 /* ======== bannersection ======== */
+#bannersection{
+  display: flex;
+  width: 100vw;
+  background-color: var(--site-color-fondo-2);
+  justify-content: center;
+}
 
+.contenido_banner{
+  display: flex;
+  align-items: center;
+  padding: 3%;
+  margin-left: 6%;
+}
 
+.centered_element h1 {
+  font-family: var(--site-font-title);
+}
+
+.centered_element p {
+  font-family: var(--site-font-body);
+}
+
+.image-banner-1 figure {
+  padding: 6% 6% 0 6%;
+  margin-left: 6%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end; 
+  justify-content: center;
+  overflow: hidden;
+}
+
+.image-banner-1 figure img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.image-banner-2{
+  display: none;
+}
+
+.buton-banner {
+  padding: 12px 24px;
+  background-color: var(--site-color-verde);
+  color: white;
+  font-size: 1.25rem;
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buton-banner:hover {
+  background-color: #1f7f5c; 
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.mensaje_motivacional {
+  font-size: 0.9rem;
+  color: #5c5c5c;
+  font-style: italic;
+}
+
+@media (max-width: 1279px) and (min-width: 700px) {
+
+  .contenido_banner{
+    padding: 1.5%;
+    margin-left: 0;
+  }
+
+  .image-banner-1 figure {
+    padding: 3% 3% 0 3%;
+    margin-left: 3%;
+  }
+
+}
+
+@media (max-width: 699px) {
+
+  #bannersection{
+    display: block;
+  }
+
+  .image-banner-1{
+    display: none;
+  }
+
+  .image-banner-2{
+    display: inline;
+  }
+
+  .image-banner-2 figure {
+    width: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .image-banner-2 figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: inherit;
+  }
+
+  .contenido_banner{
+    padding: 4%;
+    margin-left: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
 /* ======== Nuestras mascotas ======== */
 .mascotas {
     text-align: center;
