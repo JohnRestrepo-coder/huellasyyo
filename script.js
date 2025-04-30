@@ -1,21 +1,28 @@
   //codigo para hacer que la imagen se muestre de forma random.  Revisarlo con los compañeros si les gusta la funcion
 
   const mascotas  = [
-    "style/imagen/perro1.png",
-    "style/imagen/gato2.png",
-    "style/imagen/gato1.png",
-    "style/imagen/perro2.png",
-    "style/imagen/perro3.png",
-    "style/imagen/perroygato.png"
+    {imagen:"style/imagen/perro1.png", historia: "Soy Max. Vivía amarrado en un patio olvidado. Me rescataron y descubrí que la vida puede ser bonita. "},
+    {imagen:"style/imagen/gato2.png",historia: "Soy Miso. Me encontraron solo en un parque, temblando de miedo. Hoy solo busco un hogar donde confiar de nuevo."},
+    {imagen:"style/imagen/gato1.png",historia: "Me llamo Luna. Nací en una bodega abandonada, esquivando peligros. Ahora sueño con dormir tranquila en tu sofá."},
+    {imagen:"style/imagen/perro2.png",historia: "Me dicen Coco. Pasé meses debajo de un puente. Hoy busco una familia que me vea como parte de su historia. "},
+    {imagen:"style/imagen/perro3.png",historia: "Soy Rocky. Vagaba por la carretera, sin rumbo ni dueño. Ahora quiero caminar a tu lado todos los días. "},
+    {imagen:"style/imagen/perroygato.png", historia: "Somos Lía y Dante. Nos encontramos en la calle y nunca nos separamos. Si nos adoptas juntos, tendrás dos corazones agradecidos. "},
+    {imagen:"style/imagen/quienes-somos.png", historia: "Rescatamos animales que lo han perdido todo y les damos una segunda oportunidad. Aquí, tú puedes ser el final feliz que esperan. "}
+  
   ];
 
 
   const imgMascota = document.getElementById('mascota-aleatoria');
+  const historiaMascota = document.getElementById("historia-mascota");
 
   function mostrarMascotaAleatoria() {
     const indice = Math.floor(Math.random() * mascotas.length);
-    imgMascota.src = mascotas[indice];
+    const mascotaSeleccionada = mascotas[indice];
+  
+    imgMascota.src = mascotaSeleccionada.imagen;
+    historiaMascota.textContent = mascotaSeleccionada.historia;
   }
+  
 
   window.addEventListener('DOMContentLoaded', mostrarMascotaAleatoria);
 

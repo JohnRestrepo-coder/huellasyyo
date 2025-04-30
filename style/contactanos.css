@@ -115,12 +115,19 @@ main {
 }
 
 
+.historia-mascota {
+  color: white;
+  margin-top: 15px;
+  font-size: 18px;
+}
 
 .mensaje-adopcion {
-  font-style: bold;
+  font-style: italic;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
+
+
 
 .input-row {
   display: flex;
@@ -177,5 +184,4 @@ main {
 #enviar {
   width: 100%;
   }
-
 
