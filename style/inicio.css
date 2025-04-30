@@ -127,7 +127,8 @@
   }
   
   .mascotas h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    font-weight: 800;
     margin-bottom: 2rem;
     color: var(--site-color-verde);
   }
@@ -219,17 +220,22 @@
   }
   
   .ver-mas {
-    background-color: #ccc;
-    padding: 0.5rem 1.5rem;
+    background-color: #4CAF4F;
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
     border: none;
-    border-radius: 999px;
-    font-weight: bold;
+    border-radius: 0.5rem;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
   }
   
   .ver-mas:hover {
-    background-color: #bbb;
+    background-color: #45a045; 
+  }
+  
+  .ver-mas:hover {
+    background-color: #1f7f5c;
   }
   
   
@@ -579,7 +585,8 @@
 }
 
 .aliados h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: 800;
   margin-bottom: 2rem;
   color: var(--site-color-verde);
 }
