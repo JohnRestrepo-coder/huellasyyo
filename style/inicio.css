@@ -405,8 +405,10 @@
 
 /* ======== adopciones extitosas ======== */
 
+
+
 /* Contenedor general del carrusel */
-.adopciones-exitosas {
+.carrusel {
   padding-top: 0px;
   padding: 2rem;
   background-color: var(--site-color-fondo-1); 
@@ -419,6 +421,12 @@
   font-family: var(--site-font-title);  
   margin-bottom: 30px;
   color: var(--site-color-verde);
+}
+
+/* Container del slider */
+.slider-container {
+  overflow: hidden;
+  width: 100%;
 }
 
 /* Slider con todos los slides */
@@ -495,10 +503,29 @@
   text-align: justify;
 }
 
+/* Dots del carrusel */
+.dots {
+  margin-top: 1rem;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #333;
+}
+
 /* Responsividad de adopciones exitosas */
 
-@media (max-width: 1023px) and (min-width: 700px) { 
-  .adopciones-exitosas {
+@media (max-width: 1279px) and (min-width: 700px) { 
+  .carrusel {
     padding: 3rem;
   }
 
@@ -509,19 +536,15 @@
   .card {
     max-width: 600px;
   }
-  
 }
 
 
 @media (max-width: 699px) {
-  .adopciones-exitosas {
+  .carrusel {
     padding: 1.5rem 1rem;
   }
 
-  .slider {
-    flex-direction: column;
-  }
-
+  
   .slide {
     display: flex;
     flex-direction: column;
@@ -541,9 +564,13 @@
     width: 120px;
     height: 120px;
   }
-  
-}
 
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+
+}
 /* ======== Aliados ======== */
 .aliados {
   text-align: center;
