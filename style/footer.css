@@ -1,7 +1,17 @@
-.custom-container {
-  background-color: #CFAFD8;
-}
+
 
 .footer-personalizado {
   background-color: #CFAFD8;
+  color: #ffffff;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.footer-personalizado h5,
+.footer-personalizado p,
+.footer-personalizado a {
+  margin-bottom: 0.5rem;
+}
+
+.footer-personalizado a:hover {
+  text-decoration: underline;
 }
