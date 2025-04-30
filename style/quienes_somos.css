@@ -120,8 +120,6 @@ section {
 }
 
 
-  
-
 
 .misionyvision{
     background-color: var(--site-color-fondo-1);
@@ -302,12 +300,11 @@ hr {
     display: block;
   }
 }
-
 .equipo {
   text-align: center;
-  padding: 40px;
   background-color: var(--site-color-fondo-1);
   font-family: var(--site-font-body);
+  padding-left: 18%;
 }
 
 .menu {
@@ -325,8 +322,7 @@ hr {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px; 
-  margin-bottom: 30px;
+  gap: 10px;
 }
 
 .miembro {
@@ -360,13 +356,12 @@ hr {
   color: #666;
 }
 
-/* ======================= RESPONSIVE ======================= */
 
 @media (min-width: 1280px) {
   .fila-superior {
     display: flex;
     flex-wrap: nowrap;
-    gap: 5rem; 
+    gap: 10px; 
     width: 100%;
     padding-left: 100px;
     
@@ -401,6 +396,10 @@ hr {
     width: 100%;
     justify-items: center; 
   }
+
+  .miembro {
+    width: 200px;
+  }
 }
 
 @media (max-width: 699px) {
@@ -413,12 +412,11 @@ hr {
   }
 
   .miembro {
-    width: 80%; 
-    max-width: 250px; 
+    width: 200px; 
   }
 
   .equipo {
-    padding: 20px;
+    padding-left: 10px;
   }
 
   .equipo h2 {
