@@ -127,7 +127,8 @@
   }
   
   .mascotas h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    font-weight: bold;
     margin-bottom: 2rem;
     color: var(--site-color-verde);
   }
@@ -219,8 +220,9 @@
   }
   
   .ver-mas {
-    background-color: #ccc;
-    padding: 0.5rem 1.5rem;
+    background-color: #4CAF4F;
+    color: white;
+    padding: 1rem 2rem;
     border: none;
     border-radius: 999px;
     font-weight: bold;
@@ -579,7 +581,8 @@
 }
 
 .aliados h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: bold;
   margin-bottom: 2rem;
   color: var(--site-color-verde);
 }
