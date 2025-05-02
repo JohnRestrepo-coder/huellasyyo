@@ -59,6 +59,7 @@
     object-fit: contain;
     display: block;
   }
+
   
   .left-texts {
     text-align: center;
@@ -132,6 +133,29 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     font-family: var(--site-font-body);
+  }
+
+  .form-extra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0 20px;
+    font-size: 0.9em;
+  }
+  
+  .remember-me {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .forgot-password {
+    color: var(--site-color-negro-texto);
+    text-decoration: none;
+  }
+  
+  .forgot-password:hover {
+    text-decoration: underline;
   }
   
   button {
