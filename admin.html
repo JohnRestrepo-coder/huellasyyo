@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrar animal de compañía</title>
+  <link rel="stylesheet" href="./style/admin.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <form class="form-container">
+    <h2>Registrar animal de compañía</h2>
+    <div class="form-group">
+      <label for="nombre">Nombre Mascota</label>
+      <input type="text" id="nombre" name="nombre">
+    </div>
+    <div class="inline-group">
+      <div class="form-group">
+        <label for="especie">Especie:</label>
+        <select id="especie" name="especie">
+          <option>Perro</option>
+          <option>Gato</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="raza">Raza:</label>
+        <input type="text" id="raza" name="raza">
+      </div>
+    </div>
+    <div class="inline-group">
+      <div class="form-group">
+        <label for="color">Color:</label>
+        <input type="text" id="color" name="color">
+      </div>
+      <div class="form-group">
+        <label for="caracter">Carácter:</label>
+        <select id="caracter" name="caracter">
+          <option>Pasivo</option>
+          <option>Activo</option>
+          <option>Juguetón</option>
+        </select>
+      </div>
+    </div>
+    <div class="inline-group">
+      <div class="form-group">
+        <label for="ninos">Compatible con niños:</label>
+        <select id="ninos" name="ninos">
+          <option>Sí</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="otras-mascotas">Compatible con otras mascotas:</label>
+        <select id="otras-mascotas" name="otras-mascotas">
+          <option>Con gatos</option>
+          <option>Con perros</option>
+          <option>No</option>
+        </select>
+      </div>
+    </div>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="vacunado"> Vacunado</label>
+      <label><input type="checkbox" name="castrado"> Castrado</label>
+      <label><input type="checkbox" name="solo-casa"> Se puede dejar solo en casa</label>
+      <label><input type="checkbox" name="viaja-auto"> Viaja bien en auto</label>
+    </div>
+    <div class="inline-group">
+      <div class="form-group">
+        <label for="vivienda">Vivienda recomendada:</label>
+        <select id="vivienda" name="vivienda">
+          <option>Finca</option>
+          <option>Casa</option>
+          <option>Departamento</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="historial">Historial médico:</label>
+        <textarea id="historial" name="historial" rows="4" placeholder="Describa el historial médico..."></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="cuidador">Necesita cuidador con experiencia:</label>
+      <select id="cuidador" name="cuidador">
+        <option>No</option>
+        <option>Sí</option>
+      </select>
+    </div>
+    <div class="inline-group">
+      <div class="form-group">
+        <label for="tiempo">Tiempo de dedicación:</label>
+        <select id="tiempo" name="tiempo">
+          <option>Una hora</option>
+          <option>Más de una hora</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="adiestramiento">Nivel de adiestramiento:</label>
+        <select id="adiestramiento" name="adiestramiento">
+          <option>No Aplica</option>
+          <option>Básico</option>
+          <option>Avanzado</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit">Registrar Mascota</button>
+  </form>
+  <script src="./admin.js"></script>
+</body>
+</html>

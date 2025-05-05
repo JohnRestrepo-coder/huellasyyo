@@ -1,0 +1,128 @@
+:root {
+    --site-color-fondo-1: #F5F7FA;
+    --site-color-fondo-2: #FFF;
+    --site-color-verde: #4CAF4F;
+    --site-color-lila: #CFAFD8;
+    --site-color-blanco-texto: #FFFFFF;
+    --site-color-negro-texto: #000000;
+  
+    --site-font-title: 'Fredoka', sans-serif;
+    --site-font-body: 'Quicksand', sans-serif;
+  }
+
+  body {
+    background: url(https://s1.elespanol.com/2021/11/10/actualidad/626198188_214456908_1706x960.jpg) no-repeat center center fixed;
+    background-size: cover;
+    font-family: var(--site-font-body);
+  }
+  
+  .form-container {
+    max-width: 400px;
+    margin: 30px auto;
+    transform: translateX(100px);
+    border: 1px solid #4bb543;
+    border-radius: 8px;
+    padding: 24px 28px 18px 28px;
+    background: #fff;
+  }
+  
+  .form-container h2 {
+    color: #4bb543;
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+  
+  .form-group {
+    margin-bottom: 12px;
+  }
+  
+  label {
+    display: block;
+    font-size: 0.97em;
+    margin-bottom: 3px;
+    color: #333;
+  }
+  
+  input[type="text"], select {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1.5px solid #4bb543;
+    border-radius: 4px;
+    font-size: 1em;
+    margin-bottom: 4px;
+    background: #fff;
+    color: #333;
+    outline: none;
+    box-sizing: border-box;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1.5px solid #4bb543;
+    border-radius: 4px;
+    font-size: 1em;
+    margin-bottom: 4px;
+    background: #fff;
+    color: #333;
+    outline: none;
+    box-sizing: border-box;
+    resize: vertical;
+    font-family: var(--site-font-body);
+  }
+  
+  input[type="text"]:focus, select:focus {
+    border-color: #388e3c;
+  }
+  
+  .inline-group {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .inline-group > .form-group {
+    flex: 1;
+  }
+  
+  .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    margin-bottom: 10px;
+  }
+  
+  .checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-size: 0.97em;
+    margin-bottom: 0;
+    gap: 5px;
+  }
+  
+  input[type="checkbox"] {
+    accent-color: #4bb543;
+    width: 16px;
+    height: 16px;
+  }
+  
+  button {
+    width: 100%;
+    background: #4bb543;
+    color: #fff;
+    border: none;
+    padding: 10px 0;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 8px;
+    font-family: var(--site-font-title);
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  
+  button:hover {
+    background: #388e3c;
+  }
+  
