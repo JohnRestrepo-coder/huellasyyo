@@ -37,13 +37,18 @@
     margin-bottom: 12px;
   }
   
+  
   label {
     display: block;
     font-size: 0.97em;
     margin-bottom: 3px;
     color: #333;
   }
-  
+  .inline-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
   input[type="text"], select {
     width: 100%;
     padding: 6px 8px;
@@ -79,10 +84,12 @@
   .inline-group {
     display: flex;
     gap: 10px;
+    border-color: #388e3c;
   }
   
   .inline-group > .form-group {
     flex: 1;
+    border-color: #388e3c;
   }
   
   .checkbox-group {
@@ -124,11 +131,65 @@
   button:hover {
     background: #388e3c;
   }
+
+  .lista-mascotas ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .lista-mascotas li {
+    background: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+  
+  .lista-mascotas button.eliminar {
+    margin-left: 15px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .boton-ver-mascotas-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 20px; 
+  }
+ 
+  .boton-ver-mascotas {
+    padding: 8px 15px;
+    background-color: var(--site-color-lila);
+    color: var(--site-color-blanco-texto);
+    font-family: var(--site-font-body), sans-serif;
+    font-weight: bold;
+    border: 2px solid var(--site-color-lila);
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .boton-ver-mascotas:hover {
+    background-color: var(--site-color-verde);
+    border-color: var(--site-color-verde);
+    transform: scale(1.05);
+  }
+  
+  .boton-ver-mascotas:focus {
+    outline: none;
+    box-shadow: 0 0 8px 3px var(--site-color-lila);
+  }
+  
   
   @media (max-width: 768px) {
     .form-container {
       margin: 20px 10px;
-      transform: none; /* quita el desplazamiento hacia la derecha */
+      transform: none; 
       padding: 20px;
       max-width: 100%;
     }

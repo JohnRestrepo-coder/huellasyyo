@@ -1,0 +1,67 @@
+
+  .boton-volver-formulario {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: var(--site-color-verde); /* Usando el verde definido en :root */
+    color: var(--site-color-blanco-texto); /* Usando blanco para el texto */
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    font-family: var(--site-font-body), sans-serif; /* Usando la fuente de body */
+    font-weight: bold; /* Para darle un estilo más destacado */
+    transition: background-color 0.3s ease; /* Transición suave para hover */
+  }
+  
+  .boton-volver-formulario:hover {
+    background-color: #45A049; /* Un tono más oscuro del verde para hover */
+  }
+  
+  .boton-volver-formulario:focus {
+    outline: none; /* Evitar el borde por defecto en el foco */
+    box-shadow: 0 0 5px 2px var(--site-color-verde); /* Añadir sombra al enfocarse */
+  }
+  
+  /* Estilo del contenedor de los botones de eliminar */
+.eliminar-botones {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  /* Estilo de los botones de eliminar */
+  .eliminar-boton {
+    padding: 10px 20px;
+    background-color: var(--site-color-verde);
+    color: var(--site-color-blanco-texto);
+    font-family: var(--site-font-body), sans-serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .eliminar-boton:hover {
+    background-color: var(--site-color-lila);
+    transform: scale(1.05);
+  }
+  
+  /* Botón regresar al formulario */
+  .boton-regresar {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: var(--site-color-lila);
+    color: var(--site-color-blanco-texto);
+    font-family: var(--site-font-body), sans-serif;
+    text-decoration: none;
+    border-radius: 8px;
+  }
+  
+  .boton-regresar:hover {
+    background-color: var(--site-color-verde);
+  }
+  
