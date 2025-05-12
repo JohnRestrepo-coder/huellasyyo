@@ -153,12 +153,53 @@
     border-radius: 3px;
     cursor: pointer;
   }
+  
   .boton-ver-mascotas-container {
     display: flex;
     justify-content: center; 
     align-items: center; 
     margin-top: 20px; 
   }
+
+
+
+
+
+  
+button.btn-primary {
+  background-color: var(--site-color-verde);
+  border-color: var(--site-color-verde);
+}
+
+button.btn-primary:hover {
+  background-color: darken(var(--site-color-verde), 10%);
+  border-color: darken(var(--site-color-verde), 10%);
+}
+
+
+
+
+
+#verMascotasBtn {
+  background-color: var(--site-color-verde);
+  border-color: var(--site-color-verde);
+  color: var(--site-color-blanco-texto); 
+  font-family: var(--site-font-body);
+  font-weight: bold;
+}
+
+#verMascotasBtn:hover {
+  background-color: darken(var(--site-color-verde), 10%);
+  border-color: darken(var(--site-color-verde), 10%);
+}
+
+#verMascotasBtn:focus {
+  outline: none;
+  box-shadow: 0 0 8px 3px var(--site-color-verde);
+}
+
+
+
  
   .boton-ver-mascotas {
     padding: 8px 15px;
