@@ -3,26 +3,26 @@
     display: inline-block;
     padding: 10px 20px;
     margin-top: 20px;
-    background-color: var(--site-color-verde); /* Usando el verde definido en :root */
-    color: var(--site-color-blanco-texto); /* Usando blanco para el texto */
+    background-color: var(--site-color-verde); 
+    color: var(--site-color-blanco-texto); 
     text-decoration: none;
     border-radius: 5px;
     text-align: center;
-    font-family: var(--site-font-body), sans-serif; /* Usando la fuente de body */
-    font-weight: bold; /* Para darle un estilo más destacado */
-    transition: background-color 0.3s ease; /* Transición suave para hover */
+    font-family: var(--site-font-body), sans-serif; 
+    font-weight: bold; 
+    transition: background-color 0.3s ease; 
   }
   
   .boton-volver-formulario:hover {
-    background-color: #45A049; /* Un tono más oscuro del verde para hover */
+    background-color: #45A049; 
   }
   
   .boton-volver-formulario:focus {
-    outline: none; /* Evitar el borde por defecto en el foco */
-    box-shadow: 0 0 5px 2px var(--site-color-verde); /* Añadir sombra al enfocarse */
+    outline: none; 
+    box-shadow: 0 0 5px 2px var(--site-color-verde); 
   }
   
-  /* Estilo del contenedor de los botones de eliminar */
+ 
 .eliminar-botones {
     margin-top: 20px;
     display: flex;
@@ -30,7 +30,7 @@
     justify-content: center;
   }
   
-  /* Estilo de los botones de eliminar */
+ 
   .eliminar-boton {
     padding: 10px 20px;
     background-color: var(--site-color-verde);
@@ -48,7 +48,7 @@
     transform: scale(1.05);
   }
   
-  /* Botón regresar al formulario */
+  
   .boton-regresar {
     display: block;
     margin-top: 30px;
