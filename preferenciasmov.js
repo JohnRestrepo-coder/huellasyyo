@@ -1,5 +1,7 @@
 const movPag = document.querySelector(".movPag");
 const btn_adelante2 = document.querySelector(".sigPag");
+const pagina = document.querySelectorAll(".pagina")
+const formulario = document.querySelector(".form-princ")
 
 const btn_atras1 = document.querySelector(".volver-pag1");
 const btn_adelante3 = document.querySelector(".adelante-pag3");
@@ -15,6 +17,8 @@ let cont = 1;
 
 btn_adelante2.addEventListener("click", function (e) {
     e.preventDefault();
+    pagina[1].style.height = "auto";
+    formulario.style.height = "auto";
     movPag.style.marginLeft = "-34%";
     num[cont - 1].classList.add("active");
     progressCheck[cont - 1].classList.add("active");
@@ -24,6 +28,8 @@ btn_adelante2.addEventListener("click", function (e) {
 
 btn_adelante3.addEventListener("click", function (e) {
     e.preventDefault();
+    pagina[2].style.height = "auto";
+    formulario.style.height = "auto";
     movPag.style.marginLeft = "-68%";
     num[cont - 1].classList.add("active");
     progressCheck[cont - 1].classList.add("active");
@@ -52,6 +58,8 @@ btn_final.addEventListener("click", function (e) {
 
 btn_atras1.addEventListener("click", function (e) {
     e.preventDefault();
+    pagina[0].style.height = "400px";
+    formulario.style.height = "400px";
     movPag.style.marginLeft = "0%";
     num[cont - 2].classList.remove("active");
     progressCheck[cont - 2].classList.remove("active");
@@ -61,6 +69,8 @@ btn_atras1.addEventListener("click", function (e) {
 
 btn_atras2.addEventListener("click", function (e) {
     e.preventDefault();
+    pagina[1].style.height = "auto";
+    formulario.style.height = "auto";
     movPag.style.marginLeft = "-34%";
     num[cont - 2].classList.remove("active");
     progressCheck[cont - 2].classList.remove("active");

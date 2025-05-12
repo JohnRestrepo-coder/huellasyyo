@@ -14,6 +14,7 @@
     background-position: center;
     background-repeat: no-repeat;        
     font-family: 'Quicksand', sans-serif;
+    height: 100vh;
  }
 
 
@@ -48,6 +49,7 @@
  .form-princ form .pagina {
     width: 34%;
     transition: margin-left 0.3s ease-in-out;
+    height: 400px;
  }
 
  .form-princ form .pagina .titulo {
@@ -243,9 +245,6 @@
     background-color: #4CAF4F;
     font-size: 15px;
 }
-
-
-
 
 
 
