@@ -225,6 +225,19 @@ button.btn-primary:hover {
     outline: none;
     box-shadow: 0 0 8px 3px var(--site-color-lila);
   }
+
+  input[type="number"] {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1.5px solid #4bb543;
+  border-radius: 4px;
+  font-size: 1em;
+  margin-bottom: 4px;
+  background: #fff;
+  color: #333;
+  outline: none;
+  box-sizing: border-box;
+}
   
   
   @media (max-width: 768px) {
