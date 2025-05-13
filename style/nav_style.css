@@ -12,8 +12,19 @@
 }
 
 .custom-navbar {
-  background-color: #CFAFD8;
+  background-color: var(--site-color-fondo-2);
 }
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+  color: var(--site-color-negro-texto) !important;
+}
+
+.custom-navbar .nav-link.bg-verde-root {
+  background-color: transparent !important;
+}
+
+
 
 .custom-navbar .navbar-nav {
   font-weight: 700;
@@ -25,8 +36,14 @@
 }
 
 .nav-link-tamaño {
-  min-width: 130px; /* Puedes ajustar este valor según el diseño */
+  min-width: 130px; /* Jugar con estos valores por si algo */
   text-align: center;
+   font-size: 1.2rem;
+    transition: font-size 0.3s ease;
+}
+
+.nav-link-tamaño:hover {
+  font-size: 1.35rem;        /* Esto para hacer el efectito ese de AGRANDAR la letra */
 }
 
 .form button {
@@ -46,11 +63,41 @@
 }
 
 .logo-container {
-  margin-right: auto; /* Empuja todo a la derecha */
+  margin-right: auto; /* Esto es lo que empuja el logo a la derecha */
   padding-left: 0%;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 991.98px) 
+
+{ /* Solo aplica en vista móvil (lg breakpoint) */
+    .side-collapse {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 250px;
+      height: auto;
+      /* height: auto;
+overflow-y: auto; dejarlo por si en algunos celulare no cabe podemor probar esto */
+      background-color: var(--site-color-fondo-1); /* Cambia si usas otro fondo */
+      padding: 80px 20px 20px 20px;
+      /*padding-top: 80px; /* espacio para el navbar fijo */
+      z-index: 1050;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+      transform: translateX(100%);
+    }
+
+    .side-collapse.show {
+      transform: translateX(0);
+    }
+
+     .navbar-toggler {
+      z-index: 1060;
+    }
+    
+  }
+
+/* {
   .logo-container {
     margin-left: 0 !important;
     padding-left: 8px;
@@ -64,7 +111,19 @@
   .navbar-brand {
     font-size: 1.6rem;
   }
+} */ 
+
+
+@media (max-width: 768px) {
+  .navbar-nav .nav-item {
+    width: 100%;
+  }
+
+  .navbar-nav .nav-link {
+    width: 100%;
+  }
 }
+
 
 @media (max-width: 576px) {
   .logo-img {
@@ -78,3 +137,60 @@
 }
 
 
+
+
+/* ENTRE 600px Y 767px: toca revisar por que esto es lo que hace que se vean dos botones por fila */
+@media (min-width: 320px) and (max-width: 678px) {
+  #navbarNav .navbar-nav {
+    /* flex-direction: row !important; esto fuerza las dos columnas */
+
+    flex-direction: column !important;
+    align-items: center;
+    gap: 15px;
+  }
+
+  #navbarNav .nav-item {
+        width: 100%;
+  
+    flex: 0 0 48%;
+    max-width: 90%;
+  }
+
+  #navbarNav .nav-link {
+    width: 100%;
+  }
+
+  /* No tocar por que jode el iniciar sesion */
+  #navbarNav .d-lg-none {
+        width: 100%;
+    margin-top: 20px;
+    display: flex !important;
+    justify-content: center;
+  }
+}
+
+
+@media (min-width: 680px) and (max-width: 767.98px) {
+  #navbarNav .navbar-nav {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    gap: 10px;
+  }
+
+  #navbarNav .nav-item {
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  #navbarNav .nav-link {
+    width: auto;
+  }
+
+  /* Botón "Iniciar sesión" en móviles, debajo del menú.  De nuevo no lo toques por que jode*/
+  #navbarNav .d-lg-none {
+    flex-basis: 50%;
+    display: flex !important;
+    justify-content: center;
+  }
+}
