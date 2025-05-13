@@ -12,7 +12,7 @@ formulario.addEventListener('submit', function (e) {
 
   if (usuarioAutenticado) {
     alert("¡Inicio de sesión exitoso!");
-    window.location.href = 'pagina-principal.html';
+    window.location.href = 'inicio.html';
   } else {
     alert("Correo electrónico o contraseña incorrectos.");
   }
