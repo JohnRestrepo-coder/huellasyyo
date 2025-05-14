@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./style/preferencias.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
+    <!-- <link rel="stylesheet" href="./style/base_style.css" /> -->
+    <title>Preferencias</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Preferencias</h1>
+        <div class="progress-bar">
+            <div class="paso">
+                <p>Datos usuario</p>
+                <div class="num">
+                    <span>1</span>
+                </div>
+                <div class="check fas fa-check"></div>
+            </div>
+            <div class="paso">
+                <p>Mascota</p>
+                <div class="num">
+                    <span>2</span>
+                </div>
+                <div class="check fas fa-check"></div>
+            </div>
+            <div class="paso">
+                <p>Entorno</p>
+                <div class="num">
+                    <span>3</span>
+                </div>
+                <div class="check fas fa-check"></div>
+            </div>
+        </div>
+
+        <div class="form-princ">
+            <form action="#">
+                <!--Pagina 1-->
+                <div class="pagina movPag paginaPequeña">
+                    <div class="titulo">Información del usuario</div>
+                    <div class="campo">
+                        <div class="label">¿Cómo quieres que te llamemos?: </div>
+                        <input type="text" id="username" placeholder="username">
+                    </div>
+                    <div class="campo">
+                        <div class="label">¿Qué edad tienes?: </div>
+                        <select id="edaduser">
+                            <option value="-1" disabled selected>Escoge una opción</option>
+                            <option value="0">Menor de 18 años</option>
+                            <option value="1">Entre 18 y 50 años</option>
+                            <option value="2">Mayor a 50 años</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <div class="label"> Localidad de adopción: </div>
+                        <select id="localidad">
+                            <option value="-1" disabled selected>Escoge una opción</option>
+                            <option value="0">Usaquén</option>
+                            <option value="1">Chapinero</option>
+                            <option value="2">Santa Fe</option>
+                            <option value="3">San Cristóbal</option>
+                            <option value="4">Usme</option>
+                            <option value="5">Tunjuelito</option>
+                            <option value="6">Bosa</option>
+                            <option value="7">Kennedy</option>
+                            <option value="8">Fontibón</option>
+                            <option value="9">Engativá</option>
+                            <option value="10">Barrios Unidos</option>
+                            <option value="11">Teusaquillo</option>
+                            <option value="12">Los Mártires</option>
+                            <option value="13">Antonio Nariño</option>
+                            <option value="14">Puente Aranda</option>
+                            <option value="15">La Candelaria</option>
+                            <option value="16">Rafael Uribe Uribe</option>
+                            <option value="17">Ciudad Bolívar</option>
+                            <option value="18">Suba</option>
+                            <option value="19">Sumapaz</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <div class="label">Sexo: </div>
+                        <select id="sexouser">
+                            <option value="-1" disabled selected>Escoge una opción</option>
+                            <option value="0">Femenino</option>
+                            <option value="1">Masculino</option>
+                            <option value="2">Sin especificar</option>
+                        </select>
+                    </div>
+                    <div class="campo sigPag">
+                        <button class="adelante-pag2 adelante">Siguiente</button>
+                    </div>
+                </div>
+                <!--Pagina 2-->
+                <div class="pagina">
+                    <div class="titulo">Características de la mascota</div>
+
+                    <div class="campo">
+                        <div class="label">¿Qué especie buscas?: </div>
+                        <select id="especie-preferencia">
+                            <option value="-1" disabled selected>Escoge una opción</option>
+                            <option value="0">Gato(a)</option>
+                            <option value="1">Perro(a)</option>
+                            <option value="2">Cualquiera de los dos</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <div class="label">¿Deseas una raza en particular?: </div>
+                        <select id="raza-preferencia">
+                            <option value="-1" disabled selected>Escoge una opción</option>
+                            <option value="0">Si</option>
+                            <option value="1">No</option>                            
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <div class="label">Si deseas una raza en particular, ¿Cuál preferirías?: </div>
+                        <select id="raza-busqueda">
+                            <option value="-1" disabled selected>Escoge una opción</option>
+                            <option value="0">No aplica</option>
+                            <option value="1">Criollo</option> 
+                            <option value="2">Raza mixta</option> 
+                            <option value="3">Labrador</option>                            
+                            <option value="4">Golden Retriever</option>                            
+                            <option value="5">Bulldog</option>                            
+                            <option value="6">Shih Tzu</option>                            
+                            <option value="7">Pitbull</option>                            
+                            <option value="8">Pastor Alemán</option>                            
+                            <option value="9">Beagle</option>                            
+                            <option value="10">Poodle</option>                            
+                            <option value="11">Chihuahua</option>                            
+                            <option value="12">Yorkshire Terrier</option>                                                 
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <div class="label">¿Cómo te gustaría que fuera el carácter?: </div>
+                        <select id="caracter-preferencia">
+                            <option value="-1" disabled selected>Escoge una opción</option>
+                            <option value="0">Activo(a)-Juguetón, enérgico, saltarín, etc</option>
+                            <option value="1">Pasivo(a)-Dormilón, tierno, calmado, etc</option>                            
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <div class="label">¿Tienes preferencia acerca del tamaño?: </div>
+                        <select id="tamaño-preferencia">
+                            <option value="-1" disabled selected>Escoge una opción</option>
+                            <option value="0">No importa su tamaño</option>
+                            <option value="1">Prefiero un tamaño pequeño</option>                            
+                            <option value="2">Prefiero un tamaño mediano</option>                            
+                            <option value="3">Prefiero un tamaño grande</option>                            
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <div class="label">¿Tienes preferencia acerca de la edad?: </div>
+                        <select id="edad-preferencia">
+                            <option value="-1" disabled selected>Escoge una opción</option>
+                            <option value="0">No importa su edad</option>
+                            <option value="1">Prefiero que sea cachorro(a)</option>                            
+                            <option value="2">Prefiero que sea joven</option>                            
+                            <option value="3">Prefiero que sea adulto(a)</option>                            
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <div class="label">¿Tienes preferencia acerca del sexo tu mascota?: </div>
+                        <select id="sexo-preferencia">
+                            <option value="-1" disabled selected>Escoge una opción</option>
+                            <option value="0">No importa su sexo</option>
+                            <option value="1">Prefiero que sea hembra</option>                            
+                            <option value="2">Prefiero que sea macho</option>                            
+                        </select>
+                    </div>
+                    <div class="campo btns">
+                        <button class="volver-pag1 volver">Atrás</button>
+                        <button class="adelante-pag3 adelante">Siguiente</button>
+                    </div>
+                </div>
+                <!--Pagina 3-->
+                <div class="pagina">
+                    <div class="titulo">Características de convivencia</div>
+
+                    <div class="campo">
+                        <div class="label">¿Haz tenido mascota antes?: </div>
+                        <select id="experiencia-preferencia">
+                            <option value="-1" disabled selected>Escoge una opción</option>
+                            <option value="0">Si, ya tengo experiencia con mascotas</option>
+                            <option value="1">No, esta será la primera vez</option>                            
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <div class="label">¿En qué tipo de vivienda vivirías con tu mascota?</div>
+                        <select id="vivienda-preferencia">
+                            <option value="-1" disabled selected>Escoge una opción</option>
+                            <option value="0">Casa</option>
+                            <option value="1">Apartamento</option>                            
+                            <option value="2">Finca</option>                            
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <div class="label">¿Cuánto tiempo podrías dedicarle al día?: </div>
+                        <select id="tiempo-preferencia">
+                            <option value="-1" disabled selected>Escoge una opción</option>
+                            <option value="0">1 hora</option>
+                            <option value="1">1 - 3 horas</option>                            
+                            <option value="2">Más de 3 horas</option>                            
+                            <option value="3">Puedo estar con el(ella) la mayor parte del día</option>                            
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <div class="label">¿Necesitas que se lleve bien con otras mascotas?: </div>
+                        <select id="rxmascotas-preferencia">
+                            <option value="-1" disabled selected>Escoge una opción</option>
+                            <option value="0">Si, con perros</option>
+                            <option value="1">Si, con gatos</option>                            
+                            <option value="2">Si, con perros y gatos</option>                            
+                            <option value="3">No es necesario</option>                            
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <div class="label">¿Buscas que se lleve bien con niños?: </div>
+                        <select id="rxninos-preferencia">
+                            <option value="-1" disabled selected>Escoge una opción</option>
+                            <option value="0">Si, es importante</option>
+                            <option value="1">No es necesario</option>                           
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <div class="label">¿Viajarías con tu mascota en carro?: </div>
+                        <select id="viaje-preferencia">
+                            <option value="-1" disabled selected>Escoge una opción</option>
+                            <option value="0">Si</option>
+                            <option value="1">No</option>                           
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <div class="label">¿Qué nivel de adiestramiento podrías ofrecer?: </div>
+                        <select id="adiestra-preferencia">
+                            <option value="-1" disabled selected>Escoge una opción</option>
+                            <option value="0">Prefiero que no necesite adiestramiento</option>
+                            <option value="1">Me gustaría poder adiestrarlo un poco</option>                           
+                            <option value="2">Tengo experiencia con el adiestramiento, podría adiestrarlo(a)</option>                           
+                        </select>
+                    </div>
+                    <div class="campo btns">
+                        <button class="volver-pag2 volver">Atrás</button>
+                        <button class="Fin">Finalizar</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+    <script src="preferenciasmov.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
