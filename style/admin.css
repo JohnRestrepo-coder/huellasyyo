@@ -107,7 +107,7 @@
   }
   
   input[type="checkbox"] {
-    accent-color: #4bb543;
+    accent-color: #cccc;
     width: 16px;
     height: 16px;
   }
@@ -221,7 +221,7 @@ button.btn-primary:hover {
   input[type="number"] {
   width: 100%;
   padding: 6px 8px;
-  border: 1.5px solid #4bb543;
+  border: 1.5px solid #cccc;
   border-radius: 4px;
   font-size: 1em;
   margin-bottom: 4px;
