@@ -1,24 +1,27 @@
-.contactanos {
-  display: flex;
-  justify-content: center;     
-  align-items: flex-start;     
-  min-height: auto; /* Quitar 100vh */
-  padding: 2rem 0;
-       
-  background-color: var(--site-color-fondo-1); 
-  margin-top: 0; /* quitar margen superior */
-  margin-bottom: 0; /* quitar margen inferior */
+main {
+  background-color: var(--site-color-fondo-1);
 }
 
-main {
-  margin-top: -15px; /* ajusta según el tamaño exacto de tu navbar */
+.contactanos {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: auto;
+  /* Quitar 100vh */
+  padding: 2rem 0;
+
+  background-color: var(--site-color-fondo-1);
+  margin-top: 0;
+  /* quitar margen superior */
+  margin-bottom: 0;
+  /* quitar margen inferior */
 }
 
 /* el tamaño del contenedor es 60% y 40% mirar como queda en celulares*/
 .contact-grid {
   display: flex;
   flex-wrap: wrap;
-  width: 60vw;            
+  width: 60vw;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -82,23 +85,6 @@ main {
   cursor: pointer;
 }
 
-/* aca cambia de tamaño para celulares, revisar si queda mal */
-@media (max-width: 768px) {
-  .contact-grid {
-    flex-direction: column;
-    width: 90vw;
-    height: auto;
-  }
-
-  .contactanos {
-    padding: 2rem 1rem;
-    height: auto;
-  }
-}
-
-
-
-
 #mascota-aleatoria {
   width: 100%;
   max-width: 300px;
@@ -107,6 +93,7 @@ main {
   border-radius: 12px;
   margin-bottom: 10px;
 }
+
 .contact-image {
   display: flex;
   flex-direction: column;
@@ -131,24 +118,35 @@ main {
 
 .input-row {
   display: flex;
-  flex-wrap: wrap; /* Allows the inputs to wrap if needed on smaller screens */
-  gap: 1rem; /* Adds spacing between the inputs */
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .input-group {
   display: flex;
-  flex-direction: row; /* Aligns the name and phone fields side by side */
-  gap: 1rem; /* Adds spacing between the name and phone fields */
-  width: 100%; /* Ensures the group takes full width */
+  gap: 1rem;
+  width: 100%;
+  align-items: flex-start;
 }
 
+.input-wrapper {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
 .input-group label {
-  display: block; /* Ensures labels are above their respective inputs */
+  display: block;
+  /* Ensures labels are above their respective inputs */
 }
 
 .input-group input {
-  flex: 1; /* Makes the inputs take equal space within the row */
-  min-width: 0; /* Prevents inputs from overflowing */
+  flex: 1;
+  /* Makes the inputs take equal space within the row */
+  min-width: 0;
+  /* Prevents inputs from overflowing */
 }
 
 /* Adjust the other fields (Correo and Mensaje) to remain full-width */
@@ -159,22 +157,66 @@ main {
 
 .form input[type="email"],
 .form textarea {
-  width: 100%; /* Keep these fields full-width */
+  width: 100%;
+  /* Keep these fields full-width */
 }
 
-/* Responsive adjustment for smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 1279px) and (min-width: 700px) {
+  .contact-grid {
+    width: 80vw;
+    height: auto;
+  }
+
   .input-group {
-    flex-direction: column; /* Stack the fields vertically on smaller screens */
+    flex-direction: column;
     gap: 0.5rem;
   }
 
-  .input-group input {
-    width: 100%; /* Full width for inputs on smaller screens */
+  .input-wrapper {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .input-wrapper .form-control {
+    width: 100%;
+  }
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 699px) {
+  .input-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .input-wrapper {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .input-wrapper .form-control {
+    width: 100%;
+  }
+}
+
+/* aca cambia de tamaño para celulares, revisar si queda mal */
+@media (max-width: 699px) {
+  .contact-grid {
+    flex-direction: column;
+    width: 90vw;
+    height: auto;
+  }
+
+  .contactanos {
+    padding: 2rem 1rem;
+    height: auto;
   }
 }
 
 #enviar {
   width: 100%;
-  }
-
+}
