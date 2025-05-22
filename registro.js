@@ -38,7 +38,7 @@ validator.addField('confirmarPassword', [
 window.onload = () => {
   const usuariosGuardados = JSON.parse(localStorage.getItem('usuarioLogeado'));
   if (usuariosGuardados) {
-    window.location.href = 'inicio.html';
+    window.location.href = 'index.html';
   }
 
   document.getElementById('login-container').classList.add('visible');

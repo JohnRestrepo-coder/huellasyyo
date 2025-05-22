@@ -4,7 +4,7 @@ export function configurarEventosCerrarSesion() {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       localStorage.removeItem('usuarioLogeado');
-      window.location.href = 'inicio.html';
+      window.location.href = 'index.html';
     });
   });
 }

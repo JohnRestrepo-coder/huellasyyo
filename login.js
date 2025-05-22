@@ -17,7 +17,7 @@ validator.addField('password', [
 window.onload = () => {
   const usuariosGuardados = JSON.parse(localStorage.getItem('usuarioLogeado'));
   if (usuariosGuardados) {
-    window.location.href = 'inicio.html';
+    window.location.href = 'index.html';
   }
 
   document.getElementById('login-container').classList.add('visible');
@@ -48,7 +48,7 @@ formulario.addEventListener('submit', function (e) {
       return;
     }
     localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioAutenticado))
-    window.location.href = 'inicio.html';
+    window.location.href = 'index.html';
   }
 });
 
