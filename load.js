@@ -1,5 +1,7 @@
+import { configurarEventosCerrarSesion, actualizarUIConUsuario } from "./nav.js";
+
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('./nav.html')  
+  fetch('./nav.html')
     .then(response => {
       if (!response.ok) {
         throw new Error('No se pudo cargar el HTML');
@@ -13,6 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
       link.type = 'text/css';
       link.href = './style/nav_style.css';
       document.head.appendChild(link);
+
+      configurarEventosCerrarSesion();
+      const usuarioGuardado = JSON.parse(localStorage.getItem('usuarioLogeado'));
+      actualizarUIConUsuario(usuarioGuardado);
+
     })
     .catch(error => {
       console.error('Hubo un error:', error);
@@ -20,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('./footer.html')  
+  fetch('./footer.html')
     .then(response => {
       if (!response.ok) {
         throw new Error('No se pudo cargar el HTML');
