@@ -36,6 +36,13 @@ validator.addField('confirmarPassword', [
 ]);
 
 window.onload = () => {
+  let usuariosSistema = JSON.parse(localStorage.getItem('usuarios'));
+
+  if (!usuariosSistema) {
+    const nuevoUsuario = { nombre: "Admin", telefono: 1234567890, correo: "adminhuellas@gmail.com", password: "Kilerwinkmkskl99*", idTipoUsuario: 2, preferencias: [], imagenUsuario: "https://firebasestorage.googleapis.com/v0/b/dwb-archivos.appspot.com/o/Sin%20perfil.webp?alt=media&token=410bb694-4db7-4bc6-a218-f8fae38b7faf" };
+    usuariosSistema = [nuevoUsuario]
+    localStorage.setItem('usuarios', JSON.stringify(usuariosSistema));
+  }
   const usuariosGuardados = JSON.parse(localStorage.getItem('usuarioLogeado'));
   if (usuariosGuardados) {
     window.location.href = 'index.html';
