@@ -65,7 +65,7 @@ formulario.addEventListener('submit', function (e) {
       return;
     }
 
-    const nuevoUsuario = { nombre: nombre.value.trim(), telefono: telefono.value.trim(), correo: correo.value.trim(), password: password.value, idTipoUsuario:1, preferencias : [] , imagen_usuario:"https://www.google.com/url?sa=i&url=https%3A%2F%2Fes.dreamstime.com%2Fvector-de-perfil-avatar-predeterminado-foto-usuario-medios-sociales-icono-image183042379&psig=AOvVaw0vKKZtgKQaIRg_ITWrJjD0&ust=1747973384328000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKCx6beato0DFQAAAAAdAAAAABAE"};
+    const nuevoUsuario = { nombre: nombre.value.trim(), telefono: telefono.value.trim(), correo: correo.value.trim(), password: password.value, idTipoUsuario: 1, preferencias: [], imagenUsuario: "https://firebasestorage.googleapis.com/v0/b/dwb-archivos.appspot.com/o/Sin%20perfil.webp?alt=media&token=410bb694-4db7-4bc6-a218-f8fae38b7faf" };
 
     usuariosGuardados.push(nuevoUsuario);
 
