@@ -1,42 +1,106 @@
+import Validator from "./validator.js"
 
-  const formulario = document.querySelector('form');
+const formulario = document.querySelector('form');
+const nombre = document.getElementById('nombre');
+const telefono = document.getElementById('telefono');
+const correo = document.getElementById('correo');
+const password = document.getElementById('password');
+const confirmarPassword = document.getElementById('confirmarPassword');
+const togglePassword = document.getElementById('togglePassword');
+const togglePasswordConfirm = document.getElementById('togglePasswordConfirm');
+const validator = new Validator();
 
-  formulario.addEventListener('submit', function (e) {
-    e.preventDefault();
+validator.addField('nombre', [
+  { rule: 'required', message: 'El nombre es obligatorio.' },
+  { rule: 'onlyLetters', message: 'El nombre solo debe contener letras.' }
+]);
 
-    const nombre = document.getElementById('nombre').value.trim();
-    const telefono = document.getElementById('telefono').value.trim();
-    const correo = document.getElementById('correo').value.trim();
-    const password = document.getElementById('password').value;
-    const confirmarPassword = document.getElementById('confirmarPassword').value;
+validator.addField('telefono', [
+  { rule: 'required', message: 'El telefono es obligatorio.' },
+  { rule: 'phone', message: 'El telefono debe tener 10 numeros sin letras.' }
+]);
 
-    const correoValido = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(correo);
-    const passwordValida = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/.test(password);
+validator.addField('correo', [
+  { rule: 'required', message: 'El correo es obligatorio.' },
+  { rule: 'email', message: 'Correo inválido.' }
+]);
 
-    if (!correoValido) {
-      alert("Por favor ingresa un correo electrónico válido.");
+validator.addField('password', [
+  { rule: 'required', message: 'El campo contraseña no puede estar vacio.' },
+  { rule: 'password', message: 'La contraseña debe tener mínimo 8 caracteres, una mayúscula, un número y un símbolo.' }
+]);
+
+validator.addField('confirmarPassword', [
+  { rule: 'required', message: 'El campo confirmacion contraseña es obligatorio.' },
+  { rule: 'match', params: 'password', message: 'Las contraseñas no coinciden.' }
+]);
+
+window.onload = () => {
+  const usuariosGuardados = JSON.parse(localStorage.getItem('usuarioLogeado'));
+  if (usuariosGuardados) {
+    window.location.href = 'inicio.html';
+  }
+
+  document.getElementById('login-container').classList.add('visible');
+
+}
+
+formulario.addEventListener('submit', function (e) {
+  e.preventDefault();
+  if (validator.validateAll()) {
+    const usuariosGuardados = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+    const usuarioRegistrado = usuariosGuardados.find(usuario => usuario.correo === correo.value.trim())
+
+    if (usuarioRegistrado) {
+      Swal.fire({
+        title: '¡Error al crear el usuario!',
+        text: 'El correo electronico ya esta registrado en el sistema.',
+        icon: 'error',
+        customClass: {
+          popup: 'mi-alerta-personalizada',
+          confirmButton: 'ok-personalizado',
+        }
+      });
       return;
     }
 
-    if (!passwordValida) {
-      alert("La contraseña debe tener mínimo 8 caracteres, una mayúscula, un número y un símbolo.");
-      return;
-    }
-
-    if (password !== confirmarPassword) {
-      alert("Las contraseñas no coinciden.");
-      return;
-    }
-
-    const nuevoUsuario = { nombre, telefono, correo, password };
-
-    let usuariosGuardados = JSON.parse(localStorage.getItem('usuarios')) || [];
+    const nuevoUsuario = { nombre: nombre.value.trim(), telefono: telefono.value.trim(), correo: correo.value.trim(), password: password.value, idTipoUsuario:1, preferencias : [] , imagen_usuario:"https://www.google.com/url?sa=i&url=https%3A%2F%2Fes.dreamstime.com%2Fvector-de-perfil-avatar-predeterminado-foto-usuario-medios-sociales-icono-image183042379&psig=AOvVaw0vKKZtgKQaIRg_ITWrJjD0&ust=1747973384328000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKCx6beato0DFQAAAAAdAAAAABAE"};
 
     usuariosGuardados.push(nuevoUsuario);
 
     localStorage.setItem('usuarios', JSON.stringify(usuariosGuardados));
-
-    alert("¡Registro exitoso! Tus datos han sido guardados.");
+    Swal.fire({
+      title: '¡Registro exitoso!',
+      text: 'Tus datos han sido guardados.',
+      icon: 'success',
+      customClass: {
+        popup: 'mi-alerta-personalizada',
+        confirmButton: 'ok-personalizado',
+      }
+    });
     formulario.reset();
-  });
+  }
+});
+
+
+// manejo de visibilidad de password
+togglePassword.addEventListener('click', () => {
+  const isPassword = password.type === 'password';
+  password.type = isPassword ? 'text' : 'password';
+
+  togglePassword.innerHTML = isPassword
+    ? '<i class="fa-solid fa-eye-slash"></i>'
+    : '<i class="fa-solid fa-eye"></i>';
+});
+
+
+togglePasswordConfirm.addEventListener('click', () => {
+  const isPassword = confirmarPassword.type === 'password';
+  confirmarPassword.type = isPassword ? 'text' : 'password';
+
+  togglePasswordConfirm.innerHTML = isPassword
+    ? '<i class="fa-solid fa-eye-slash"></i>'
+    : '<i class="fa-solid fa-eye"></i>';
+});
 
