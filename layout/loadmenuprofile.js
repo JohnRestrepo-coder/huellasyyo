@@ -1,3 +1,5 @@
+const sidebar = document.getElementById("sidebar")
+const contenido = document.getElementById("contenido")
 document.addEventListener('DOMContentLoaded', () => {
   fetch('../layout/menuprofile.html')
     .then(response => {
@@ -14,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.href = '../styles/global/styleplantillaperfil.css';
       document.head.appendChild(link);
       cargarOpcionesMenu();
+      navegabilidad();
     })
     .catch(error => {
       console.error('Hubo un error:', error);
@@ -38,3 +41,26 @@ const cargarOpcionesMenu = () => {
     }
   }
 }
+
+const navegabilidad = () => {
+  const enlaces = document.querySelectorAll('.navegar');
+
+  enlaces.forEach(enlace => {
+    enlace.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      const urlDestino = new URL(enlace.href);
+      const urlActual = new URL(window.location.href);
+
+      if (urlDestino.pathname === urlActual.pathname) {
+        if (window.innerWidth < 699) {
+          sidebar.classList.toggle("ocultar")
+          contenido.classList.toggle("ocultar")
+        }
+      } else {
+        window.location.href = enlace.href;
+      }
+    });
+  });
+}
+

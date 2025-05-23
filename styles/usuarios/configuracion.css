@@ -1,0 +1,86 @@
+.controles {
+  display: flex;
+  justify-content: space-between;
+}
+
+.controles a {
+  cursor: pointer;
+}
+
+.controles a:hover {
+  opacity: 0.8;
+}
+
+form h1 {
+  font-family: var(--site-font-title);
+  font-size: 2rem;
+  color: var(--site-color-negro-texto);
+  margin-bottom: 0.5rem;
+}
+
+form p {
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+form input {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: var(--site-font-body);
+}
+
+form label {
+  text-align: start;
+}
+
+
+form button {
+  padding: 0.75rem;
+  background-color: var(--site-color-verde);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background-color: #3e9f45;
+}
+
+form input {
+  width: auto;
+}
+
+form button {
+  width: 10rem;
+}
+
+.mi-alerta-personalizada {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #f0f9ff;
+  border-radius: 20px;
+  padding: 20px;
+  color: #000;
+  font-size: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.ok-personalizado {
+  font-family: 'Quicksand', sans-serif;
+  background-color: var(--site-color-verde);
+  font-size: 15px;
+}
+
+.ok-personalizado:hover {
+  background-color: #4CAF4F;
+  opacity: 0.9;
+}

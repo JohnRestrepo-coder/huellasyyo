@@ -1,24 +1,35 @@
 .body {
-    padding: 80px;
+  padding: 80px;
+}
+
+.contenedorgeneral {
+  display: none;
+}
+
+.contenedorgeneral.visible {
+  display: flex;
 }
 
 /* menu */
 .sidebar {
-  margin: 0;
-  padding: 0;
   width: 25%;
-  background-color: #F5F7FA;
+  padding: 2rem;
+  margin: 2rem;
+  background-color: var(--site-color-fondo-1);
+  border-radius: 0.30rem;
+  height: max-content;
   /* position: fixed;
   height: fit-content;
   overflow: auto; */
 
 }
-.contenedorgeneral {
-  display: flex;
-}
 
 .contenido {
   width: 75%;
+  padding: 3rem;
+  margin: 2rem;
+  background-color: var(--site-color-fondo-1);
+  border-radius: 0.30rem;
 }
 
 /* links */
@@ -53,20 +64,67 @@
   color: white;
 }
 
-
-@media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
+.visualizar {
+  display: none;
 }
 
-@media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
+@media (max-width: 1279px) and (min-width: 700px) {
+  .sidebar {
+    width: 25%;
+    padding: 0.5rem;
+    margin: 1rem;
+    background-color: var(--site-color-fondo-1);
+    border-radius: 0.30rem;
+    /* position: fixed;
+  height: fit-content;
+  overflow: auto; */
+
+  }
+
+  .contenido {
+    width: 75%;
+    padding: 2rem;
+    margin: 1rem;
+    background-color: var(--site-color-fondo-1);
+    border-radius: 0.30rem;
+  }
+}
+
+
+@media (max-width: 699px) {
+  .ocultar {
+    display: none;
+  }
+
+  .visualizar {
+    display: block;
+    color: var(--site-color-negro-texto) !important;
+    cursor: pointer;
+  }
+
+  .visualizar:hover {
+    opacity: 0.80;
+  }
+
+
+
+  .sidebar {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 1rem;
+    background-color: var(--site-color-fondo-1);
+    border-radius: 0.30rem;
+    /* position: fixed;
+  height: fit-content;
+  overflow: auto; */
+
+  }
+
+  .contenido {
+    width: 100%;
+    padding: 2rem;
+    margin: 1rem;
+    background-color: var(--site-color-fondo-1);
+    border-radius: 0.30rem;
   }
 }
