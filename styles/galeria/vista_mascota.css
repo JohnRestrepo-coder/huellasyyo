@@ -36,7 +36,20 @@ h2 {
 .informacion {
   margin-left: 50px;
   padding: 0 1rem 1rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  height: max-content;
 }
+
+.informacion:hover {
+  border-color: var(--site-color-lila);
+  box-shadow: 0 6px 16px rgba(207, 175, 216, 0.25);
+}
+
 
 .nombre-mascota {
   text-align: center;
@@ -133,9 +146,11 @@ h2 {
 
 .btn-me-gusta {
   position: relative;
-  background-color: var(--site-color-verde); /* verde tailwind emerald-500 */
+  background-color: var(--site-color-verde);
+  /* verde tailwind emerald-500 */
   border: none;
-  border-radius: 9999px; /* círculo */
+  border-radius: 9999px;
+  /* círculo */
   width: 50px;
   height: 50px;
   display: flex;
@@ -143,6 +158,7 @@ h2 {
   justify-content: center;
   cursor: pointer;
   transition: background-color 0.2s;
+  margin: 20px auto 0;
 }
 
 .btn-me-gusta:hover {
@@ -176,6 +192,20 @@ h2 {
   opacity: 1;
 }
 
+.carousel-item img {
+  height: 450px;
+  object-fit: cover;
+  width: 100%;
+  display: block;
+}
+
+.imagen img {
+  height: 300px;
+  object-fit: cover;
+  width: 100%;
+  display: block;
+}
+
 @media (max-width: 1279px) and (min-width: 700px) {
 
   .contenido-mascota,
@@ -188,6 +218,21 @@ h2 {
   .carrucel {
     width: 55%;
   }
+
+  .carousel-item img {
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
+    display: block;
+  }
+
+  .imagen img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+    display: block;
+  }
+
 }
 
 @media (max-width: 699px) {
