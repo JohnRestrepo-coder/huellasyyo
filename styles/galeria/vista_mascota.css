@@ -192,18 +192,71 @@ h2 {
   opacity: 1;
 }
 
+.carousel-item {
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+.imagen {
+  height: 186px;
+  overflow: hidden;
+  position: relative;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 5px;
+}
+
 .carousel-item img {
-  height: 450px;
-  object-fit: cover;
   width: 100%;
+  height: 100%;
+  object-fit: scale-down;
   display: block;
+  position: relative;
 }
 
 .imagen img {
-  height: 300px;
-  object-fit: cover;
-  width: 100%;
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
   display: block;
+  position: relative;
+}
+
+
+/* Cambiar color de fondo y tamaño de flechas */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: none;
+  width: 40px;
+  height: 40px;
+  background-image: none;
+}
+
+/* Crear flechas con CSS puro (triángulos) */
+.carousel-control-prev-icon::after {
+  content: '';
+  display: inline-block;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 15px solid var(--site-color-verde);
+  /* color de la flecha */
+}
+
+.carousel-control-next-icon::after {
+  content: '';
+  display: inline-block;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid var(--site-color-verde);
+  /* color de la flecha */
+}
+
+.carousel-indicators button {
+  background-color: var(--site-color-verde) !important;
+  border: 1px solid black;
 }
 
 @media (max-width: 1279px) and (min-width: 700px) {
@@ -219,20 +272,14 @@ h2 {
     width: 55%;
   }
 
-  .carousel-item img {
-    height: 250px;
-    object-fit: cover;
-    width: 100%;
-    display: block;
+  .imagen {
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 5px;
   }
-
-  .imagen img {
-    height: 200px;
-    object-fit: cover;
-    width: 100%;
-    display: block;
-  }
-
 }
 
 @media (max-width: 699px) {
@@ -266,5 +313,14 @@ h2 {
 
   .carrucel {
     width: 100%;
+  }
+
+  .imagen {
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 5px;
   }
 }

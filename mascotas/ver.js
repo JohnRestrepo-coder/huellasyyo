@@ -44,7 +44,7 @@ function renderMascotas(mascotas) {
 
     div.innerHTML = `
         <div class="card h-100 tarjeta-custom">
-          <img src="${imagen}" class="card-img-top" alt="Foto de ${mascota.nombre}">
+          <img src="${imagen}" class="card-img-top imagen-mascota" alt="Foto de ${mascota.nombre}">
           <div class="card-body">
             <h5 class="card-title titulo-mascota">${mascota.nombre}</h5>
             <p class="card-text texto-mascota">

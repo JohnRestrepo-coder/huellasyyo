@@ -258,7 +258,7 @@ const animales = [
     "cuidadorExperimentado": false,
     "tiempoDedicacion": "Una hora",
     "adiestramiento": "Básico",
-    "fotos": ["/images/animales/Dobby1.jpg", "/images/animales/Dobby2.jpg", "/images/animales/Dobby3.jpg"],
+    "fotos": ["/images/animales/Dobby1.jpg", "/images/animales/Dobby2.jpg"],
     "sexo": "macho",
     "razaCriolla": "",
     "tamaño": "pequeño"
@@ -282,7 +282,7 @@ const animales = [
     "cuidadorExperimentado": false,
     "tiempoDedicacion": "Una hora",
     "adiestramiento": "No Aplica",
-    "fotos": ["/images/animales/Tina1.jpg", "/images/animales/Tina2.jpg", "/images/animales/Tina3.jpg"],
+    "fotos": ["/images/animales/Tina1.jpg", "/images/animales/Tina2.jpg"],
     "sexo": "hembra",
     "razaCriolla": "",
     "tamaño": "mediano"
@@ -532,11 +532,25 @@ const adaptarAnimales = (animales) => {
   }));
 };
 
-const agregarTargetas = (mascotasActualizadas) => {
+// Variables globales
+let mascotasActualizadas = [];
+let paginaActual = 1;
+const elementosPorPagina = 6;
+
+function cargarMascotas() {
+  const mascotasJson = localStorage.getItem("mascotas");
+  if (mascotasJson) {
+    mascotasActualizadas = JSON.parse(mascotasJson);
+  } else {
+    mascotasActualizadas = []; 
+  }
+}
+
+const agregarTargetas = (mascotasParaMostrar) => {
   const contenedor = document.getElementById("contenido");
   contenedor.innerHTML = "";
 
-  for (const mascota of mascotasActualizadas) {
+  for (const mascota of mascotasParaMostrar) {
     const link = document.createElement("a");
     link.href = `vista_mascota.html?nombre=${encodeURIComponent(mascota.nombre)}`;
     link.classList.add("grid-item");
@@ -554,6 +568,55 @@ const agregarTargetas = (mascotasActualizadas) => {
     link.appendChild(nombre);
     contenedor.appendChild(link);
   }
+};
+
+const renderizarPaginador = () => {
+  const paginador = document.getElementById("paginador");
+  const totalPaginas = Math.ceil(mascotasActualizadas.length / elementosPorPagina);
+
+  let html = `<ul class="pagination">
+    <li class="page-item ${paginaActual === 1 ? "disabled" : ""}">
+      <a class="page-link" href="#" aria-label="Previous" data-page="${paginaActual - 1}">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>`;
+
+  for (let i = 1; i <= totalPaginas; i++) {
+    html += `<li class="page-item ${paginaActual === i ? "active" : ""}">
+      <a class="page-link" href="#" data-page="${i}"><strong>${i}</strong></a>
+    </li>`;
+  }
+
+  html += `<li class="page-item ${paginaActual === totalPaginas ? "disabled" : ""}">
+    <a class="page-link" href="#" aria-label="Next" data-page="${paginaActual + 1}">
+      <span aria-hidden="true">&raquo;</span>
+    </a>
+  </li></ul>`;
+
+  paginador.innerHTML = html;
+
+  const links = paginador.querySelectorAll("a.page-link");
+  links.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const nuevaPagina = parseInt(e.currentTarget.getAttribute("data-page"));
+      const totalPaginas = Math.ceil(mascotasActualizadas.length / elementosPorPagina);
+
+      if (nuevaPagina >= 1 && nuevaPagina <= totalPaginas) {
+        paginaActual = nuevaPagina;
+        mostrarPagina(paginaActual);
+      }
+    });
+  });
+};
+
+const mostrarPagina = (numPagina) => {
+  const inicio = (numPagina - 1) * elementosPorPagina;
+  const fin = inicio + elementosPorPagina;
+  const mascotasParaMostrar = mascotasActualizadas.slice(inicio, fin);
+
+  agregarTargetas(mascotasParaMostrar);
+  renderizarPaginador();
 };
 
 
@@ -581,5 +644,8 @@ const agregarTargetas = (mascotasActualizadas) => {
   localStorage.setItem(key, JSON.stringify(mascotasActualizadas));
 })();
 
-
+window.onload = () => {
+  cargarMascotas();
+  mostrarPagina(paginaActual);
+};
 

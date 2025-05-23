@@ -124,3 +124,17 @@
   background-color: #4CAF4F;
   opacity: 0.9;
 }
+
+.card.h-100.tarjeta-custom {
+  display: flex;
+  flex-direction: column;
+}
+
+.imagen-mascota {
+  height: 200px;
+  width: 100%;
+  object-fit: contain;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
