@@ -46,12 +46,13 @@ const navegabilidad = () => {
   const enlaces = document.querySelectorAll('.navegar');
 
   enlaces.forEach(enlace => {
+    const urlDestino = new URL(enlace.href);
+    const urlActual = new URL(window.location.href);
+    if (urlDestino.pathname === urlActual.pathname) {
+      enlace.classList.add("active")
+    }
     enlace.addEventListener('click', (event) => {
       event.preventDefault();
-
-      const urlDestino = new URL(enlace.href);
-      const urlActual = new URL(window.location.href);
-
       if (urlDestino.pathname === urlActual.pathname) {
         if (window.innerWidth < 699) {
           sidebar.classList.toggle("ocultar")
