@@ -78,14 +78,27 @@ formulario.addEventListener('submit', function (e) {
 
     localStorage.setItem('usuarios', JSON.stringify(usuariosGuardados));
     Swal.fire({
-      title: '¡Registro exitoso!',
-      text: 'Tus datos han sido guardados.',
+      title: '¡Registro completado!',
+      html: `
+    <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">
+      Te has registrado correctamente.
+    </p>
+    <p style="font-size: 1rem; color: #666;">
+      Ahora puedes iniciar sesión para disfrutar de todas las funcionalidades.
+    </p>
+  `,
       icon: 'success',
+      confirmButtonText: 'Ir al login',
       customClass: {
         popup: 'mi-alerta-personalizada',
         confirmButton: 'ok-personalizado',
       }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = './login.html';
+      }
     });
+
     formulario.reset();
   }
 });

@@ -33,6 +33,29 @@ formulario.addEventListener('submit', function (e) {
 
     const usuariosGuardados = JSON.parse(localStorage.getItem('usuarios')) || [];
 
+    const usuario = usuariosGuardados.find(usuario => usuario.correo === email);
+
+    if (!usuario) {
+      Swal.fire({
+        title: 'Correo no registrado',
+        text: 'El correo electrónico que ingresaste no está registrado en el sistema.',
+        icon: 'error',
+        showCancelButton: true,
+        confirmButtonText: 'Ir a registro',
+        cancelButtonText: 'Cancelar',
+        customClass: {
+          popup: 'mi-alerta-personalizada',
+          confirmButton: 'ok-personalizado',
+          cancelButton: 'cancel-personalizado'
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = '../auth/registro.html';
+        }
+      });
+      return;
+    }
+
     const usuarioAutenticado = usuariosGuardados.find(usuario => usuario.correo === email && usuario.password === password);
 
     if (!usuarioAutenticado) {
