@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../images/icono_simple.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../styles/global/base_style.css" />
+  <link rel="stylesheet" href="../styles/galeria/galeria.css">
+  <title>Galeria</title>
+</head>
+
+<body>
+  <div class="container-base">
+    <header id="header">
+    </header>
+    <main class="mb-4 ">
+      <section class="contenido">
+        <aside class="filtros">
+          <div class="form-group">
+            <label for="buscar_parametro">Buscar</label>
+            <div class="d-flex align-items-center">
+              <input type="text" id="buscar_parametro" name="buscar_parametro" class="form-control">
+              <i class="fa-solid fa-magnifying-glass ms-2 fs-5 ajuste-icono"></i>
+            </div>
+          </div>
+          <h5 class="d-flex mb-3"><Strong>Filtrar</Strong><i class="fa-solid fa-filter ms-2 mt-1"></i></h5>
+          <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+            <Strong>Ver filtros</Strong><i class="fa-solid fa-eye ms-2 mt-1"></i>
+          </a>
+          <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseOne">
+                  <Strong>Sexo</Strong>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse ms-4">
+                <div class="custom-form-check">
+                  <input type="checkbox" id="macho" class="custom-checkbox" />
+                  <label for="macho">Macho</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="hembra" class="custom-checkbox" />
+                  <label for="hembra">Hembra</label>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseTwo">
+                  <Strong>Edad</Strong>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse ms-4">
+                <div class="custom-form-check">
+                  <input type="checkbox" id="inicial" class="custom-checkbox" />
+                  <label for="inicial">0-5 Años</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="intermedia" class="custom-checkbox" />
+                  <label for="intermedia">6-10 Años</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="mayor" class="custom-checkbox" />
+                  <label for="mayor">11-15 años</label>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseThree">
+                  <Strong>Especie</Strong>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse ms-4">
+                <div class="custom-form-check">
+                  <input type="checkbox" id="perro" class="custom-checkbox" />
+                  <label for="perro">Perro</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="gato" class="custom-checkbox" />
+                  <label for="gato">Gato</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="otro" class="custom-checkbox" />
+                  <label for="otro">Otro</label>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseFour">
+                  <strong>Raza</strong>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse ms-4">
+                <div class="custom-form-check">
+                  <input type="checkbox" id="labrador" class="custom-checkbox" />
+                  <label for="labrador">Labrador</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="golden" class="custom-checkbox" />
+                  <label for="golden">Golden Retriever</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="bulldog" class="custom-checkbox" />
+                  <label for="bulldog">Bulldog</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="shihtzu" class="custom-checkbox" />
+                  <label for="shihtzu">Shih Tzu</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="pitbull" class="custom-checkbox" />
+                  <label for="pitbull">Pitbull</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="pastoraleman" class="custom-checkbox" />
+                  <label for="pastoraleman">Pastor Alemán</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="beagle" class="custom-checkbox" />
+                  <label for="beagle">Beagle</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="poodle" class="custom-checkbox" />
+                  <label for="poodle">Poodle</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="chihuahua" class="custom-checkbox" />
+                  <label for="chihuahua">Chihuahua</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="yorkshire" class="custom-checkbox" />
+                  <label for="yorkshire">Yorkshire Terrier</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="criollo" class="custom-checkbox" />
+                  <label for="criollo">Criollo</label>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseFive">
+                  <Strong>Tamaño</Strong>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse ms-4">
+                <div class="custom-form-check">
+                  <input type="checkbox" id="pequeno" class="custom-checkbox" />
+                  <label for="pequeno">Pequeño</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="mediano" class="custom-checkbox" />
+                  <label for="mediano">Mediano</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="grande" class="custom-checkbox" />
+                  <label for="grande">Grande</label>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseSix">
+                  <Strong>Caracter</Strong>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse ms-4">
+                <div class="custom-form-check">
+                  <input type="checkbox" id="pasivo" class="custom-checkbox" />
+                  <label for="pasivo">Pasivo</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="activo" class="custom-checkbox" />
+                  <label for="activo">Activo</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="jugueton" class="custom-checkbox" />
+                  <label for="jugueton">Juguetón</label>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseSeven">
+                  <Strong>Compatible con niños</Strong>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse ms-4">
+                <div class="custom-radio-group">
+                  <div class="custom-radio-wrapper">
+                    <input type="radio" id="sinino" name="opciones" class="custom-radio" />
+                    <label for="sinino">Si</label>
+                  </div>
+
+                  <div class="custom-radio-wrapper">
+                    <input type="radio" id="nonino" name="opciones" class="custom-radio" />
+                    <label for="nonino">No</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseEight">
+                  <Strong>Compatible con otras mascotas</Strong>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse ms-4">
+                <div class="custom-form-check">
+                  <input type="checkbox" id="gatossi" class="custom-checkbox" />
+                  <label for="gatossi">Con gatos</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="perrosSi" class="custom-checkbox" />
+                  <label for="perrossi">Con perros</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="ninguno" class="custom-checkbox" />
+                  <label for="ninguno">Ninguno</label>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseNine" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseNine">
+                  <Strong>Viaja en auto</Strong>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseNine" class="accordion-collapse collapse ms-4">
+                <div class="custom-radio-group">
+                  <div class="custom-radio-wrapper">
+                    <input type="radio" id="siviaja" name="opciones" class="custom-radio" />
+                    <label for="siviaja">Si</label>
+                  </div>
+
+                  <div class="custom-radio-wrapper">
+                    <input type="radio" id="noviaja" name="opciones" class="custom-radio" />
+                    <label for="noviaja">No</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseTen">
+                  <Strong>Vivienda recomendada</Strong>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTen" class="accordion-collapse collapse ms-4">
+                <div class="custom-form-check">
+                  <input type="checkbox" id="finca" class="custom-checkbox" />
+                  <label for="finca">Finca</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="casa" class="custom-checkbox" />
+                  <label for="casa">Casa</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="apartamento" class="custom-checkbox" />
+                  <label for="apartamento">Apartamento</label>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseEleven" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseEleven">
+                  <Strong>Cuidador con experiencia</Strong>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseEleven" class="accordion-collapse collapse ms-4">
+                <div class="custom-radio-group">
+                  <div class="custom-radio-wrapper">
+                    <input type="radio" id="siexperiencia" name="opciones" class="custom-radio" />
+                    <label for="siexperiencia">Si</label>
+                  </div>
+
+                  <div class="custom-radio-wrapper">
+                    <input type="radio" id="noexperiencia" name="opciones" class="custom-radio" />
+                    <label for="noexperiencia">No</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseTwelve" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseTwelve">
+                  <Strong>Nivel de adiestramiento</Strong>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTwelve" class="accordion-collapse collapse ms-4">
+                <div class="custom-form-check">
+                  <input type="checkbox" id="noaplica" class="custom-checkbox" />
+                  <label for="noaplica">No Aplica</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="basico" class="custom-checkbox" />
+                  <label for="basico">Básico</label>
+                </div>
+                <div class="custom-form-check">
+                  <input type="checkbox" id="avanzado" class="custom-checkbox" />
+                  <label for="avanzado">Avanzado</label>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseThirteen" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseThirteen">
+                  <Strong>Tiempo de dedicacion</Strong>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseThirteen" class="accordion-collapse collapse ms-4">
+                <div class="custom-form-check">
+                  <input type="checkbox" id="unahora" class="custom-checkbox" />
+                  <label for="unahora">Una hora</label>
+                </div>
+
+                <div class="custom-form-check">
+                  <input type="checkbox" id="masdeunahora" class="custom-checkbox" />
+                  <label for="masdeunahora">Más de una hora</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center boton-aplicar">
+            <input type="button" value="Aplicar" class="aplicar">
+          </div>
+        </aside>
+        <section class="Mascotas-galeria">
+          <section class="titulo">
+            <h1>Conoce nuestas mascotas</h1>
+          </section>
+          <p class="glow-text"> 🐾 ¡Conoce a nuestras mascotas! Haz clic en las tarjetas y descubre todo el amor que
+            tienen para ofrecer.</p>
+          <div id="contenido" class="grid-container mb-3"></div>
+
+          <nav aria-label="Page navigation example" id="paginador" class="paginador">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item active"><a class="page-link" href="#"><Strong>1</Strong></a></li>
+              <li class="page-item"><a class="page-link" href="#"><Strong>2</Strong></a></li>
+              <li class="page-item"><a class="page-link" href="#"><Strong>3</Strong></a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </section>
+      </section>
+
+    </main>
+    <footer id="footer" class="bg-dark footer-personalizado text-white">
+    </footer>
+
+    <!-- espacio menu filtros para movil -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <h5 class="d-flex"><Strong>Filtrar</Strong><i class="fa-solid fa-filter ms-2 mt-1"></i></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseOne">
+                <Strong>Sexo</Strong>
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse ms-4">
+              <div class="custom-form-check">
+                <input type="checkbox" id="macho" class="custom-checkbox" />
+                <label for="macho">Macho</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="hembra" class="custom-checkbox" />
+                <label for="hembra">Hembra</label>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseTwo">
+                <Strong>Edad</Strong>
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse ms-4">
+              <div class="custom-form-check">
+                <input type="checkbox" id="inicial" class="custom-checkbox" />
+                <label for="inicial">0-5 Años</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="intermedia" class="custom-checkbox" />
+                <label for="intermedia">6-10 Años</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="mayor" class="custom-checkbox" />
+                <label for="mayor">11-15 años</label>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseThree">
+                <Strong>Especie</Strong>
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse ms-4">
+              <div class="custom-form-check">
+                <input type="checkbox" id="perro" class="custom-checkbox" />
+                <label for="perro">Perro</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="gato" class="custom-checkbox" />
+                <label for="gato">Gato</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="otro" class="custom-checkbox" />
+                <label for="otro">Otro</label>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseFour">
+                <strong>Raza</strong>
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse ms-4">
+              <div class="custom-form-check">
+                <input type="checkbox" id="labrador" class="custom-checkbox" />
+                <label for="labrador">Labrador</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="golden" class="custom-checkbox" />
+                <label for="golden">Golden Retriever</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="bulldog" class="custom-checkbox" />
+                <label for="bulldog">Bulldog</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="shihtzu" class="custom-checkbox" />
+                <label for="shihtzu">Shih Tzu</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="pitbull" class="custom-checkbox" />
+                <label for="pitbull">Pitbull</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="pastoraleman" class="custom-checkbox" />
+                <label for="pastoraleman">Pastor Alemán</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="beagle" class="custom-checkbox" />
+                <label for="beagle">Beagle</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="poodle" class="custom-checkbox" />
+                <label for="poodle">Poodle</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="chihuahua" class="custom-checkbox" />
+                <label for="chihuahua">Chihuahua</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="yorkshire" class="custom-checkbox" />
+                <label for="yorkshire">Yorkshire Terrier</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="criollo" class="custom-checkbox" />
+                <label for="criollo">Criollo</label>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseFive">
+                <Strong>Tamaño</Strong>
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse ms-4">
+              <div class="custom-form-check">
+                <input type="checkbox" id="pequeno" class="custom-checkbox" />
+                <label for="pequeno">Pequeño</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="mediano" class="custom-checkbox" />
+                <label for="mediano">Mediano</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="grande" class="custom-checkbox" />
+                <label for="grande">Grande</label>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseSix">
+                <Strong>Caracter</Strong>
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse ms-4">
+              <div class="custom-form-check">
+                <input type="checkbox" id="pasivo" class="custom-checkbox" />
+                <label for="pasivo">Pasivo</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="activo" class="custom-checkbox" />
+                <label for="activo">Activo</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="jugueton" class="custom-checkbox" />
+                <label for="jugueton">Juguetón</label>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseSeven">
+                <Strong>Compatible con niños</Strong>
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse ms-4">
+              <div class="custom-radio-group">
+                <div class="custom-radio-wrapper">
+                  <input type="radio" id="sinino" name="opciones" class="custom-radio" />
+                  <label for="sinino">Si</label>
+                </div>
+
+                <div class="custom-radio-wrapper">
+                  <input type="radio" id="nonino" name="opciones" class="custom-radio" />
+                  <label for="nonino">No</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseEight">
+                <Strong>Compatible con otras mascotas</Strong>
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse ms-4">
+              <div class="custom-form-check">
+                <input type="checkbox" id="gatossi" class="custom-checkbox" />
+                <label for="gatossi">Con gatos</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="perrosSi" class="custom-checkbox" />
+                <label for="perrossi">Con perros</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="ninguno" class="custom-checkbox" />
+                <label for="ninguno">Ninguno</label>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseNine" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseNine">
+                <Strong>Viaja en auto</Strong>
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseNine" class="accordion-collapse collapse ms-4">
+              <div class="custom-radio-group">
+                <div class="custom-radio-wrapper">
+                  <input type="radio" id="siviaja" name="opciones" class="custom-radio" />
+                  <label for="siviaja">Si</label>
+                </div>
+
+                <div class="custom-radio-wrapper">
+                  <input type="radio" id="noviaja" name="opciones" class="custom-radio" />
+                  <label for="noviaja">No</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseTen">
+                <Strong>Vivienda recomendada</Strong>
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTen" class="accordion-collapse collapse ms-4">
+              <div class="custom-form-check">
+                <input type="checkbox" id="finca" class="custom-checkbox" />
+                <label for="finca">Finca</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="casa" class="custom-checkbox" />
+                <label for="casa">Casa</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="apartamento" class="custom-checkbox" />
+                <label for="apartamento">Apartamento</label>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseEleven" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseEleven">
+                <Strong>Cuidador con experiencia</Strong>
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseEleven" class="accordion-collapse collapse ms-4">
+              <div class="custom-radio-group">
+                <div class="custom-radio-wrapper">
+                  <input type="radio" id="siexperiencia" name="opciones" class="custom-radio" />
+                  <label for="siexperiencia">Si</label>
+                </div>
+
+                <div class="custom-radio-wrapper">
+                  <input type="radio" id="noexperiencia" name="opciones" class="custom-radio" />
+                  <label for="noexperiencia">No</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseTwelve" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseTwelve">
+                <Strong>Nivel de adiestramiento</Strong>
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTwelve" class="accordion-collapse collapse ms-4">
+              <div class="custom-form-check">
+                <input type="checkbox" id="noaplica" class="custom-checkbox" />
+                <label for="noaplica">No Aplica</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="basico" class="custom-checkbox" />
+                <label for="basico">Básico</label>
+              </div>
+              <div class="custom-form-check">
+                <input type="checkbox" id="avanzado" class="custom-checkbox" />
+                <label for="avanzado">Avanzado</label>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseThirteen" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseThirteen">
+                <Strong>Tiempo de dedicacion</Strong>
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseThirteen" class="accordion-collapse collapse ms-4">
+              <div class="custom-form-check">
+                <input type="checkbox" id="unahora" class="custom-checkbox" />
+                <label for="unahora">Una hora</label>
+              </div>
+
+              <div class="custom-form-check">
+                <input type="checkbox" id="masdeunahora" class="custom-checkbox" />
+                <label for="masdeunahora">Más de una hora</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center boton-aplicar">
+          <input type="button" value="Aplicar" class="aplicar">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../layout/load.js" type="module"></script>
+  <script src="./galeria.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/e6eef9bc73.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+.body {
+  padding: 80px;
+}
+
+.contenedorgeneral {
+  display: none;
+}
+
+.contenedorgeneral.visible {
+  display: flex;
+}
+
+/* menu */
+.sidebar {
+  width: 25%;
+  padding: 2rem;
+  margin: 2rem;
+  background-color: var(--site-color-fondo-1);
+  border-radius: 0.30rem;
+  height: max-content;
+  /* position: fixed;
+  height: fit-content;
+  overflow: auto; */
+
+}
+
+.contenido {
+  width: 75%;
+  padding: 3rem;
+  margin: 2rem;
+  background-color: var(--site-color-fondo-1);
+  border-radius: 0.30rem;
+}
+
+/* links */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 18px 16px;
+  text-decoration: none;
+}
+
+.sidebar h3 {
+  display: block;
+  color: rgb(8, 128, 24);
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+/* Active*/
+.sidebar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Cuando está activo */
+/* .sidebar a:active{
+  background-color: #04AA6D;
+  color: white;
+} */
+
+.sidebar a:hover:not(.active) {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.visualizar {
+  display: none;
+}
+
+@media (max-width: 1279px) and (min-width: 700px) {
+  .sidebar {
+    width: 25%;
+    padding: 0.5rem;
+    margin: 1rem;
+    background-color: var(--site-color-fondo-1);
+    border-radius: 0.30rem;
+    /* position: fixed;
+  height: fit-content;
+  overflow: auto; */
+
+  }
+
+  .contenido {
+    width: 75%;
+    padding: 2rem;
+    margin: 1rem;
+    background-color: var(--site-color-fondo-1);
+    border-radius: 0.30rem;
+  }
+}
+
+
+@media (max-width: 699px) {
+  .ocultar {
+    display: none;
+  }
+
+  .visualizar {
+    display: block;
+    color: var(--site-color-negro-texto) !important;
+    cursor: pointer;
+  }
+
+  .visualizar:hover {
+    opacity: 0.80;
+  }
+
+
+
+  .sidebar {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 1rem;
+    background-color: var(--site-color-fondo-1);
+    border-radius: 0.30rem;
+    /* position: fixed;
+  height: fit-content;
+  overflow: auto; */
+
+  }
+
+  .contenido {
+    width: 100%;
+    padding: 2rem;
+    margin: 1rem;
+    background-color: var(--site-color-fondo-1);
+    border-radius: 0.30rem;
+  }
+}
