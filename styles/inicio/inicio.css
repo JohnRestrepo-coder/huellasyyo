@@ -232,7 +232,7 @@
   }
   
   .ver-mas:hover {
-    background-color: #bbb;
+    background-color: var(--site-color-lila);
   }
   
   
