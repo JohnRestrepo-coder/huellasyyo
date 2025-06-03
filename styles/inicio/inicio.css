@@ -58,7 +58,7 @@
 }
 
 .buton-banner:hover {
-  background-color: #1f7f5c; 
+  background-color: var(--site-color-lila); /* color anterior #1f7f5c*/
   transform: scale(1.05);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
@@ -131,8 +131,8 @@
     font-weight: bold;
     margin-bottom: 2rem;
     color: var(--site-color-verde);
-  }
-  
+  } 
+
   
   .galeria {
     display: grid;
@@ -220,7 +220,7 @@
   }
   
   .ver-mas {
-    background-color: #4CAF4F;
+    background-color: #225D24;
     color: white;
     padding: 1rem 2rem;
     border: none;
@@ -265,7 +265,7 @@
 
   .glow-text {
     text-align: center;
-    color: #ffffff;
+    color: var(--site-color-negro-texto);
     font-size: 20px;
     font-weight: bold;
     background-color: #CFAFD8;
@@ -310,6 +310,11 @@
     display: flex;
     padding: 20px;
     /* place-items: center; */
+}
+
+h2{
+  font-family: var(--site-font-title);
+  color: var(--site-color-verde);
 }
 
 
@@ -374,10 +379,10 @@
 
 #bhaz-match:hover{
     
-    background-color: var(--site-color-blanco-texto);
-    color: var(--site-color-verde);
+    background-color: var(--site-color-lila);
+    color: var(--site-color-blanco-texto);
     border: 2px solid;
-    border-color: var(--site-color-verde);
+    border-color: var(--site-color-lila);
 
 }
 
@@ -452,12 +457,13 @@
 
 /* Cada tarjeta */
 .card {
-  background-color: #d1d5db; 
+  background-color: var(--site-color-fondo-2); 
   border-radius: 3rem;
-  padding: 1.5rem;
+  border-color: var(--site-color-lila); /* #CFAFD8 LILA ANTERIOR*/
+  padding: 1rem;
   display: grid;
   grid-template-columns: 1fr auto;  
-  align-items: center;
+  align-items:center;
   width: 90%;
   height: 100%;
   max-width: 700px;
@@ -503,7 +509,7 @@
   font-family: var(--site-font-body);
   width: 100%; 
   margin: 0;
-  text-align: justify;
+  text-align: center;
 }
 
 /* Dots del carrusel */

@@ -1,7 +1,7 @@
 
 
 .footer-personalizado {
-  background-color: #CFAFD8;
+  background-color: #442B48 !important;
   color: #ffffff;
   font-family: 'Quicksand', sans-serif;
 }
@@ -10,6 +10,13 @@
 .footer-personalizado p,
 .footer-personalizado a {
   margin-bottom: 0.5rem;
+}
+
+.fab {
+  color:#ffffff;
+}
+.contactanos{
+  color:#ffffff;
 }
 
 .footer-personalizado a:hover {

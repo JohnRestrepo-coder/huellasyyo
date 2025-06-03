@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&family=Quicksand&display=swap');
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html {
+    font-size: 12px;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+    background: #F5F7FA;
+    display:flex;
+    justify-content: center;
+}
+
+.container {
+    position: relative;
+    background: #fff;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+.accordion {
+    position:relative;
+    width: 350px;
+    margin-left: 40px;
+}
+
+.title {
+    margin-top: 20px;
+    margin-bottom: 20px;/*adicional*/
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Fredoka', sans-serif;
+    color: #4CAF4F;
+}
+
+.content-accordion {
+    margin-top: 35px;
+    margin-right: 50px;
+    margin-bottom: 35px;/*adicional*/
+    flex-grow: 1;/*adicional*/
+}
+
+.question-answer {
+    width: 100%;
+    border-bottom: 1px solid #CFAFD8;
+}
+
+.question {
+    display: flex;
+    justify-content: space-between;
+}
+
+.accordion-img {
+    position: relative;
+    width: 320px;
+    flex-shrink: 0;/*adicional*/
+}
+
+.title-question {
+    margin: 1.3rem 0rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color:#000000;
+}
+
+.question-btn {
+    font-size: 1.5rem;
+    background: transparent;
+    border-color: transparent;
+    cursor: pointer;
+}
+
+.up-icon {
+    display: none;    
+}
+
+.answer {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    display: none;
+}
+
+.show-text .answer {
+    display: block;
+}
+
+.show-text .up-icon {
+    display: inline;
+}
+
+.show-text .down-icon {
+    display:none;
+}
+
+@media screen and (min-width: 992px) {
+    .accordion {
+        width: 920px;        
+        display: flex;
+    }
+
+    .accordion-img {
+        position:relative;
+        width:420px;
+        top:88px;        
+    }
+
+    .question-answer {
+        width:380px;
+    }
+
+    .content-accordion {
+        margin-top: 35px;
+    }
+
+    .title {
+        margin-top: 30px;
+        font-size: 3rem;
+    }
+    
+}
