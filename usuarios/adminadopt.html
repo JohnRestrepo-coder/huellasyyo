@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/icono_simple.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../styles/global/base_style.css">
+    <link rel="stylesheet" href="../styles/usuarios/admin-adopt.css">
+    <title>Adopciones</title>
+</head>
+
+<body>
+
+    <header id="header">
+    </header>
+    <main>
+
+        <section class="contenedorgeneral" id="contenedorgeneral">
+            <section class="sidebar ocultar" id="sidebar">
+            </section>
+
+            <section class="contenido" id="contenido">
+                <a id="atras" class="visualizar mb-2"><i class="fa-solid fa-arrow-left"></i> Atrás</a>
+                <section class="controles">
+                    <h3>Aplicaciones</h3>
+                </section>
+
+                <section id="aplicaciones">
+
+                    <section id="info-empty">
+                        <img src="../images/Huellas y yo (1).png" alt="Mascota">
+                        <div id="textmorado">
+                            <p>No hay aplicaciones disponibles aún</p>
+                        </div>
+                    </section>
+
+
+                    <section id="card-mascota">
+                        <img src="../images/Huellas y yo (1).png" alt="foto mascota">
+                        <div id="info-mascota">
+                            <h4>Nombre Persona</h4>
+                            <p>Quiere iniciar su proceso de adopción con</p>
+                            <h4>Nombre Mascota</h4>
+
+                        </div>
+
+                        <div class="dropdown d-lg-block" id="avatar-usuario">
+                            <a id="dropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                <li><a type="button" class="btn boton-volver-formulario" data-bs-toggle="modal"
+                                        data-bs-target="#modalaplicacion" id="mostrarModal" class="dropdown-item"
+                                        style="cursor: pointer;" href="../usuarios/configuracion.html">
+                                        <i class="fa-solid fa-folder-open"></i>
+                                        Ver aplicación</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                <li><a class="dropdown-item" style="cursor: pointer;"
+                                        href="../usuarios/configuracion.html">
+                                        <i class="fa-solid fa-eye"></i>
+                                        Ver Mascota</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a type="button" class="btn boton-volver-formulario" data-bs-toggle="modal"
+                                        data-bs-target="#modalactualizar" id="mostrarModal" class="dropdown-item"
+                                        style="cursor: pointer;" href="../usuarios/configuracion.html">
+                                        <i class="fa-solid fa-upload"></i>
+                                        Actualizar aplicación</a></li>
+                            </ul>
+                        </div>
+
+
+                    </section>
+
+
+                </section>
+
+                <!-- Modal - aplicacion -->
+                <div class="modal fade" id="modalaplicacion" tabindex="-1" aria-labelledby="exampleModalLabel">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="d-flex justify-content-end">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                    <div id="modal-aplicacion">
+
+                                        <img src="../images/Huellas y yo (1).png" alt="Foto Persona">
+                                        <h2>Nombre Persona</h2>
+                                    </div>
+                                </div>
+                                <!-- Modal - actualizar -->
+                <div class="modal fade" id="modalactualizar" tabindex="-1" aria-labelledby="exampleModalLabel">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="d-flex justify-content-end">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                    <div id="modal-aplicacion">
+
+                                        <h2>Nombre Persona</h2>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </section>
+
+        </section>
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+            crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/e6eef9bc73.js" crossorigin="anonymous"></script>
+        <script src="../layout/load.js" type="module"></script>
+        <script src="../layout/loadmenuprofile.js" type="module"></script>
+        <script src="./configuracion.js" type="module"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
