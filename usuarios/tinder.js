@@ -649,7 +649,7 @@ function renderizarMatches() {
         <img src="${match.imagen}" class="card-img-top img-card-uniforme" alt="${match.nombre}" />
         <div class="card-body">
           <p class="card-text texto-mini text-center">${match.descripcion}</p>
-          <a href="#" class="btn btn-cardperfil btn-primary btn-sm d-flex justify-content-center">Ver</a>
+          <a href="#" class="btn btn-cardperfil btn-sm d-flex justify-content-center">Ver</a>
         </div>
       </div>
     `;
