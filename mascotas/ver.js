@@ -16,7 +16,7 @@ window.onload = () => {
     window.location.href = '../index.html';
   }
 
-  if (usuariosGuardados.idTipoUsuario != 2) {
+  if (usuariosGuardados.tipoUsuario != "Admin") {
     window.location.href = '../index.html';
   }
 

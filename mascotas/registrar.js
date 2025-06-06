@@ -33,20 +33,12 @@ validator.addField('imagen[]', [
 document.addEventListener('DOMContentLoaded', function () {
   const formulario = document.querySelector('.form-container');
 
-  formulario.addEventListener('submit', function (evento) {
+  formulario.addEventListener('submit', async function (evento) {
     evento.preventDefault();
 
     if (validator.validateAll()) {
-      const nuevaMascota = {
-        nombre: document.getElementById('nombre').value,
-        sexo: document.getElementById('sexo').value,
-        especie: document.getElementById('especie').value,
-        raza: document.getElementById('raza').value,
+      const otrasCaracteristicas = {
         razaMixta: document.getElementById('raza-mixta').value,
-        edad: document.getElementById('edad').value,
-        tamano: document.getElementById('tamano').value,
-        color: document.getElementById('color').value,
-        caracter: document.getElementById('caracter').value,
         ninos: document.getElementById('ninos').value,
         otrasMascotas: document.getElementById('otras-mascotas').value,
         vacunado: formulario.querySelector('input[name="vacunado"]').checked,
@@ -58,38 +50,66 @@ document.addEventListener('DOMContentLoaded', function () {
         cuidador: document.getElementById('cuidador').value,
         tiempo: document.getElementById('tiempo').value,
         adiestramiento: document.getElementById('adiestramiento').value,
-        imagen: document.getElementById('imagen').value,
-        listaImagenes: obtenerImagenes()
+        listaImagenes: obtenerImagenes() // Esto se guarda como JSON dentro del String
       };
 
-      const mascotasGuardadas = JSON.parse(localStorage.getItem('mascotas')) || [];
+      const nuevaMascota = {
+        nombre: document.getElementById('nombre').value,
+        especie: document.getElementById('especie').value,
+        sexo: document.getElementById('sexo').value,
+        caracter: document.getElementById('caracter').value,
+        edad: document.getElementById('edad').value,
+        tamano: document.getElementById('tamano').value,
+        raza: document.getElementById('raza').value,
+        urlImagenMascota: document.getElementById('imagen').value,
+        disponibilidad: true, // o según lógica de tu app
+        otrasCaracteristicas: JSON.stringify(otrasCaracteristicas)
+      };
+
+
 
       const indexEditar = formulario.getAttribute('data-edit-index');
 
-      if (indexEditar !== null && indexEditar !== '') {
-        mascotasGuardadas[indexEditar] = nuevaMascota;
-        formulario.removeAttribute('data-edit-index');
-      } else {
-        mascotasGuardadas.push(nuevaMascota);
+      try {
+        const token = localStorage.getItem("tokenUsuario");
+        console.log(token);
+        
+        if (indexEditar !== null && indexEditar !== '') {
+          mascotasGuardadas[indexEditar] = nuevaMascota;
+          formulario.removeAttribute('data-edit-index');
+        } else {
+          const response = await fetch("http://localhost:8080/mascota", {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(nuevaMascota)
+          })
+
+        }
+        Swal.fire({
+          title: indexEditar !== null && indexEditar !== '' ? '¡Edición exitosa!' : '¡Registro exitoso!',
+          text: indexEditar !== null && indexEditar !== '' ? 'La mascota ha sido actualizada correctamente.' : 'La mascota ha sido registrada correctamente.',
+          icon: 'success',
+          confirmButtonText: 'Aceptar',
+          customClass: {
+            popup: 'mi-alerta-personalizada',
+            confirmButton: 'ok-personalizado',
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.reload();
+          }
+        });
+      } catch (error) {
+
       }
 
-      localStorage.setItem('mascotas', JSON.stringify(mascotasGuardadas));
-      formulario.reset();
 
-      Swal.fire({
-        title: indexEditar !== null && indexEditar !== '' ? '¡Edición exitosa!' : '¡Registro exitoso!',
-        text: indexEditar !== null && indexEditar !== '' ? 'La mascota ha sido actualizada correctamente.' : 'La mascota ha sido registrada correctamente.',
-        icon: 'success',
-        confirmButtonText: 'Aceptar',
-        customClass: {
-          popup: 'mi-alerta-personalizada',
-          confirmButton: 'ok-personalizado',
-        }
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.reload();
-        }
-      });
+
+
+
     }
   });
 });

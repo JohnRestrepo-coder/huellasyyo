@@ -26,17 +26,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const cargarOpcionesMenu = () => {
   const usuarioGuardado = JSON.parse(localStorage.getItem('usuarioLogeado'));
+  console.log(usuarioGuardado);
+  
   if (usuarioGuardado) {
     const opcionesAdmin = document.querySelectorAll(".admin")
     const opcionesUser = document.querySelectorAll(".usuario")
     const nameUser = document.getElementById("name-user")
     nameUser.innerHTML = usuarioGuardado.nombre;
-    if (usuarioGuardado.idTipoUsuario === 1) {
-      opcionesAdmin.forEach(boton => boton.classList.add('d-none'));
-      opcionesUser.forEach(boton => boton.classList.remove('d-none'));
-    } else {
+    if (usuarioGuardado.tipoUsuario === "Admin") {
+      console.log("Entró");
+      
       opcionesAdmin.forEach(boton => boton.classList.remove('d-none'));
       opcionesUser.forEach(boton => boton.classList.add('d-none'));
+    } else {
+      opcionesAdmin.forEach(boton => boton.classList.add('d-none'));
+      opcionesUser.forEach(boton => boton.classList.remove('d-none'));
 
     }
   }
