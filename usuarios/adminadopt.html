@@ -33,7 +33,7 @@
                     <section id="info-empty">
                         <img src="../images/Huellas y yo (1).png" alt="Mascota">
                         <div id="textmorado">
-                            <p>No hay aplicaciones disponibles aún</p>
+                            <p>No hay aplicaciones disponibles aún.</p>
                         </div>
                     </section>
 
@@ -45,6 +45,10 @@
                             <p>Quiere iniciar su proceso de adopción con</p>
                             <h4>Nombre Mascota</h4>
 
+                        </div>
+
+                        <div id="estado">
+                            <h2>Estado de aplicación</h2>
                         </div>
 
                         <div class="dropdown d-lg-block" id="avatar-usuario">
@@ -89,13 +93,22 @@
                                 <div class="d-flex justify-content-end">
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
-                                    <div id="modal-aplicacion">
 
-                                        <img src="../images/Huellas y yo (1).png" alt="Foto Persona">
-                                        <h2>Nombre Persona</h2>
-                                    </div>
                                 </div>
-                                <!-- Modal - actualizar -->
+                                <div id="modal-aplicacion">
+
+                                    <img src="../images/Huellas y yo (1).png" alt="Foto Persona">
+                                    <h2>Nombre Persona</h2>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Modal - actualizar -->
                 <div class="modal fade" id="modalactualizar" tabindex="-1" aria-labelledby="exampleModalLabel">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -103,10 +116,18 @@
                                 <div class="d-flex justify-content-end">
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
-                                    <div id="modal-aplicacion">
 
-                                        <h2>Nombre Persona</h2>
-                                    </div>
+                                </div>
+                                <div>
+
+                                    <h2>Nombre Persona</h2>
+                                </div>
+                                <p>¿Deseas continuar con el proceso?</p>
+                                <div id="buttons-modal">
+                                    
+                                    <button type="button" class="boton-regresar">No, volver</button>
+                                    <button type="button" class="eliminar-boton">Si, eliminar</button>
+
                                 </div>
 
 
@@ -114,7 +135,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
                 </div>
 
             </section>

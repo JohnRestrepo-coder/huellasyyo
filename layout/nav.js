@@ -3,8 +3,24 @@ export function configurarEventosCerrarSesion() {
   botonesCerrar.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      localStorage.removeItem('usuarioLogeado');
-      window.location.href = '../index.html';
+      Swal.fire({
+        title: "Cerrar Sesión",
+        text: "¿Segur@ que desea cerrar sesión?",
+        icon: 'question',
+        confirmButtonText: 'Aceptar',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        customClass: {
+          popup: 'mi-alerta-personalizada',
+          confirmButton: 'ok-personalizado',
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          localStorage.removeItem('usuarioLogeado');
+          window.location.href = '../index.html';
+        }
+      });
+
     });
   });
 }

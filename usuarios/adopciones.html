@@ -59,7 +59,7 @@
             <div id="estado">
               <h2>Estado de aplicación</h2>
             </div>
-            
+
 
 
             <div class="dropdown d-lg-block" id="avatar-usuario">
@@ -74,10 +74,42 @@
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" style="cursor: pointer;">
+                <li>
+                  <a type="button" class="btn boton-volver-formulario" data-bs-toggle="modal"
+                    data-bs-target="#modalaeliminarplicacion" id="mostrarModal" class="dropdown-item" style="cursor: pointer;"
+                    href="../usuarios/configuracion.html">
                     <i class="fa-solid fa-trash"></i>
-                    Eliminar aplicación</a></li>
+                    Eliminar aplicación</a>
+                </li>
               </ul>
+            </div>
+            <!-- Modal - Eliminar aplicacion -->
+            <div class="modal fade" id="modalaeliminarplicacion" tabindex="-1" aria-labelledby="exampleModalLabel">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <div class="d-flex justify-content-end">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    </div>
+                    <div id="modal-aplicacion">
+
+                      <img src="../images/Huellas y yo (1).png" alt="Foto Persona">
+                      <h2>¿Está segur@ que desea eliminar su aplicación?</h2>
+                      <p>Su proceso se perderá</p>
+                      <div id="buttons-modal">
+                        <button type="button" class="eliminar-boton">
+                        Si, eliminar
+                      </button>
+                      <button type="button" class="boton-regresar">No, volver</button>
+
+                      </div>
+                      
+                    </div>
+
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
 

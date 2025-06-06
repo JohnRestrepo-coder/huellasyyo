@@ -6,10 +6,9 @@ h2 {
 #card-mascota {
     display: flex;
     justify-content: space-between;
-    border: 80px;
+    border: 2px solid var(--site-color-verde);
     border-radius: 20px;
-    border-color: black;
-    background-color: rgb(185, 255, 255);
+    background-color: rgb(255, 255, 255);
     padding: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -85,4 +84,52 @@ h2 {
     background-color: #1f7f5c;
     transform: scale(1.05);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+
+#buttons-modal{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.boton-regresar {
+  display: block;
+  margin-top: 30px;
+  text-align: center;
+  padding: 10px 20px;
+  background-color: var(--site-color-verde);
+  color: var(--site-color-blanco-texto);
+  font-family: var(--site-font-body), sans-serif;
+  border-color: var(--site-color-verde);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.boton-regresar:hover {
+  background-color: var(--site-color-fondo1);
+  color: var(--site-color-verde);
+}
+
+
+.eliminar-boton {
+  display: block;
+  margin-top: 30px;
+  text-align: center;
+  padding: 10px 20px;
+  border-color: var(--site-color-verde);
+  border-radius: 8px;
+  background-color: var(--site-color-fondo1);
+  color: var(--site-color-verde);
+  font-family: var(--site-font-body), sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  
+}
+
+.eliminar-boton:hover {
+  background-color: var(--site-color-verde);
+  color: var(--site-color-blanco-texto);
 }
