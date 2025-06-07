@@ -58,12 +58,12 @@ window.onload = () => {
   agregarData()
 }
 
-formulario.addEventListener('submit', function (e) {
+formulario.addEventListener('submit', async function (e) {
   e.preventDefault();
 
   if (!validator.validateAll()) return;
 
-  const usuariosGuardados = JSON.parse(localStorage.getItem('usuarios')) || [];
+
   const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
 
   if (!usuarioLogeado) {
@@ -87,11 +87,11 @@ formulario.addEventListener('submit', function (e) {
 
   // Verificar si no hubo cambios
   const sinCambios =
-    usuarioLogeado.nombre === nombreNuevo &&
+    usuarioLogeado.nombreCompleto === nombreNuevo &&
     usuarioLogeado.telefono === telefonoNuevo &&
     usuarioLogeado.correo === correoNuevo &&
-    usuarioLogeado.imagenUsuario === imagenNueva &&
-    (passwordNueva === '' || usuarioLogeado.password === passwordNueva);
+    usuarioLogeado.urlImagenUsuario === imagenNueva &&
+    (passwordNueva === '' || usuarioLogeado.contrasena === passwordNueva);
 
   if (sinCambios) {
     Swal.fire({
@@ -106,58 +106,61 @@ formulario.addEventListener('submit', function (e) {
     return;
   }
 
-  const correoYaExiste = usuariosGuardados.find(usuario =>
-    usuario.correo === correoNuevo && usuario.correo !== usuarioLogeado.correo
-  );
 
-  if (correoYaExiste) {
-    Swal.fire({
-      title: '¡Error al editar el usuario!',
-      text: 'El correo electrónico ya está registrado por otro usuario.',
-      icon: 'error',
-      customClass: {
-        popup: 'mi-alerta-personalizada',
-        confirmButton: 'ok-personalizado',
-      }
-    });
-    return;
-  }
 
-  const index = usuariosGuardados.findIndex(usuario => usuario.correo === usuarioLogeado.correo);
+  // if (correoYaExiste) {
+  //   Swal.fire({
+  //     title: '¡Error al editar el usuario!',
+  //     text: 'El correo electrónico ya está registrado por otro usuario.',
+  //     icon: 'error',
+  //     customClass: {
+  //       popup: 'mi-alerta-personalizada',
+  //       confirmButton: 'ok-personalizado',
+  //     }
+  //   });
+  //   return;
+  // }
 
-  if (index !== -1) {
+  try {
     const nuevaPassword = passwordNueva === ''
-      ? usuariosGuardados[index].password
+      ? ""
       : passwordNueva;
 
-    usuariosGuardados[index] = {
-      ...usuariosGuardados[index],
-      nombre: nombreNuevo,
+    const usuarioEditado = {
+
+      nombreCompleto: nombreNuevo,
       telefono: telefonoNuevo,
       correo: correoNuevo,
-      password: nuevaPassword,
-      imagenUsuario: imagenNueva
+      contrasena: nuevaPassword,
+      urlImagenUsuario: imagenNueva
     };
+    const token = localStorage.getItem("tokenUsuario");
+    const response = await fetch("http://localhost:8080/usuarios/editarUsuario/" + usuarioLogeado.idUsuario, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify(usuarioEditado)
+    })
+    if (response.ok) {
+      localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioEditado));
+      Swal.fire({
+        title: '¡Actualización exitosa!',
+        text: 'Tu perfil ha sido actualizado.',
+        icon: 'success',
+        customClass: {
+          popup: 'mi-alerta-personalizada',
+          confirmButton: 'ok-personalizado',
+        }
+      }).then((result) => {
+        if (result.isConfirmed || result.isDismissed) {
+          window.location.reload();
+        }
+      });
+    }
 
-    // Actualizar en localStorage
-    localStorage.setItem('usuarios', JSON.stringify(usuariosGuardados));
-    localStorage.setItem('usuarioLogeado', JSON.stringify(usuariosGuardados[index]));
-
-    Swal.fire({
-      title: '¡Actualización exitosa!',
-      text: 'Tu perfil ha sido actualizado.',
-      icon: 'success',
-      customClass: {
-        popup: 'mi-alerta-personalizada',
-        confirmButton: 'ok-personalizado',
-      }
-    }).then((result) => {
-      if (result.isConfirmed || result.isDismissed) {
-        window.location.reload();
-      }
-    });
-
-  } else {
+  } catch (error) {
     Swal.fire({
       title: 'Error',
       text: 'No se pudo encontrar el usuario para actualizar.',
@@ -167,10 +170,10 @@ formulario.addEventListener('submit', function (e) {
         confirmButton: 'ok-personalizado',
       }
     });
+
   }
+ 
 });
-
-
 
 
 // manejo de visibilidad de password
@@ -199,10 +202,10 @@ editar.addEventListener('click', () => cambioEstadoFormulario());
 //manejo carga de data por defecto
 const agregarData = () => {
   const usuariosGuardados = JSON.parse(localStorage.getItem('usuarioLogeado'));
-  nombre.value = usuariosGuardados.nombre
+  nombre.value = usuariosGuardados.nombreCompleto
   telefono.value = usuariosGuardados.telefono
   correo.value = usuariosGuardados.correo
-  imagen.value = usuariosGuardados.imagenUsuario
+  imagen.value = usuariosGuardados.urlImagenUsuario
   validator.clearValidation()
 }
 

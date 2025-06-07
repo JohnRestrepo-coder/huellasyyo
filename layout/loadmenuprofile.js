@@ -32,7 +32,7 @@ const cargarOpcionesMenu = () => {
     const opcionesAdmin = document.querySelectorAll(".admin")
     const opcionesUser = document.querySelectorAll(".usuario")
     const nameUser = document.getElementById("name-user")
-    nameUser.innerHTML = usuarioGuardado.nombre;
+    nameUser.innerHTML = usuarioGuardado.nombreCompleto;
     if (usuarioGuardado.tipoUsuario === "Admin") {
       console.log("Entró");
       
