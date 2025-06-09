@@ -14,7 +14,7 @@ async function cargaPosiblesMatch() {
     const token = localStorage.getItem("tokenUsuario");
     console.log(token);
     const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"))
-    const response = await fetch("http://localhost:8080/realizaMatch/posibleMatch/" + usuarioLogeado.idUsuario, {
+    const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/realizaMatch/posibleMatch/" + usuarioLogeado.idUsuario, {
 
       headers: {
         'Authorization': `Bearer ${token}`
@@ -30,7 +30,7 @@ async function cargaPosiblesMatch() {
 }
 
 function mostrarAnimal(i) {
-  if (animales.length == 0){
+  if (animales.length == 0) {
     document.getElementById("contenedorNoMatch").classList.remove("d-none");
     document.getElementById("contenedorNoMatch").classList.add("d-block");
     document.getElementById("columnaCentro").classList.add("d-none");
@@ -105,13 +105,13 @@ function mostrarAnimal(i) {
 async function renderizarMatches() {
   try {
     const matchesContainer = document.getElementById("match-list");
-  matchesContainer.innerHTML = "";
-  const inicio = paginaActual * porPagina;
-  const fin = inicio + porPagina;
-   const token = localStorage.getItem("tokenUsuario");
-    
+    matchesContainer.innerHTML = "";
+    const inicio = paginaActual * porPagina;
+    const fin = inicio + porPagina;
+    const token = localStorage.getItem("tokenUsuario");
+
     const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"))
-    const response = await fetch("http://localhost:8080/realizaMatch/buscarMatches/" + usuarioLogeado.idUsuario, {
+    const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/realizaMatch/buscarMatches/" + usuarioLogeado.idUsuario, {
 
       headers: {
         'Authorization': `Bearer ${token}`
@@ -119,13 +119,13 @@ async function renderizarMatches() {
 
     })
     const matches = await response.json();
-  const pagina = matches.slice(inicio, fin);
+    const pagina = matches.slice(inicio, fin);
 
-  pagina.forEach(match => {
-    const link = `../galeria/vista_mascota.html?nombre=${encodeURIComponent(match.mascota.idMascota)}`;
-    const card = document.createElement("div");
-    card.classList.add("mb-1");
-    card.innerHTML = `
+    pagina.forEach(match => {
+      const link = `../galeria/vista_mascota.html?nombre=${encodeURIComponent(match.mascota.idMascota)}`;
+      const card = document.createElement("div");
+      card.classList.add("mb-1");
+      card.innerHTML = `
       <div class="card">
         <h5 class="card-title titulo-card text-center">${match.mascota.nombre}</h5>
         <img src="${match.mascota.urlImagenMascota}" class="card-img-top img-card-uniforme" alt="${match.mascota.nombre}" />
@@ -135,13 +135,13 @@ async function renderizarMatches() {
         </div>
       </div>
     `;
-    matchesContainer.appendChild(card);
-  });
-    
+      matchesContainer.appendChild(card);
+    });
+
   } catch (error) {
-    
+
   }
-  
+
 }
 
 async function handleLike() {
@@ -151,7 +151,7 @@ async function handleLike() {
   try {
     const token = localStorage.getItem("tokenUsuario");
     const matchMascota = true; // o false
-    const response = await fetch(`http://localhost:8080/realizaMatch/reaccion/${animalActual.idRealizaMatch}?matchMascota=${matchMascota}`, {
+    const response = await fetch(`https://njejgfaqpr.us-east-1.awsapprunner.com/realizaMatch/reaccion/${animalActual.idRealizaMatch}?matchMascota=${matchMascota}`, {
       method: 'PATCH',
       headers: {
         'Authorization': `Bearer ${token}`
@@ -162,7 +162,7 @@ async function handleLike() {
     }
 
     await renderizarMatches();
-    await cargaPosiblesMatch();   
+    await cargaPosiblesMatch();
     mostrarAnimal(index);
   } catch (error) {
     Swal.fire({ title: "Ha ocurrido un error. Vuelve a intentarlo!", icon: "error" });
@@ -177,16 +177,16 @@ async function handleDislike() {
 
   try {
     const token = localStorage.getItem("tokenUsuario");
-    const matchMascota = false; 
-    const response = await fetch(`http://localhost:8080/realizaMatch/reaccion/${animalActual.idRealizaMatch}?matchMascota=${matchMascota}`, {
+    const matchMascota = false;
+    const response = await fetch(`https://njejgfaqpr.us-east-1.awsapprunner.com/realizaMatch/reaccion/${animalActual.idRealizaMatch}?matchMascota=${matchMascota}`, {
       method: 'PATCH',
       headers: {
         'Authorization': `Bearer ${token}`
       }
-    })   
+    })
 
     await renderizarMatches();
-    await cargaPosiblesMatch();   
+    await cargaPosiblesMatch();
     mostrarAnimal(index);
   } catch (error) {
     Swal.fire({ title: "Ha ocurrido un error. Vuelve a intentarlo!", icon: "error" });
@@ -204,17 +204,17 @@ function handleRetroceder() {
 }
 
 async function setupPaginacion() {
-  document.getElementById("btn-atras").addEventListener("click", async() => {
+  document.getElementById("btn-atras").addEventListener("click", async () => {
     if (paginaActual > 0) {
       paginaActual--;
-     await renderizarMatches();
+      await renderizarMatches();
     }
   });
-  document.getElementById("btn-inicio").addEventListener("click", async() => {
+  document.getElementById("btn-inicio").addEventListener("click", async () => {
     paginaActual = 0;
     await renderizarMatches();
   });
-  document.getElementById("btn-adelante").addEventListener("click", async() => {
+  document.getElementById("btn-adelante").addEventListener("click", async () => {
     const totalPaginas = Math.ceil(matches.length / porPagina);
     if (paginaActual < totalPaginas - 1) {
       paginaActual++;
