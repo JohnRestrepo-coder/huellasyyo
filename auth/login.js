@@ -43,7 +43,13 @@ formulario.addEventListener('submit', async function (e) {
         const { usuario, token } = await respuesta.json();
         localStorage.setItem("usuarioLogeado", JSON.stringify(usuario));
         localStorage.setItem("tokenUsuario", token);
-        window.location.href = '../index.html';
+        const responseData = await buscarDataPreferencia()
+        if(responseData || usuario.tipoUsuario === 'Admin'){
+          window.location.href = '../index.html';
+        } else {
+          window.location.href = "../usuarios/preferencias.html"
+        }
+        
       } else {
         Swal.fire({
           title: '¡Error al iniciar sesión!',
@@ -75,3 +81,33 @@ togglePassword.addEventListener('click', () => {
     ? '<i class="fa-solid fa-eye-slash"></i>'
     : '<i class="fa-solid fa-eye"></i>';
 });
+
+const buscarDataPreferencia = async () => {
+  try {
+    const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"))
+    if (!usuarioLogeado) {
+      window.location.href = '../index.html';
+      return
+    }
+
+    const token = localStorage.getItem("tokenUsuario");
+    const response = await fetch(`http://localhost:8080/usuarios/traerpreferencias/${usuarioLogeado.idUsuario}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+
+    if (response.ok) {
+      const { convivencia, mascotaPreferencia, fechaNacimiento } = await response.json();
+      if (convivencia === null || mascotaPreferencia == null || fechaNacimiento === null) {
+        return false
+      }
+      else return true
+    }
+
+  } catch (error) {
+    console.log(error)
+    return true
+  }
+}
