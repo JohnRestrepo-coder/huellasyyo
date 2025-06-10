@@ -135,7 +135,7 @@ formulario.addEventListener('submit', async function (e) {
       urlImagenUsuario: imagenNueva
     };
     const token = localStorage.getItem("tokenUsuario");
-    const response = await fetch("http://localhost:8080/usuarios/editarUsuario/" + usuarioLogeado.idUsuario, {
+    const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/usuarios/editarUsuario/" + usuarioLogeado.idUsuario, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

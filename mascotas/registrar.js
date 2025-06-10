@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(token);
 
         if (indexEditar !== null && indexEditar !== '') {
-          const response = await fetch("http://localhost:8080/mascota/editarMascota/" + indexEditar, {
+          const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/mascota/editarMascota/" + indexEditar, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
           })
           formulario.removeAttribute('data-edit-index');
         } else {
-          const response = await fetch("http://localhost:8080/mascota", {
+          const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/mascota", {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -211,7 +211,7 @@ document.addEventListener('click', function (e) {
 
 async function cargarFormularioParaEdicion(index) {
   try {
-    const response = await fetch("http://localhost:8080/mascota/buscarMascota/" + index)
+    const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/mascota/buscarMascota/" + index)
 
     const mascota = await response.json();
     const datosAdicionales = JSON.parse(mascota.otrasCaracteristicas)  // Tu array de mascotas

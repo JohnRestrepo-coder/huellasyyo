@@ -11,7 +11,7 @@ async function renderizarMatches() {
     matchesContainer.innerHTML = "";
     const token = localStorage.getItem("tokenUsuario");
 
-    const response = await fetch("http://localhost:8080/realizaMatch/buscarMatches/" + usuarioLogeado.idUsuario, {
+    const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/realizaMatch/buscarMatches/" + usuarioLogeado.idUsuario, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
@@ -88,7 +88,7 @@ async function procesarAdopcion(mascotaId, mascotaNombre) {
     const token = localStorage.getItem("tokenUsuario");
     const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
 
-    const response = await fetch('http://localhost:8080/procesoAdopcion/usuario/' + usuarioLogeado.idUsuario + '/mascota/ ' + mascotaId + '/estado/PENDIENTE', {
+    const response = await fetch('https://njejgfaqpr.us-east-1.awsapprunner.com/procesoAdopcion/usuario/' + usuarioLogeado.idUsuario + '/mascota/ ' + mascotaId + '/estado/PENDIENTE', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`

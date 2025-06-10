@@ -14,7 +14,7 @@ async function cargaPosiblesMatch() {
     const token = localStorage.getItem("tokenUsuario");
     console.log(token);
     const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"))
-    const response = await fetch("http://localhost:8080/realizaMatch/posibleMatch/" + usuarioLogeado.idUsuario, {
+    const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/realizaMatch/posibleMatch/" + usuarioLogeado.idUsuario, {
 
       headers: {
         'Authorization': `Bearer ${token}`
@@ -111,7 +111,7 @@ async function renderizarMatches() {
     const token = localStorage.getItem("tokenUsuario");
 
     const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"))
-    const response = await fetch("http://localhost:8080/realizaMatch/buscarMatches/" + usuarioLogeado.idUsuario, {
+    const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/realizaMatch/buscarMatches/" + usuarioLogeado.idUsuario, {
 
       headers: {
         'Authorization': `Bearer ${token}`
@@ -151,7 +151,7 @@ async function handleLike() {
   try {
     const token = localStorage.getItem("tokenUsuario");
     const matchMascota = true; // o false
-    const response = await fetch(`http://localhost:8080/realizaMatch/reaccion/${animalActual.idRealizaMatch}?matchMascota=${matchMascota}`, {
+    const response = await fetch(`https://njejgfaqpr.us-east-1.awsapprunner.com/realizaMatch/reaccion/${animalActual.idRealizaMatch}?matchMascota=${matchMascota}`, {
       method: 'PATCH',
       headers: {
         'Authorization': `Bearer ${token}`
@@ -178,7 +178,7 @@ async function handleDislike() {
   try {
     const token = localStorage.getItem("tokenUsuario");
     const matchMascota = false;
-    const response = await fetch(`http://localhost:8080/realizaMatch/reaccion/${animalActual.idRealizaMatch}?matchMascota=${matchMascota}`, {
+    const response = await fetch(`https://njejgfaqpr.us-east-1.awsapprunner.com/realizaMatch/reaccion/${animalActual.idRealizaMatch}?matchMascota=${matchMascota}`, {
       method: 'PATCH',
       headers: {
         'Authorization': `Bearer ${token}`

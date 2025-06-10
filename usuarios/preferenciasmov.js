@@ -73,14 +73,14 @@ btn_final.addEventListener("click", async function (e) {
         const jsonFinal = {
             convivencia,
             mascotaPreferencia,
-            fechaNacimiento:document.getElementById("FechaNacimiento").value
+            fechaNacimiento: document.getElementById("FechaNacimiento").value
         };
 
         JSON.stringify(jsonFinal, null, 2)
 
         const token = localStorage.getItem("tokenUsuario");
         const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"))
-        const response = await fetch(`http://localhost:8080/usuarios/preferencias/${usuarioLogeado.idUsuario}`, {
+        const response = await fetch(`https://njejgfaqpr.us-east-1.awsapprunner.com/usuarios/preferencias/${usuarioLogeado.idUsuario}`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",

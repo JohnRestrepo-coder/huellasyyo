@@ -30,7 +30,7 @@ formulario.addEventListener('submit', async function (e) {
     const contrasena = document.getElementById('password').value.trim();
 
     try {
-      const respuesta = await fetch('http://localhost:8080/usuarios/login', {
+      const respuesta = await fetch('https://njejgfaqpr.us-east-1.awsapprunner.com/usuarios/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -44,12 +44,12 @@ formulario.addEventListener('submit', async function (e) {
         localStorage.setItem("usuarioLogeado", JSON.stringify(usuario));
         localStorage.setItem("tokenUsuario", token);
         const responseData = await buscarDataPreferencia()
-        if(responseData || usuario.tipoUsuario === 'Admin'){
+        if (responseData || usuario.tipoUsuario === 'Admin') {
           window.location.href = '../index.html';
         } else {
           window.location.href = "../usuarios/preferencias.html"
         }
-        
+
       } else {
         Swal.fire({
           title: '¡Error al iniciar sesión!',
@@ -91,7 +91,7 @@ const buscarDataPreferencia = async () => {
     }
 
     const token = localStorage.getItem("tokenUsuario");
-    const response = await fetch(`http://localhost:8080/usuarios/traerpreferencias/${usuarioLogeado.idUsuario}`, {
+    const response = await fetch(`https://njejgfaqpr.us-east-1.awsapprunner.com/usuarios/traerpreferencias/${usuarioLogeado.idUsuario}`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`

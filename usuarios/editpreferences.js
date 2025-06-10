@@ -79,7 +79,7 @@ btn_final.addEventListener("click", async function (e) {
 
     const token = localStorage.getItem("tokenUsuario");
     const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"))
-    const response = await fetch(`http://localhost:8080/usuarios/${usuarioLogeado.idUsuario}/preferencias`, {
+    const response = await fetch(`https://njejgfaqpr.us-east-1.awsapprunner.com/usuarios/${usuarioLogeado.idUsuario}/preferencias`, {
       method: 'PUT',
       headers: {
         "Content-Type": "application/json",
@@ -185,7 +185,7 @@ const buscarData = async () => {
 
     document.getElementById('contenedorgeneral').classList.add('visible');
     const token = localStorage.getItem("tokenUsuario");
-    const response = await fetch(`http://localhost:8080/usuarios/traerpreferencias/${usuarioLogeado.idUsuario}`, {
+    const response = await fetch(`https://njejgfaqpr.us-east-1.awsapprunner.com/usuarios/traerpreferencias/${usuarioLogeado.idUsuario}`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`

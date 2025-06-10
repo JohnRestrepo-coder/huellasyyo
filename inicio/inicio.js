@@ -20,10 +20,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 async function cargarMascotas() {
   try {
-    const response = await fetch("http://localhost:8080/mascota/TraerMascotaPortada")
+    const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/mascota/TraerMascotaPortada")
     const mascotasActualizadas = await response.json() || [];
     const contenedor = document.getElementById('contenedor-mascotas').innerHTML = "";
-    mascotasActualizadas.forEach(mascota =>{
+    mascotasActualizadas.forEach(mascota => {
       crearMascotaCard(mascota)
     })
 
