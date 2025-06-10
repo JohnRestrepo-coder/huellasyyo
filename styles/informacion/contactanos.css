@@ -2,7 +2,7 @@ main {
   background-color: var(--site-color-fondo-1);
 }
 
-.contactanos {
+.contactanos-formulario {
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -211,7 +211,7 @@ main {
     height: auto;
   }
 
-  .contactanos {
+  .contactanos-formulario {
     padding: 2rem 1rem;
     height: auto;
   }
