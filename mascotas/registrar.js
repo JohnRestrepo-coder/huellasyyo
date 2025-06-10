@@ -33,20 +33,13 @@ validator.addField('imagen[]', [
 document.addEventListener('DOMContentLoaded', function () {
   const formulario = document.querySelector('.form-container');
 
-  formulario.addEventListener('submit', function (evento) {
+  formulario.addEventListener('submit', async function (evento) {
     evento.preventDefault();
 
     if (validator.validateAll()) {
-      const nuevaMascota = {
-        nombre: document.getElementById('nombre').value,
-        sexo: document.getElementById('sexo').value,
-        especie: document.getElementById('especie').value,
-        raza: document.getElementById('raza').value,
-        razaMixta: document.getElementById('raza-mixta').value,
-        edad: document.getElementById('edad').value,
-        tamano: document.getElementById('tamano').value,
+      const otrasCaracteristicas = {
         color: document.getElementById('color').value,
-        caracter: document.getElementById('caracter').value,
+        razaMixta: document.getElementById('raza-mixta').value,
         ninos: document.getElementById('ninos').value,
         otrasMascotas: document.getElementById('otras-mascotas').value,
         vacunado: formulario.querySelector('input[name="vacunado"]').checked,
@@ -58,38 +51,73 @@ document.addEventListener('DOMContentLoaded', function () {
         cuidador: document.getElementById('cuidador').value,
         tiempo: document.getElementById('tiempo').value,
         adiestramiento: document.getElementById('adiestramiento').value,
-        imagen: document.getElementById('imagen').value,
-        listaImagenes: obtenerImagenes()
+        listaImagenes: obtenerImagenes() // Esto se guarda como JSON dentro del String
       };
 
-      const mascotasGuardadas = JSON.parse(localStorage.getItem('mascotas')) || [];
+      const nuevaMascota = {
+        nombre: document.getElementById('nombre').value,
+        especie: document.getElementById('especie').value,
+        sexo: document.getElementById('sexo').value,
+        caracter: document.getElementById('caracter').value,
+        edad: document.getElementById('edad').value,
+        tamano: document.getElementById('tamano').value,
+        raza: document.getElementById('raza').value,
+        urlImagenMascota: document.getElementById('imagen').value,
+        disponibilidad: true, // o según lógica de tu app
+        otrasCaracteristicas: JSON.stringify(otrasCaracteristicas)
+      };
+
+
 
       const indexEditar = formulario.getAttribute('data-edit-index');
 
-      if (indexEditar !== null && indexEditar !== '') {
-        mascotasGuardadas[indexEditar] = nuevaMascota;
-        formulario.removeAttribute('data-edit-index');
-      } else {
-        mascotasGuardadas.push(nuevaMascota);
+      try {
+        const token = localStorage.getItem("tokenUsuario");
+        console.log(token);
+
+        if (indexEditar !== null && indexEditar !== '') {
+          const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/mascota/editarMascota/" + indexEditar, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(nuevaMascota)
+          })
+          formulario.removeAttribute('data-edit-index');
+        } else {
+          const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/mascota", {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(nuevaMascota)
+          })
+
+        }
+        Swal.fire({
+          title: indexEditar !== null && indexEditar !== '' ? '¡Edición exitosa!' : '¡Registro exitoso!',
+          text: indexEditar !== null && indexEditar !== '' ? 'La mascota ha sido actualizada correctamente.' : 'La mascota ha sido registrada correctamente.',
+          icon: 'success',
+          confirmButtonText: 'Aceptar',
+          customClass: {
+            popup: 'mi-alerta-personalizada',
+            confirmButton: 'ok-personalizado',
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.reload();
+          }
+        });
+      } catch (error) {
+
       }
 
-      localStorage.setItem('mascotas', JSON.stringify(mascotasGuardadas));
-      formulario.reset();
 
-      Swal.fire({
-        title: indexEditar !== null && indexEditar !== '' ? '¡Edición exitosa!' : '¡Registro exitoso!',
-        text: indexEditar !== null && indexEditar !== '' ? 'La mascota ha sido actualizada correctamente.' : 'La mascota ha sido registrada correctamente.',
-        icon: 'success',
-        confirmButtonText: 'Aceptar',
-        customClass: {
-          popup: 'mi-alerta-personalizada',
-          confirmButton: 'ok-personalizado',
-        }
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.reload();
-        }
-      });
+
+
+
     }
   });
 });
@@ -175,44 +203,48 @@ document.addEventListener('click', function (e) {
 });
 
 
-function cargarFormularioParaEdicion(index) {
-  let mascotas = JSON.parse(localStorage.getItem('mascotas')) || [];
-  const mascota = mascotas[index]; // Tu array de mascotas
+async function cargarFormularioParaEdicion(index) {
+  try {
+    const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/mascota/buscarMascota/" + index)
 
-  // Llenar el formulario con los datos
-  document.getElementById('nombre').value = mascota.nombre;
-  document.getElementById('sexo').value = mascota.sexo;
-  document.getElementById('edad').value = mascota.edad;
-  document.getElementById('especie').value = mascota.especie;
-  document.getElementById('raza').value = mascota.raza;
-  document.getElementById('raza-mixta').value = mascota.razaMixta || "";
-  document.getElementById('tamano').value = mascota.tamano;
-  document.getElementById('color').value = mascota.color;
-  document.getElementById('caracter').value = mascota.caracter;
-  document.getElementById('ninos').value = mascota.ninos;
-  document.getElementById('tiempo').value = mascota.tiempo;
-  document.getElementById('adiestramiento').value = mascota.adiestramiento;
-  document.getElementById('otras-mascotas').value = mascota.otrasMascotas;
-  document.getElementById('vivienda').value = mascota.vivienda;
-  document.getElementById('cuidador').value = mascota.cuidador;
-  document.getElementById('historial').value = mascota.historial;
-  document.getElementById('imagen').value = mascota.imagen || "";
+    const mascota = await response.json();
+    const datosAdicionales = JSON.parse(mascota.otrasCaracteristicas)  // Tu array de mascotas
 
-  // Checkboxes
-  document.querySelector('[name="vacunado"]').checked = mascota.vacunado;
-  document.querySelector('[name="castrado"]').checked = mascota.castrado;
-  document.querySelector('[name="solo-casa"]').checked = mascota.soloCasa;
-  document.querySelector('[name="viaja-auto"]').checked = mascota.viajaAuto;
+    // Llenar el formulario con los datos
 
-  const imagenesContainer = document.getElementById('imagenes-container');
-  imagenesContainer.innerHTML = '';
+    document.getElementById('nombre').value = mascota.nombre;
+    document.getElementById('sexo').value = mascota.sexo;
+    document.getElementById('edad').value = mascota.edad;
+    document.getElementById('especie').value = mascota.especie;
+    document.getElementById('raza').value = mascota.raza;
+    document.getElementById('caracter').value = mascota.caracter;
+    document.getElementById('raza-mixta').value = datosAdicionales.razaMixta || "";
+    document.getElementById('tamano').value = mascota.tamano;
+    document.getElementById('color').value = datosAdicionales.color;
+    document.getElementById('ninos').value = datosAdicionales.ninos;
+    document.getElementById('tiempo').value = datosAdicionales.tiempo;
+    document.getElementById('adiestramiento').value = datosAdicionales.adiestramiento;
+    document.getElementById('otras-mascotas').value = datosAdicionales.otrasMascotas;
+    document.getElementById('vivienda').value = datosAdicionales.vivienda;
+    document.getElementById('cuidador').value = datosAdicionales.cuidador;
+    document.getElementById('historial').value = datosAdicionales.historial;
+    document.getElementById('imagen').value = mascota.urlImagenMascota || "";
 
-  if (Array.isArray(mascota.listaImagenes) && mascota.listaImagenes.length > 0) {
-    mascota.listaImagenes.forEach((url, i) => {
-      const div = document.createElement('div');
-      div.classList.add('form-group', 'mb-3');
+    // Checkboxes
+    document.querySelector('[name="vacunado"]').checked = datosAdicionales.vacunado;
+    document.querySelector('[name="castrado"]').checked = datosAdicionales.castrado;
+    document.querySelector('[name="solo-casa"]').checked = datosAdicionales.soloCasa;
+    document.querySelector('[name="viaja-auto"]').checked = datosAdicionales.viajaAuto;
 
-      div.innerHTML = `
+    const imagenesContainer = document.getElementById('imagenes-container');
+    imagenesContainer.innerHTML = '';
+
+    if (Array.isArray(datosAdicionales.listaImagenes) && datosAdicionales.listaImagenes.length > 0) {
+      datosAdicionales.listaImagenes.forEach((url, i) => {
+        const div = document.createElement('div');
+        div.classList.add('form-group', 'mb-3');
+
+        div.innerHTML = `
           <label>Imagen adicional:</label>
           <div class="position-relative d-flex align-items-start flex-nowrap gap-1 mb-3">
             <div class="d-flex flex-column flex-grow-1">
@@ -224,22 +256,27 @@ function cargarFormularioParaEdicion(index) {
               <i class="fa-solid fa-xmark"></i>
             </button>
           </div>`;
-      imagenesContainer.appendChild(div);
-    });
-  } else {
-    const div = document.createElement('div');
-    div.classList.add('form-group', 'mb-3');
+        imagenesContainer.appendChild(div);
+      });
+    } else {
+      const div = document.createElement('div');
+      div.classList.add('form-group', 'mb-3');
 
-    div.innerHTML = `
+      div.innerHTML = `
       <label>URL de imagen de la mascota:</label>
       <input type="url" name="imagen[]" class="form-control" placeholder="https://...">
       <div class="invalid-feedback"></div>
     `;
 
-    imagenesContainer.appendChild(div);
+      imagenesContainer.appendChild(div);
+    }
+
+
+    document.getElementById('formulario-mascota').setAttribute('data-edit-index', index);
+  } catch (error) {
+    console.log(error);
+
+
   }
-
-
-  document.getElementById('formulario-mascota').setAttribute('data-edit-index', index);
 }
 

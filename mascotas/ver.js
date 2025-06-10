@@ -2,11 +2,18 @@ const contenedor = document.getElementById('lista-mascotas');
 const btnEliminarTodo = document.getElementById('eliminarTodo');
 const contenido = document.getElementById("contenido")
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/mascota/TraerMascota")
+    let mascotas = await response.json() || [];
+    renderMascotas(mascotas);
+    generarBotonEliminarTodo(mascotas);
 
-  let mascotas = JSON.parse(localStorage.getItem('mascotas')) || [];
-  renderMascotas(mascotas);
-  generarBotonEliminarTodo(mascotas);
+  } catch (error) {
+    console.log(error);
+
+  }
+
 });
 
 
@@ -16,7 +23,7 @@ window.onload = () => {
     window.location.href = '../index.html';
   }
 
-  if (usuariosGuardados.idTipoUsuario != 2) {
+  if (usuariosGuardados.tipoUsuario != "Admin") {
     window.location.href = '../index.html';
   }
 
@@ -40,7 +47,7 @@ function renderMascotas(mascotas) {
     div.classList.add('col-12', 'col-md-6', 'col-lg-4', 'mb-4');
 
 
-    const imagen = mascota.imagen || 'https://ninos.kiddle.co/images/thumb/0/04/Labrador_Retriever_%281210559%29.jpg/300px-Labrador_Retriever_%281210559%29.jpg';
+    const imagen = mascota.urlImagenMascota || 'https://ninos.kiddle.co/images/thumb/0/04/Labrador_Retriever_%281210559%29.jpg/300px-Labrador_Retriever_%281210559%29.jpg';
 
     div.innerHTML = `
         <div class="card h-100 tarjeta-custom">
@@ -51,17 +58,11 @@ function renderMascotas(mascotas) {
               <strong>Especie:</strong> ${mascota.especie}<br>
               <strong>Raza:</strong> ${mascota.raza}<br>
               <strong>Edad:</strong> ${mascota.edad} año(s)<br>
-              <strong>Tamaño:</strong> ${mascota.tamano}<br>
-              <strong>Color:</strong> ${mascota.color}<br>
-              <strong>Carácter:</strong> ${mascota.caracter}<br>
-              <strong>Niños:</strong> ${mascota.ninos}<br>
-              <strong>Otras mascotas:</strong> ${mascota.otrasMascotas}<br>
-              <strong>Vacunado:</strong> ${mascota.vacunado ? 'Sí' : 'No'}<br>
-              <strong>Castrado:</strong> ${mascota.castrado ? 'Sí' : 'No'}<br>
-              <strong>Historial:</strong> ${mascota.historial}
+              <strong>Tamaño:</strong> ${mascota.tamano}<br>              
+              <strong>Carácter:</strong> ${mascota.caracter}<br>              
             </p>
-            <button class="btn boton-volver-formulario editar-boton" data-index="${index}" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button>
-            <button class="btn eliminar-boton" data-index="${index}">Eliminar</button>
+            <button class="btn boton-volver-formulario editar-boton" data-index="${mascota.idMascota}" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button>
+            <!--- <button class="btn eliminar-boton" data-index="${mascota.idMascota}">Eliminar</button> --->
           </div>
         </div>
       `;

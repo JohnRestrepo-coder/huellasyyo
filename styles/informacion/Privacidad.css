@@ -1,0 +1,89 @@
+:root {
+  --site-color-fondo-1: #F5F7FA;
+  --site-color-fondo-2: #FFF;
+  --site-color-verde: #4CAF4F;
+  --site-color-lila: #442B48;
+  --site-color-blanco-texto: #FFFFFF;
+  --site-color-negro-texto: #000000;
+
+  --site-font-title: 'Fredoka', sans-serif;
+  --site-font-body: 'Quicksand', sans-serif;
+}
+
+body {
+  background-color: var(--site-color-fondo-1);
+  font-family: var(--site-font-body);
+  color: var(--site-color-negro-texto);
+  margin: 0;
+  padding: 2rem;
+  line-height: 1.6;
+}
+
+main {
+  background-color: var(--site-color-fondo-2);
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  font-family: var(--site-font-title);
+  color: var(--site-color-verde);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+h3 {
+  font-family: var(--site-font-title);
+  color: var(--site-color-lila);
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: var(--site-color-verde);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+strong {
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  main {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+}

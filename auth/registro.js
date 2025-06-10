@@ -52,34 +52,37 @@ window.onload = () => {
 
 }
 
-formulario.addEventListener('submit', function (e) {
+formulario.addEventListener('submit', async function (e) {
   e.preventDefault();
   if (validator.validateAll()) {
-    const usuariosGuardados = JSON.parse(localStorage.getItem('usuarios')) || [];
 
-    const usuarioRegistrado = usuariosGuardados.find(usuario => usuario.correo === correo.value.trim())
 
-    if (usuarioRegistrado) {
-      Swal.fire({
-        title: '¡Error al crear el usuario!',
-        text: 'El correo electronico ya esta registrado en el sistema.',
-        icon: 'error',
-        customClass: {
-          popup: 'mi-alerta-personalizada',
-          confirmButton: 'ok-personalizado',
-        }
+    // if (usuarioRegistrado) {
+    //   Swal.fire({
+    //     title: '¡Error al crear el usuario!',
+    //     text: 'El correo electronico ya esta registrado en el sistema.',
+    //     icon: 'error',
+    //     customClass: {
+    //       popup: 'mi-alerta-personalizada',
+    //       confirmButton: 'ok-personalizado',
+    //     }
+    //   });
+    //   return;
+    // }
+
+    const nuevoUsuario = { nombreCompleto: nombre.value.trim(), telefono: telefono.value.trim(), correo: correo.value.trim(), contrasena: password.value, tipoUsuario: "cliente", urlImagenUsuario: "https://firebasestorage.googleapis.com/v0/b/dwb-archivos.appspot.com/o/Sin%20perfil.webp?alt=media&token=410bb694-4db7-4bc6-a218-f8fae38b7faf", estado: true };
+    try {
+      const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/usuarios/crearUsuario", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(nuevoUsuario)
       });
-      return;
-    }
-
-    const nuevoUsuario = { nombre: nombre.value.trim(), telefono: telefono.value.trim(), correo: correo.value.trim(), password: password.value, idTipoUsuario: 1, preferencias: [], imagenUsuario: "https://firebasestorage.googleapis.com/v0/b/dwb-archivos.appspot.com/o/Sin%20perfil.webp?alt=media&token=410bb694-4db7-4bc6-a218-f8fae38b7faf" };
-
-    usuariosGuardados.push(nuevoUsuario);
-
-    localStorage.setItem('usuarios', JSON.stringify(usuariosGuardados));
-    Swal.fire({
-      title: '¡Registro completado!',
-      html: `
+      if (!response.ok) throw new Error('Error al enviar');
+      Swal.fire({
+        title: '¡Registro completado!',
+        html: `
     <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">
       Te has registrado correctamente.
     </p>
@@ -87,19 +90,25 @@ formulario.addEventListener('submit', function (e) {
       Ahora puedes iniciar sesión para disfrutar de todas las funcionalidades.
     </p>
   `,
-      icon: 'success',
-      confirmButtonText: 'Ir al login',
-      customClass: {
-        popup: 'mi-alerta-personalizada',
-        confirmButton: 'ok-personalizado',
-      }
-    }).then((result) => {
-      if (result.isConfirmed) {
-        window.location.href = './login.html';
-      }
-    });
+        icon: 'success',
+        confirmButtonText: 'Ir al login',
+        customClass: {
+          popup: 'mi-alerta-personalizada',
+          confirmButton: 'ok-personalizado',
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = './login.html';
+        }
+      });
 
-    formulario.reset();
+      formulario.reset();
+
+    } catch (error) {
+      console.log(error);
+
+    }
+
   }
 });
 

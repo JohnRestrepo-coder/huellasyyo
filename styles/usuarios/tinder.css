@@ -2,13 +2,18 @@
 :root {
   --site-color-fondo-1: #F5F7FA;
   --site-color-fondo-2: #FFF;
-  --site-color-verde: #4CAF4F;
+  --site-color-verde: #225D24;
   --site-color-lila: #CFAFD8;
   --site-color-blanco-texto: #FFFFFF;
   --site-color-negro-texto: #000000;
   
   --site-font-title: 'Fredoka', sans-serif;
   --site-font-body: 'Quicksand', sans-serif;
+}
+
+h3 {
+  font-family: var(--site-font-title);
+  color: var(--site-color-verde);
 }
 
 .img-card-uniforme {
@@ -24,14 +29,43 @@
     color: var(--site-color-blanco-texto);         /* Blanco suave */
 
   }
+
+  .bg-primary{
+    background-color: #442B48 !important;    
+  }
   
   .card {
-    background-color:var(--site-color-verde) ;
+    background-color: #442B48;
       margin: 0 !important;
   padding: 0 !important;
     margin-bottom: 0 !important;
 
   }
+  .btn-morado{
+   background-color: #442B48 !important;
+   color: #FFF;
+  }
+
+  .btn-morado:hover{
+    background-color: #3b1c41 !important;
+    color: #FFF;
+  }
+
+  /*Cambios del botón de Ver de Mis matches*/
+  .btn-cardperfil {
+    background-color: #225D24 !important;
+    color: #FFF;
+    border-color: #225D24;
+  }
+
+  .btn-cardperfil:hover {
+    background-color: #103811 !important;
+    color: #FFF;
+    border-color:#103811;
+  }
+
+  /*Cambios del botón de Ver de Mis matches*/
+ 
 
   .titulo-card {
     color: #ffffff;         /* O el color que quieras */
@@ -116,4 +150,4 @@
 }
 
 .card-body.card-formulario {
-background-color: var(--site-color-lila);  }
+background-color: var(--site-color-fondo-1);  }

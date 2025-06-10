@@ -36,7 +36,7 @@ export function actualizarUIConUsuario(usuario) {
     avatar?.classList.remove("disponible");
     opcionCuenta?.classList.remove("disponible");
     cerrarSecion?.classList.remove("disponible");
-    avatarImagen?.setAttribute("src", usuario.imagenUsuario);
+    avatarImagen?.setAttribute("src", usuario.urlImagenUsuario);
 
     inicio.forEach(boton => boton.classList.add('disponible'));
   } else {

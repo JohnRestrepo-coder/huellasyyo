@@ -40,27 +40,27 @@
                       <p class="card-text texto-mini text-center">
                         Busca amor y hogar.
                       </p>
-                      <a href="#" class="btn btn-cardperfil btn-primary btn-sm d-flex justify-content-center">Ver</a>
+                      <a href="#" class="btn btn-cardperfil  btn-sm d-flex justify-content-center">Ver</a>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="btn-group d-flex justify-content-center mt-0" role="group" aria-label="Paginación">
-                <button id="btn-atras" type="button" class="btn btn-primary">
+                <button id="btn-atras" type="button" class="btn btn-morado">
                   Atrás
                 </button>
-                <button id="btn-inicio" type="button" class="btn btn-primary">
+                <button id="btn-inicio" type="button" class="btn btn-morado">
                   Inicio
                 </button>
-                <button id="btn-adelante" type="button" class="btn btn-primary">
+                <button id="btn-adelante" type="button" class="btn btn-morado">
                   Adelante
                 </button>
               </div>
             </div>
           </div>
-
+          <section id="contenedorNoMatch" class="col-md-4 mt-4 d-none"> <p>No hay más mascotas para mostrar</p></section>
           <!--  Columna del centro  -->
-          <div class="col-md-4 mt-4">
+          <div id="columnaCentro" class="col-md-4 mt-4">
             <!-- AQUI VA EL CARRUSEL -->
 
             <div id="carouselExampleIndicators" class="carousel slide">
@@ -91,15 +91,15 @@
               <!-- LOS BOTONES DE LIKE, DISLIKE Y DEVOLVER-->
 
               <div class="d-flex justify-content-center gap-3 mt-2">
-                <button class="btn btn-success rounded-circle" style="width: 4rem; height: 4rem; padding: 0">
+                <!-- <button class="btn btn-success rounded-circle" style="width: 4rem; height: 4rem; padding: 0">
                   <i class="bi bi-rewind-circle-fill fs-2"></i>
-                  <!-- por ejemplo un ícono de Bootstrap Icons -->
-                </button>
+                  
+                </button> -->
                 <button class="btn btn-danger rounded-circle" style="width: 4rem; height: 4rem; padding: 0">
                   <i class="bi bi-emoji-neutral-fill fs-2"></i>
                   <!-- por ejemplo un ícono de Bootstrap Icons -->
                 </button>
-                <button class="btn btn-primary rounded-circle" style="width: 4rem; height: 4rem; padding: 0">
+                <button class="btn  rounded-circle btn-success" style="width: 4rem; height: 4rem; padding: 0">
                   <!--bi-chat-heart-fill bi-arrow-through-heart-fill bi-emoji-kiss-fill -->
                   <i class="bi bi-heart-fill fs-2 mt"></i>
                   <!-- por ejemplo un ícono de Bootstrap Icons -->
@@ -110,7 +110,7 @@
           </div>
 
           <!-- Columna derecha  con la informacion del animal de compañia -->
-          <div class="col-md-4 mb-0">
+          <div id="columnaDerecha" class="col-md-4 mb-0">
             <!-- INFO DETALLADA DEL FORMULARIO  -->
             <div class="container my-0">
               <div class="card shadow-lg">
@@ -122,7 +122,7 @@
                     <!-- Columna izquierda -->
 
                     <!--Lo que son palabras cortas-->
-                    <div style="width: 100%; font-family: sans-serif">
+                    <div style="width: 100%">
                       <!-- Columna 1 -->
                       <div style="
                             display: inline-block;
@@ -167,10 +167,6 @@
                           <p id="infoEdad" style="margin: 0"></p>
                         </div>
 
-                        <div style="display: flex; margin-bottom: 8px">
-                          <label style="font-weight: bold; margin-right: 8px">RazaCriolla:</label>
-                          <p id="infoRazaCriolla" style="margin: 0"></p>
-                        </div>
 
                         <div style="display: flex; margin-bottom: 8px">
                           <label style="font-weight: bold; margin-right: 8px">Color:</label>
@@ -182,7 +178,7 @@
                     <!-- Aca termina el de palabras cortas-->
                     <!-- empieza el de palabras largas-->
 
-                    <div style="width: 100%; font-family: sans-serif">
+                    <div style="width: 100%">
                       <div style="display: flex; margin-bottom: 8px">
                         <label style="font-weight: bold; margin-right: 8px">Compatible con niños:</label>
                         <p id="infoNinos" style="margin: 0"></p>
@@ -221,12 +217,12 @@
 
                     <!-- Termina el de palabras largas-->
 
-                    <div class="mb-0" style="width: 100%; font-family: sans-serif">
+                    <div class="mb-0" style="width: 100%">
                       <label style="
                             width: 100%;
                             display: flex;
-                            justify-content: flex-end;
-                          " class="form-label fw-bold">Características adicionales</label>
+                            justify-content: flex-start;
+                          " class="form-label fw-bold">Características adicionales:</label>
                       <ul id="infoExtras" class="list-group list-group-flush ps-3">
                         <li class="list-group-item">✅ Vacunado</li>
                         <li class="list-group-item">✅ Castrado</li>
@@ -241,6 +237,8 @@
               </div>
             </div>
           </div>
+          
+
         </div>
       </section>
     </main>
@@ -252,6 +250,7 @@
   <script crossorigin="anonymous" src="https://kit.fontawesome.com/e6eef9bc73.js"></script>
   <script src="./tinder.js"></script>
   <script src="../layout/pantallaInicioSecion.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

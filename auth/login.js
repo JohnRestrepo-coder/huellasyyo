@@ -1,7 +1,6 @@
-import Validator from "../utils/validator.js"
+import Validator from "../utils/validator.js";
 
 const formulario = document.querySelector('form');
-
 const validator = new Validator();
 
 validator.addField('email', [
@@ -10,72 +9,61 @@ validator.addField('email', [
 ]);
 
 validator.addField('password', [
-  { rule: 'required', message: 'El campo contraseña no puede estar vacio.' },
-  { rule: 'minLength', params: 8, message: 'El campo contraseña debe tener por lo menos 8 caracteres.' }
+  { rule: 'required', message: 'El campo contraseña no puede estar vacío.' },
+  { rule: 'minLength', params: 8, message: 'La contraseña debe tener al menos 8 caracteres.' }
 ]);
 
 window.onload = () => {
-  const usuariosGuardados = JSON.parse(localStorage.getItem('usuarioLogeado'));
-  if (usuariosGuardados) {
+  const usuarioGuardado = JSON.parse(localStorage.getItem('usuarioLogeado'));
+  if (usuarioGuardado) {
     window.location.href = '../index.html';
   }
 
   document.getElementById('login-container').classList.add('visible');
+};
 
-}
-
-
-formulario.addEventListener('submit', function (e) {
+formulario.addEventListener('submit', async function (e) {
   e.preventDefault();
+
   if (validator.validateAll()) {
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
+    const correo = document.getElementById('email').value.trim();
+    const contrasena = document.getElementById('password').value.trim();
 
-    const usuariosGuardados = JSON.parse(localStorage.getItem('usuarios')) || [];
-
-    const usuario = usuariosGuardados.find(usuario => usuario.correo === email);
-
-    if (!usuario) {
-      Swal.fire({
-        title: 'Correo no registrado',
-        text: 'El correo electrónico que ingresaste no está registrado en el sistema.',
-        icon: 'error',
-        showCancelButton: true,
-        confirmButtonText: 'Ir a registro',
-        cancelButtonText: 'Cancelar',
-        customClass: {
-          popup: 'mi-alerta-personalizada',
-          confirmButton: 'ok-personalizado',
-          cancelButton: 'cancel-personalizado'
-        }
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.href = '../auth/registro.html';
-        }
+    try {
+      const respuesta = await fetch('https://njejgfaqpr.us-east-1.awsapprunner.com/usuarios/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          correo: correo,
+          contrasena: contrasena
+        })
       });
-      return;
-    }
 
-    const usuarioAutenticado = usuariosGuardados.find(usuario => usuario.correo === email && usuario.password === password);
-
-    if (!usuarioAutenticado) {
+      if (respuesta.ok) {
+        const { usuario, token } = await respuesta.json();
+        localStorage.setItem("usuarioLogeado", JSON.stringify(usuario));
+        localStorage.setItem("tokenUsuario", token);
+        window.location.href = '../index.html';
+      } else {
+        Swal.fire({
+          title: '¡Error al iniciar sesión!',
+          text: 'Correo electrónico o contraseña incorrectos.',
+          icon: 'error'
+        });
+      }
+    } catch (error) {
+      console.error('Error en la solicitud:', error);
       Swal.fire({
-        title: '¡Error al iniciar sesión!',
-        text: 'Correo electrónico o contraseña incorrectos.',
-        icon: 'error',
-        customClass: {
-          popup: 'mi-alerta-personalizada',
-          confirmButton: 'ok-personalizado',
-        }
+        title: 'Error de conexión',
+        text: 'No se pudo conectar con el servidor. Intenta más tarde.',
+        icon: 'error'
       });
-      return;
     }
-    localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioAutenticado))
-    window.location.href = '../index.html';
   }
 });
 
-// manejo de visibilidad de password
+
+// Manejo de visibilidad de password
 const togglePassword = document.getElementById('togglePassword');
 const passwordInput = document.getElementById('password');
 
