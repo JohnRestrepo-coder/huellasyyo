@@ -123,6 +123,16 @@ overflow-y: auto; dejarlo por si en algunos celulare no cabe podemor probar esto
 
 }
 
+.border-verde {
+  border: 3px solid var(--site-color-verde);
+  border-radius: 50%;
+}
+
+.border-verde:hover {
+  border: 3px solid var(--site-color-lila);
+  border-radius: 50%;
+}
+
 /* {
   .logo-container {
     margin-left: 0 !important;
@@ -244,4 +254,3 @@ overflow-y: auto; dejarlo por si en algunos celulare no cabe podemor probar esto
     display: none !important;
   }
 }
-
