@@ -365,3 +365,29 @@ select:focus {
   }
 
 }
+
+#info-empty {
+  background-color: var(--site-color-lila);
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+#text-morado {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+#info-empty img {
+  width: 40px;
+  height: 40px;
+  margin-right: 30px;
+}
+
+#info-empty h3 {
+  font-weight: bold;
+}
