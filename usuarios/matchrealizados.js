@@ -88,7 +88,7 @@ async function procesarAdopcion(mascotaId, mascotaNombre) {
     const token = localStorage.getItem("tokenUsuario");
     const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
 
-    const response = await fetch('http://localhost:8080/procesoAdopcion/usuario/'+ usuarioLogeado.idUsuario +'/mascota/ '+mascotaId+'/estado/PENDIENTE', {
+    const response = await fetch('http://localhost:8080/procesoAdopcion/usuario/' + usuarioLogeado.idUsuario + '/mascota/ ' + mascotaId + '/estado/PENDIENTE', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`
@@ -101,13 +101,26 @@ async function procesarAdopcion(mascotaId, mascotaNombre) {
 
     Swal.fire({
       title: '¡Éxito!',
-      text: `Proceso de adopción iniciado para ${mascotaNombre}`,
+      text: `Proceso de adopción iniciado para ${mascotaNombre}, un administrador se contactara con ud para seguir con el proceso`,
       icon: 'success',
       customClass: {
         popup: 'mi-alerta-personalizada',
         confirmButton: 'ok-personalizado',
       }
     });
+
+    const datos = {
+      name: usuarioLogeado.nombreCompleto,
+      time: Date.now(),
+      message: 'Quiero adoptar a ' + mascotaNombre,
+      title: 'Solicitud de Adopción',
+      email: usuarioLogeado.correo
+    };
+
+    const serviceID = 'default_service';
+    const templateID = 'template_fonq9bj';
+
+    emailjs.send(serviceID, templateID, datos)
 
     await renderizarMatches();
 
