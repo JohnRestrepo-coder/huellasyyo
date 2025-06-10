@@ -71,6 +71,27 @@
   padding-left: 0%;
 }
 
+.mi-alerta-personalizada {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #f0f9ff;
+  border-radius: 20px;
+  padding: 20px;
+  color: #000;
+  font-size: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.ok-personalizado {
+  font-family: 'Quicksand', sans-serif;
+  background-color: var(--site-color-verde);
+  font-size: 15px;
+}
+
+.ok-personalizado:hover {
+  background-color: #4CAF4F;
+  opacity: 0.9;
+}
+
 @media (max-width: 991.98px) {
 
   /* Solo aplica en vista móvil (lg breakpoint) */
@@ -223,3 +244,4 @@ overflow-y: auto; dejarlo por si en algunos celulare no cabe podemor probar esto
     display: none !important;
   }
 }
+

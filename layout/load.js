@@ -15,6 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
       link.type = 'text/css';
       link.href = '../styles/layout/nav_style.css';
       document.head.appendChild(link);
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/sweetalert2@11'; // o usa script.textContent para código inline
+
+
+      document.body.appendChild(script);
 
       configurarEventosCerrarSesion();
       const usuarioGuardado = JSON.parse(localStorage.getItem('usuarioLogeado'));
