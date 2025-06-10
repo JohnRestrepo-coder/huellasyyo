@@ -144,7 +144,7 @@ formulario.addEventListener('submit', async function (e) {
       body: JSON.stringify(usuarioEditado)
     })
     if (response.ok) {
-      localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioEditado));
+      localStorage.setItem('usuarioLogeado', JSON.stringify({ ...usuarioEditado, idUsuario: usuarioLogeado.idUsuario }));
       Swal.fire({
         title: '¡Actualización exitosa!',
         text: 'Tu perfil ha sido actualizado.',
