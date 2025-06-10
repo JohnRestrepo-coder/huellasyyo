@@ -18,7 +18,20 @@ export default class Validator {
     passwordEmpy: (value) => {
       return value.trim() === '' || /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/.test(value);
     },
-    validarURL: (value) => /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/.test(value.trim())
+    validarURL: (value) => /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/.test(value.trim()),
+    age18Plus: (value) => {
+      const inputDate = new Date(value);
+      const today = new Date();
+      if (inputDate > today) return false;
+
+      const minDate = new Date(
+        today.getFullYear() - 18,
+        today.getMonth(),
+        today.getDate()
+      );
+
+      return inputDate <= minDate;
+    }
   };
 
   addField(id, rulesWithMessages) {

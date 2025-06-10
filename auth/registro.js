@@ -72,7 +72,7 @@ formulario.addEventListener('submit', async function (e) {
 
     const nuevoUsuario = { nombreCompleto: nombre.value.trim(), telefono: telefono.value.trim(), correo: correo.value.trim(), contrasena: password.value, tipoUsuario: "cliente", urlImagenUsuario: "https://firebasestorage.googleapis.com/v0/b/dwb-archivos.appspot.com/o/Sin%20perfil.webp?alt=media&token=410bb694-4db7-4bc6-a218-f8fae38b7faf", estado: true };
     try {
-      const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/usuarios/crearUsuario", {
+      const response = await fetch("http://localhost:8080/usuarios/crearUsuario", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

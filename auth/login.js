@@ -30,7 +30,7 @@ formulario.addEventListener('submit', async function (e) {
     const contrasena = document.getElementById('password').value.trim();
 
     try {
-      const respuesta = await fetch('https://njejgfaqpr.us-east-1.awsapprunner.com/usuarios/login', {
+      const respuesta = await fetch('http://localhost:8080/usuarios/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
