@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka&family=Quicksand&display=swap');
+
 :root {
   --site-color-fondo-1: #F5F7FA;
   --site-color-fondo-2: #FFF;
@@ -6,7 +7,7 @@
   --site-color-lila: #CFAFD8;
   --site-color-blanco-texto: #FFFFFF;
   --site-color-negro-texto: #000000;
-  
+
   --site-font-title: 'Fredoka', sans-serif;
   --site-font-body: 'Quicksand', sans-serif;
 }
@@ -17,86 +18,96 @@ h3 {
 }
 
 .img-card-uniforme {
-    width: 100%;
-    height: 100px;
-    object-fit: cover;
-    object-position: center;
-  }
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  object-position: center;
+}
 
-  .texto-mini {
-    font-size: 0.85rem;
-    line-height: 1.2;
-    color: var(--site-color-blanco-texto);         /* Blanco suave */
+.texto-mini {
+  font-size: 0.85rem;
+  line-height: 1.2;
+  color: var(--site-color-blanco-texto);
+  /* Blanco suave */
 
-  }
+}
 
-  .bg-primary{
-    background-color: #442B48 !important;    
-  }
-  
-  .card {
-    background-color: #442B48;
-      margin: 0 !important;
+.bg-primary {
+  background-color: #442B48 !important;
+}
+
+.card {
+  background-color: #442B48;
+  margin: 0 !important;
   padding: 0 !important;
-    margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
 
-  }
-  .btn-morado{
-   background-color: #442B48 !important;
-   color: #FFF;
-  }
+}
 
-  .btn-morado:hover{
-    background-color: #3b1c41 !important;
-    color: #FFF;
-  }
+.btn-morado {
+  background-color: #442B48 !important;
+  color: #FFF;
+}
 
-  /*Cambios del botón de Ver de Mis matches*/
-  .btn-cardperfil {
-    background-color: #225D24 !important;
-    color: #FFF;
-    border-color: #225D24;
-  }
+.btn-morado:hover {
+  background-color: #3b1c41 !important;
+  color: #FFF;
+}
 
-  .btn-cardperfil:hover {
-    background-color: #103811 !important;
-    color: #FFF;
-    border-color:#103811;
-  }
+/*Cambios del botón de Ver de Mis matches*/
+.btn-cardperfil {
+  background-color: #225D24 !important;
+  color: #FFF;
+  border-color: #225D24;
+}
 
-  /*Cambios del botón de Ver de Mis matches*/
- 
+.btn-cardperfil:hover {
+  background-color: #103811 !important;
+  color: #FFF;
+  border-color: #103811;
+}
 
-  .titulo-card {
-    color: #ffffff;         /* O el color que quieras */
-    font-weight: 700;       /* Bold */
-    font-size: 1.3rem;      /* Puedes ajustar según necesidad */
-    padding-bottom: 1px;
-    margin-bottom: 0.25rem;  /* ↓ de 0.75rem por defecto a 0.25rem */
+/*Cambios del botón de Ver de Mis matches*/
 
-  }
 
-  .descripcion-card {
-    color: #f8f9fa;         /* Blanco suave */
-    font-weight: 500;       /* Semibold */
-    font-size: 0.95rem;
-  }
+.titulo-card {
+  color: #ffffff;
+  /* O el color que quieras */
+  font-weight: 700;
+  /* Bold */
+  font-size: 1.3rem;
+  /* Puedes ajustar según necesidad */
+  padding-bottom: 1px;
+  margin-bottom: 0.25rem;
+  /* ↓ de 0.75rem por defecto a 0.25rem */
 
-  .card-body {
-    padding: 0.rem 0.5rem; /* padding vertical y horizontal personalizados */
+}
 
-  }
+.descripcion-card {
+  color: #f8f9fa;
+  /* Blanco suave */
+  font-weight: 500;
+  /* Semibold */
+  font-size: 0.95rem;
+}
 
-  .row-cards{
-    padding: 0.1rem 1rem; /* padding vertical y horizontal personalizados */
-      margin-bottom: 0.5rem;
- margin-top: 0rem !important;
-  }
+.card-body {
+  padding: 0.rem 0.5rem;
+  /* padding vertical y horizontal personalizados */
 
-  #match-list,
+}
+
+.row-cards {
+  padding: 0.1rem 1rem;
+  /* padding vertical y horizontal personalizados */
+  margin-bottom: 0.5rem;
+  margin-top: 0rem !important;
+}
+
+#match-list,
 #match-list .col {
   padding: 0.25rem !important;
-    margin-top: 0rem !important;
+  margin-top: 0rem !important;
 
   margin-bottom: 0rem;
 }
@@ -106,41 +117,49 @@ h3 {
 }
 
 /* Espacio más compacto entre tarjetas y botones */
-#match-list + .btn-group {
+#match-list+.btn-group {
   margin-top: 0rem !important;
-    margin-bottom: 0rem !important;
+  margin-bottom: 0rem !important;
 
 }
 
-  .btn-cardperfil {
-    padding: 0.1rem 0.1rem; /* padding vertical y horizontal personalizados */
+.btn-cardperfil {
+  padding: 0.1rem 0.1rem;
+  /* padding vertical y horizontal personalizados */
 
-  }
+}
 
 
 
-  /* 1. Reducir margen inferior del título */
+/* 1. Reducir margen inferior del título */
 
-  
-  /* 2. Reducir margen inferior del párrafo */
-  .card-body .card-text {
-    margin-bottom: 0.25rem;  /* ↓ de 1rem por defecto a 0.25rem */
-  }
-  
-  /* 3. Centrar el botón y ajustar su margen superior */
-  .btn-cardperfil {
-    display: block;           /* para que margen auto funcione */
-    margin: 0.25rem auto 0;   /* 0.25rem arriba, auto horizontal, 0 abajo */
-    padding: 0.25rem 0.5rem;  /* opcional: ajusta grosor interno */
-  }
-  
 
-  /* 1. Tamaño: agranda ancho y alto */
+/* 2. Reducir margen inferior del párrafo */
+.card-body .card-text {
+  margin-bottom: 0.25rem;
+  /* ↓ de 1rem por defecto a 0.25rem */
+}
+
+/* 3. Centrar el botón y ajustar su margen superior */
+.btn-cardperfil {
+  display: block;
+  /* para que margen auto funcione */
+  margin: 0.25rem auto 0;
+  /* 0.25rem arriba, auto horizontal, 0 abajo */
+  padding: 0.25rem 0.5rem;
+  /* opcional: ajusta grosor interno */
+}
+
+
+/* 1. Tamaño: agranda ancho y alto */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  width: 5rem;         /* antes ~1.5rem */
-  height: 5rem;        /* antes ~1.5rem */
-  background-size: 100% 100%; /* que ocupe todo el contenedor */
+  width: 5rem;
+  /* antes ~1.5rem */
+  height: 5rem;
+  /* antes ~1.5rem */
+  background-size: 100% 100%;
+  /* que ocupe todo el contenedor */
 }
 
 /* 2. Color: las invertimos para que sean blancas */
@@ -150,4 +169,30 @@ h3 {
 }
 
 .card-body.card-formulario {
-background-color: var(--site-color-fondo-1);  }
+  background-color: var(--site-color-fondo-1);
+}
+
+#info-empty {
+  background-color: var(--site-color-lila);
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+#text-morado {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#info-empty img {
+  width: 40px;
+  height: 40px;
+  margin-right: 30px;
+}
+
+#info-empty h3 {
+  font-weight: bold;
+}
