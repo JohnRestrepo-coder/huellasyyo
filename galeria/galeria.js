@@ -9,7 +9,7 @@ const elementosPorPagina = 6;
 
 async function cargarMascotas() {
   try {
-    const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/mascota/TraerMascota")
+    const response = await fetch("http://localhost:8080/mascota/TraerMascota")
     mascotasActualizadas = await response.json() || [];
 
   } catch (error) {

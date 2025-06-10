@@ -4,7 +4,7 @@ const contenido = document.getElementById("contenido")
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/mascota/TraerMascota")
+    const response = await fetch("http://localhost:8080/mascota/TraerMascota")
     let mascotas = await response.json() || [];
     renderMascotas(mascotas);
     generarBotonEliminarTodo(mascotas);

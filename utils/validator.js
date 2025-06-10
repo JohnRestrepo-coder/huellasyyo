@@ -7,6 +7,7 @@ export default class Validator {
     required: (value) => value.trim() !== '',
     email: (value) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value),
     minLength: (min) => (value) => value.trim().length >= min,
+    maxLength: (max) => (value) => value.trim().length <= max,
     phone: (value) => /^\d{10}$/.test(value),
     onlyLetters: (value) => /^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+(?:\s[a-zA-ZáéíóúÁÉÍÓÚñÑ]+)*$/.test(value.trim()),
     number: (value) => !isNaN(value),

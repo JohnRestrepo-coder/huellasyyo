@@ -5,7 +5,7 @@ const cargaInicial = async () => {
   try {
     if (nombreMascota) {
 
-      const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/mascota/buscarMascota/" + nombreMascota)
+      const response = await fetch("http://localhost:8080/mascota/buscarMascota/" + nombreMascota)
 
       const mascota = await response.json();
       const datosAdicionales = JSON.parse(mascota.otrasCaracteristicas)
@@ -89,7 +89,7 @@ const cargaInicial = async () => {
 
 const mascotasSimilares = async () => {
   try {
-    const response = await fetch("https://njejgfaqpr.us-east-1.awsapprunner.com/mascota/TraerMascota")
+    const response = await fetch("http://localhost:8080/mascota/TraerMascota")
     const mascotas = await response.json() || [];
     if (mascotas.length === 0) return
 
